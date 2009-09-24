@@ -6,11 +6,11 @@
 >
   <preset number='1' name='default'>
     <item name='active' type='boolean' priority='0'>0</item>
-    <item name='led/1' type='boolean' priority='0'>0</item>
-    <item name='led/2' type='boolean' priority='0'>0</item>
-    <item name='led/3' type='boolean' priority='0'>0</item>
-    <item name='led/4' type='boolean' priority='0'>0</item>
-    <item name='sampleRate' type='integer' priority='0'>0</item>
+    <item name='led.1' type='boolean' priority='0'>0</item>
+    <item name='led.2' type='boolean' priority='0'>0</item>
+    <item name='led.3' type='boolean' priority='0'>0</item>
+    <item name='led.4' type='boolean' priority='0'>0</item>
+    <item name='sampleRate' type='integer' priority='0'>20</item>
     <item name='view/freeze' type='boolean' priority='0'>0</item>
     <item name='vibration' type='boolean' priority='0'>0</item>
     <item name='view/color/border' type='array' priority='0'>0</item>

@@ -19,6 +19,34 @@
 		"enablevscroll" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-11",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"patching_rect" : [ 371.0, 212.0, 24.0, 20.0 ],
+					"text" : "t 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "" ],
+					"patching_rect" : [ 372.0, 186.0, 36.0, 20.0 ],
+					"text" : "sel 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Verdana",
 					"fontsize" : 10.0,
 					"id" : "obj-38",
@@ -221,16 +249,20 @@
 			}
 , 			{
 				"box" : 				{
-					"bgcolor" : [ 0.352941, 0.352941, 0.352941, 0.0 ],
+					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"disabled" : [ 0 ],
+					"hint" : "is ticked if wii is properly connected",
 					"id" : "obj-7",
-					"ignoreclick" : 1,
-					"maxclass" : "led",
+					"itemtype" : 1,
+					"maxclass" : "radiogroup",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"patching_rect" : [ 217.0, 222.0, 17.0, 17.0 ],
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 217.0, 222.0, 18.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 282.0, 1.0, 17.0, 17.0 ]
+					"presentation_rect" : [ 76.0, 24.0, 18.0, 18.0 ],
+					"size" : 1,
+					"values" : [ 0 ]
 				}
 
 			}
@@ -258,7 +290,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 81.0, 216.0, 91.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 197.0, 2.0, 84.0, 16.0 ],
+					"presentation_rect" : [ 197.0, 2.0, 96.0, 16.0 ],
 					"text" : "battery level",
 					"textpos" : [ 10.0, 2.0 ]
 				}
@@ -354,20 +386,16 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 487.0, 162.0, 587.0, 31.0 ],
-					"text" : "jcom.parameter sampleRate @type integer @ramp/drive scheduler @repetitions/allow 0 @range/bounds -1. 100. @range/clipmode low @description \"Sample rate in [Hz]\"",
+					"patching_rect" : [ 487.0, 162.0, 582.0, 31.0 ],
+					"text" : "jcom.parameter sampleRate @type integer @ramp/drive scheduler @repetitions/allow 0 @range/bounds 0. 100. @range/clipmode low @description \"Sample rate in [Hz]\"",
 					"varname" : "sample_rate[1]"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"bordercolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"fontname" : "Verdana",
 					"fontsize" : 10.0,
-					"hbgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"htextcolor" : [ 0.368627, 0.368627, 0.368627, 1.0 ],
 					"id" : "obj-4",
 					"maxclass" : "number",
 					"minimum" : -1,
@@ -376,7 +404,7 @@
 					"outlettype" : [ "int", "bang" ],
 					"patching_rect" : [ 440.0, 162.0, 39.0, 19.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 150.0, 33.0, 39.0, 19.0 ],
+					"presentation_rect" : [ 162.0, 33.0, 39.0, 19.0 ],
 					"triangle" : 0,
 					"triscale" : 0.9,
 					"varname" : "sample_rate"
@@ -473,9 +501,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 363.0, 162.0, 72.0, 19.0 ],
+					"patching_rect" : [ 412.0, 193.0, 72.0, 19.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 85.0, 33.0, 71.0, 19.0 ],
+					"presentation_rect" : [ 94.0, 33.0, 71.0, 19.0 ],
 					"text" : "sample rate"
 				}
 
@@ -509,6 +537,15 @@
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-11", 0 ]
 				}
 
 			}
@@ -563,6 +600,15 @@
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-26", 0 ]
 				}
 
 			}
@@ -698,6 +744,15 @@
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-6", 0 ]
 				}
 
 			}
