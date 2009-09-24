@@ -514,12 +514,12 @@
 ,
 					"patching_rect" : [ 101.0, 469.0, 56.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -562,8 +562,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 518.0, 721.0, 20.0 ],
-									"text" : "jcom.return remote/button/plus @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons '+'\""
+									"patching_rect" : [ 50.0, 518.0, 819.0, 20.0 ],
+									"text" : "jcom.return remote/button/plus @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons '+'\" @type boolean"
 								}
 
 							}
@@ -576,8 +576,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 491.0, 736.0, 20.0 ],
-									"text" : "jcom.return remote/button/up @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'up'\""
+									"patching_rect" : [ 50.0, 492.0, 811.0, 20.0 ],
+									"text" : "jcom.return remote/button/up @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'up'\" @type boolean"
 								}
 
 							}
@@ -590,8 +590,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 463.0, 790.0, 20.0 ],
-									"text" : "jcom.return remote/button/down @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'down' \""
+									"patching_rect" : [ 50.0, 463.0, 785.0, 20.0 ],
+									"text" : "jcom.return remote/button/down @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'down' \" @type boolean"
 								}
 
 							}
@@ -604,8 +604,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 439.0, 815.0, 20.0 ],
-									"text" : "jcom.return remote/button/right @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'right'\""
+									"patching_rect" : [ 50.0, 439.0, 821.0, 20.0 ],
+									"text" : "jcom.return remote/button/right @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'right'\" @type boolean"
 								}
 
 							}
@@ -618,8 +618,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 412.0, 770.0, 20.0 ],
-									"text" : "jcom.return remote/button/left @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'left'\""
+									"patching_rect" : [ 50.0, 412.0, 813.0, 20.0 ],
+									"text" : "jcom.return remote/button/left @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote buttons 'left'\" @type boolean"
 								}
 
 							}
@@ -633,7 +633,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 50.0, 385.0, 787.0, 20.0 ],
-									"text" : "jcom.return remote/button/home @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'home'\""
+									"text" : "jcom.return remote/button/home @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'home'\" @type boolean"
 								}
 
 							}
@@ -646,8 +646,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 357.0, 766.0, 20.0 ],
-									"text" : "jcom.return remote/button/minus @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '-'\""
+									"patching_rect" : [ 50.0, 357.0, 789.0, 20.0 ],
+									"text" : "jcom.return remote/button/minus @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '-'\" @type boolean"
 								}
 
 							}
@@ -660,8 +660,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 327.0, 689.0, 20.0 ],
-									"text" : "jcom.return remote/button/a @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'a'\""
+									"patching_rect" : [ 50.0, 327.0, 804.0, 20.0 ],
+									"text" : "jcom.return remote/button/a @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'a'\" @type boolean"
 								}
 
 							}
@@ -674,8 +674,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 300.0, 689.0, 20.0 ],
-									"text" : "jcom.return remote/button/b @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'b'\""
+									"patching_rect" : [ 50.0, 300.0, 804.0, 20.0 ],
+									"text" : "jcom.return remote/button/b @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button 'b'\" @type boolean"
 								}
 
 							}
@@ -688,8 +688,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 273.0, 689.0, 20.0 ],
-									"text" : "jcom.return remote/button/1 @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '1'\""
+									"patching_rect" : [ 50.0, 273.0, 804.0, 20.0 ],
+									"text" : "jcom.return remote/button/1 @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '1'\" @type boolean"
 								}
 
 							}
@@ -702,8 +702,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 50.0, 245.0, 689.0, 20.0 ],
-									"text" : "jcom.return remote/button/2 @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '2'\""
+									"patching_rect" : [ 50.0, 246.0, 804.0, 20.0 ],
+									"text" : "jcom.return remote/button/2 @range/bounds 0 1 @range/clipmode both @description \"Data from Wii remote button '2'\" @type boolean"
 								}
 
 							}
@@ -1123,12 +1123,12 @@
 ,
 					"patching_rect" : [ 161.0, 470.0, 59.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -1863,12 +1863,12 @@
 ,
 									"patching_rect" : [ 133.0, 186.0, 43.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 9.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 9.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 9.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -2092,12 +2092,12 @@
 ,
 					"patching_rect" : [ 539.0, 418.0, 46.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 9.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 9.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 9.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -3027,12 +3027,12 @@
 ,
 					"patching_rect" : [ 655.0, 177.0, 58.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -3535,12 +3535,12 @@
 ,
 									"patching_rect" : [ 26.0, 129.0, 57.0, 20.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -3558,9 +3558,9 @@
 									"numoutlets" : 0,
 									"patcher" : 									{
 										"fileversion" : 1,
-										"rect" : [ 25.0, 69.0, 631.0, 575.0 ],
+										"rect" : [ 25.0, 69.0, 986.0, 555.0 ],
 										"bglocked" : 0,
-										"defrect" : [ 25.0, 69.0, 631.0, 575.0 ],
+										"defrect" : [ 25.0, 69.0, 986.0, 555.0 ],
 										"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -3583,8 +3583,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 463.0, 415.0, 20.0 ],
-													"text" : "jcom.return remote/button/plus @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 463.0, 786.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/plus @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3597,8 +3597,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 436.0, 406.0, 20.0 ],
-													"text" : "jcom.return remote/button/up @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 436.0, 778.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/up @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3611,8 +3611,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 408.0, 421.0, 20.0 ],
-													"text" : "jcom.return remote/button/down @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 408.0, 793.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/down @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3625,8 +3625,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 384.0, 416.0, 20.0 ],
-													"text" : "jcom.return remote/button/right @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 384.0, 788.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/right @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3639,8 +3639,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 357.0, 409.0, 20.0 ],
-													"text" : "jcom.return remote/button/left @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 357.0, 780.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/left @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3653,8 +3653,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 330.0, 423.0, 20.0 ],
-													"text" : "jcom.return remote/button/home @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 330.0, 794.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/home @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3667,8 +3667,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 302.0, 425.0, 20.0 ],
-													"text" : "jcom.return remote/button/minus @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 302.0, 796.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/minus @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3681,8 +3681,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 272.0, 399.0, 20.0 ],
-													"text" : "jcom.return remote/button/a @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 272.0, 771.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/a @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3695,8 +3695,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 245.0, 399.0, 20.0 ],
-													"text" : "jcom.return remote/button/b @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 245.0, 771.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/b @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3709,8 +3709,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 218.0, 399.0, 20.0 ],
-													"text" : "jcom.return remote/button/1 @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 218.0, 771.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/1 @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -3723,8 +3723,8 @@
 													"numinlets" : 1,
 													"numoutlets" : 2,
 													"outlettype" : [ "", "" ],
-													"patching_rect" : [ 50.0, 190.0, 399.0, 20.0 ],
-													"text" : "jcom.return remote/button/2 @description \"Data from Wii remote buttons\""
+													"patching_rect" : [ 50.0, 190.0, 771.0, 20.0 ],
+													"text" : "jcom.return nunchuk/button/2 @description \"Data from Wii nunchuk buttons\" @range/bounds 0 1 @type boolean @range/clipmode both"
 												}
 
 											}
@@ -4144,12 +4144,12 @@
 ,
 									"patching_rect" : [ 111.0, 129.0, 60.0, 20.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -4753,12 +4753,12 @@
 ,
 									"patching_rect" : [ 662.0, 164.0, 19.0, 48.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -5469,12 +5469,12 @@
 ,
 									"patching_rect" : [ 257.0, 164.0, 45.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -5903,12 +5903,12 @@
 ,
 									"patching_rect" : [ 392.0, 164.0, 36.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -6247,12 +6247,12 @@
 ,
 									"patching_rect" : [ 527.0, 164.0, 48.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -6402,12 +6402,12 @@
 ,
 					"patching_rect" : [ 264.0, 418.0, 66.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -8014,12 +8014,12 @@
 ,
 									"patching_rect" : [ 313.0, 102.0, 66.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -8464,12 +8464,12 @@
 ,
 									"patching_rect" : [ 178.0, 102.0, 40.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -8898,12 +8898,12 @@
 ,
 									"patching_rect" : [ 43.0, 102.0, 40.0, 17.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -9051,12 +9051,12 @@
 ,
 					"patching_rect" : [ 380.0, 418.0, 125.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -9321,12 +9321,12 @@
 ,
 					"patching_rect" : [ 655.0, 145.613831, 116.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -9808,12 +9808,12 @@
 ,
 					"patching_rect" : [ 655.0, 118.0, 108.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
@@ -10514,12 +10514,12 @@
 ,
 									"patching_rect" : [ 110.0, 133.0, 97.0, 20.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -10879,12 +10879,12 @@
 ,
 									"patching_rect" : [ 110.0, 80.0, 147.0, 20.0 ],
 									"saved_object_attributes" : 									{
+										"default_fontsize" : 12.0,
 										"globalpatchername" : "",
 										"fontface" : 0,
 										"fontsize" : 12.0,
 										"default_fontface" : 0,
 										"default_fontname" : "Arial",
-										"default_fontsize" : 12.0,
 										"fontname" : "Arial"
 									}
 ,
@@ -11111,12 +11111,12 @@
 ,
 					"patching_rect" : [ 59.0, 494.0, 61.0, 19.0 ],
 					"saved_object_attributes" : 					{
+						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
 						"default_fontface" : 0,
 						"default_fontname" : "Arial",
-						"default_fontsize" : 12.0,
 						"fontname" : "Arial"
 					}
 ,
