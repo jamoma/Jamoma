@@ -222,9 +222,9 @@ if win32?
   `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							root/ReadMe.rtf`
 
   puts " Removing files that are not needed (.zips, mac, externs, etc)..."
-  `rm -rf  "#{@c74}/Jamoma/library/third-party/Mac"`
-  `rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP"/*.zip`
-  `rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP/support"`
+  #`rm -rf  "#{@c74}/Jamoma/library/third-party/Mac"`
+  #`rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP"/*.zip`
+  #`rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP/support"`
   `rm -rf  "#{@c74}/Jamoma/support"`
 
  puts " Setting Version Number in Wix Source"
@@ -278,9 +278,6 @@ else
   cmd("mkdir -pv \"#{@max}/patches/templates\"")
   cmd("mkdir -pv \"#{@max}/patches/extras\"")
   cmd("mkdir -pv \"#{@c74}\"")
-#  cmd("mkdir -pv \"#{@c74}/java\"")
-#  cmd("mkdir -pv \"#{@c74}/java/classes\"")
-#  cmd("mkdir -pv \"#{@c74}/java/classes/cueManager\"")
   cmd("mkdir -pv \"#{@c74}/extensions\"")
   cmd("mkdir -pv \"#{@c74}/default-definitions\"")
   cmd("mkdir -pv \"#{@c74}/default-settings\"")
@@ -307,17 +304,7 @@ else
   
   puts "  Removing files that are not needed (.zips, windows externs, etc)..."  
   cmd("rm -rfv \"#{@c74}/Jamoma/externals/\"readme.txt")
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/externals/\"*.zip")
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/externals/\"*.log")  
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/externals/JamomaFramework.dll\"")
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/externals/JamomaDSP.dll\"") 
-#  cmd("rm -rfv \"#{@c74}/Jamoma/library/externals/TTBlueExtensions\"")
-#  cmd("rm -rfv \"#{@c74}/Jamoma/library/externals/windows\"")
-#  cmd("rm -rfv \"#{@c74}/Jamoma/library/externals/ramplib_windows\"")
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/third-party/Mac/\"*.zip")
-#  cmd("rm -fv \"#{@c74}/Jamoma/library/third-party/Mac\"*.dmg")
   cmd("rm -rfv \"#{@c74}/Jamoma/library/third-party/WinXP\"") 
-  
 
   puts "  Moving things around (loader, templates, etc)..."
   cmd("cp \"#{@c74}/Jamoma/documentation/jamoma-templates/\"*       \"#{@max}/patches/templates\"")
@@ -327,13 +314,6 @@ else
   cmd("mv \"#{@c74}/Jamoma/support\"/*.maxdefines                   \"#{@c74}/default-definitions\"")   
   cmd("rm -rfv \"#{@c74}/Jamoma/support\"")  
   
-  # cmd("mv \"#{@c74}/Jamoma/support/jcom.ui.maxdefines\" \"#{@c74}/default-definitions/jcom.ui.maxdefines\"")
-  # now we have several maxdefines
-#  cmd("cp \"#{@c74}/Jamoma/modules/control/cueManager/java-classes/Cue.class\" \"#{@c74}/java/classes/cueManager\"") 
-#  cmd("cp \"#{@c74}/Jamoma/modules/control/cueManager/java-classes/CueList.class\" \"#{@c74}/java/classes/cueManager\"") 
-#  cmd("cp \"#{@c74}/Jamoma/modules/control/cueManager/java-classes/Data.class\" \"#{@c74}/java/classes/cueManager\"") 
-#  cmd("cp \"#{@c74}/Jamoma/modules/control/cueManager/java-classes/CueManager.class\" \"#{@c74}/java/classes/cueManager\"") 
-
   puts "  Copying readme, license, etc...."
   cmd("cp \"#{@git_root}/Tools/installertools/ReadMe.rtf\"   \"#{@installers}/resources\"")
   cmd("cp \"#{@git_root}/Tools/installertools/ReadMe.rtf\"   \"#{@installers}/Jamoma\"")
@@ -343,6 +323,7 @@ else
 
   puts "  Building Package -- this could take a while..."
   cmd("rm -rfv \"#{@installers}/MacInstaller/Jamoma.pkg\"")
+  # TODO: need to find a way to specify the 'allow-downgrade' flag here [TAP]
   cmd("/Developer/usr/bin/packagemaker --verbose --root \"#{@temp}\" --id org.jamoma.modular --out \"#{@installers}/Jamoma/Jamoma-#{@version}.pkg\" --version #{@version} --title Jamoma-#{@version} --resources \"#{@installers}/resources\" --target 10.4 --domain system --root-volume-only")
 
   # Warning: the zip thing seems to be a real problem on the Mac using OS 10.5 at least...  Renaming the zip ends up causing the install to fail
