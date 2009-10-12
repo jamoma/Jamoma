@@ -197,6 +197,7 @@ if win32?
   `cp "#{@git_root}/Builds/JamomaDSP.dll"  									root/support`
   `cp "#{@git_root}/Builds/JamomaModular.dll"  								root/support`
   `cp "#{@git_root}/Modules/DSP/library/portaudio/Release/PortAudio.dll"	root/support`
+  `cp "#{@git_root}/Modules/Modular/SourceCode/ThirdParty/*.dll"	root/support`
 
   puts " Copying externals "
   `mkdir "#{@c74}/Jamoma/library/externals"`
@@ -218,15 +219,12 @@ if win32?
   `cp "#{@c74}/Jamoma/documentation/jamoma-templates/layout.xml"                   	root/patches/templates/layout.xml`
 
   puts " Copying readme, license, etc...."
-  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							root/License.rtf`
-  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							root/ReadMe.rtf`
+  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							#{@c74}/Jamoma/License.rtf`
+  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							#{@c74}/Jamoma/ReadMe.rtf`
   `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							../wix/License.rtf`
   `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							../wix/ReadMe.rtf`
 
   puts " Removing files that are not needed (.zips, mac, externs, etc)..."
-  #`rm -rf  "#{@c74}/Jamoma/library/third-party/Mac"`
-  #`rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP"/*.zip`
-  #`rm -rf  "#{@c74}/Jamoma/library/third-party/WinXP/support"`
   `rm -rf  "#{@c74}/Jamoma/support"`
 
  puts " Setting Version Number in Wix Source"
