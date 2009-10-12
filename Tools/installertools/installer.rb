@@ -12,7 +12,7 @@ Dir.chdir libdir        # change to libdir so that requires work
 require "../library/jamomalib"   # C74 build library
 
 
-@git_root = "../.."	# this is the root of the Jamoma project repository
+@git_root = "../.." # this is the root of the Jamoma project repository
 if win32?
   Dir.chdir @git_root
   @git_root = Dir.pwd
@@ -59,11 +59,11 @@ puts ""
 puts "  Building Jamoma #{git_tag} (rev. #{git_rev})"
 puts ""
 if git_dirty_commits != '0'
-	puts "  !!! WARNING !!!"
-	puts "	THIS BUILD IS COMING FROM A DIRTY REVISION   "
-	puts "	THIS BUILD IS FOR PERSONAL USE ONLY  "
-	puts "	DO NOT DISTRIBUTE THIS BUILD TO OTHERS       "
-	puts ""
+  puts "  !!! WARNING !!!"
+  puts "  THIS BUILD IS COMING FROM A DIRTY REVISION   "
+  puts "  THIS BUILD IS FOR PERSONAL USE ONLY  "
+  puts "  DO NOT DISTRIBUTE THIS BUILD TO OTHERS       "
+  puts ""
 end
 puts ""
 
@@ -71,6 +71,12 @@ if version_mod == '' || version_mod.match(/rc(.*)/)
   @version = "#{version_maj}.#{version_min}#{'.' + version_sub if version_sub.to_i > 0}"
 else
   @version = "#{version_maj}.#{version_min}#{'.' + version_sub if version_sub.to_i > 0}-#{version_mod}"
+end
+
+if version_mod != ''
+  longVersion = "#{version_maj}.#{version_min}.#{version_sub}-#{version_mod}"
+else
+  longVersion = "#{version_maj}.#{version_min}.#{version_sub}"
 end
 
 
@@ -87,7 +93,7 @@ def create_logs
   @error_log.flush
   trap("SIGINT") { die }
 end
-  
+
 def die
   close_logs
   exit 0
@@ -115,7 +121,7 @@ end
 def cmd(commandString)
   out = ""
   err = ""
-  
+
   Open3.popen3(commandString) do |stdin, stdout, stderr|
     out = stdout.read
     err = stderr.read
@@ -128,7 +134,7 @@ end
 ###################################################################
 # here is where we actually build the installer
 ###################################################################
-  puts " "  
+  puts " "
   puts "  Version string is set to Version #{@version}"
   puts " "
 
@@ -148,7 +154,7 @@ end
     end
 
     date = Date.today
-    str.sub!(/\\u8232 (.*)\\/, "\\u8232 #{date.strftime("%d %B %Y")}\\")  
+    str.sub!(/\\u8232 (.*)\\/, "\\u8232 #{date.strftime("%d %B %Y")}\\")
 
     f.rewind
     f.write(str)
@@ -160,7 +166,7 @@ end
 
 
 if win32?
-  
+
   Dir.chdir("#{@git_root}/Tools/installertools/Windows")
 
   puts " Removing old temporary folder"
@@ -187,42 +193,42 @@ if win32?
   `mkdir "root/Common Files/Jamoma/Extensions"`
 
   puts " Copying the Jamoma folder --  this could take a while..."
-  `cp -r "#{@git_root}/Modules/Modular/Jamoma" 								"root/Cycling '74"`
+  `cp -r "#{@git_root}/Modules/Modular/Jamoma"                "root/Cycling '74"`
 
   puts " Copying Jamoma Extensions"
-  `cp "#{@git_root}/Builds"/*.ttdll  										"root/Common Files/Jamoma/Extensions"`
+  `cp "#{@git_root}/Builds"/*.ttdll                     "root/Common Files/Jamoma/Extensions"`
 
   puts " Copying frameworks into the support folder"
-  `cp "#{@git_root}/Builds/JamomaFoundation.dll"  							root/support`
-  `cp "#{@git_root}/Builds/JamomaDSP.dll"  									root/support`
-  `cp "#{@git_root}/Builds/JamomaModular.dll"  								root/support`
-  `cp "#{@git_root}/Modules/DSP/library/portaudio/Release/PortAudio.dll"	root/support`
-  `cp "#{@git_root}/Modules/Modular/SourceCode/ThirdParty/"*.dll	root/support`
+  `cp "#{@git_root}/Builds/JamomaFoundation.dll"                root/support`
+  `cp "#{@git_root}/Builds/JamomaDSP.dll"                   root/support`
+  `cp "#{@git_root}/Builds/JamomaModular.dll"                 root/support`
+  `cp "#{@git_root}/Modules/DSP/library/portaudio/Release/PortAudio.dll"  root/support`
+  `cp "#{@git_root}/Modules/Modular/SourceCode/ThirdParty/"*.dll  root/support`
 
   puts " Copying externals "
   `mkdir "#{@c74}/Jamoma/library/externals"`
-  `cp "#{@git_root}/Builds"/*.mxe 							"#{@c74}/Jamoma/library/externals/"`
-	
+  `cp "#{@git_root}/Builds"/*.mxe               "#{@c74}/Jamoma/library/externals/"`
+
   puts " Moving things around : loader, templates, etc..."
-  `mv "#{@c74}/Jamoma/library/third-party/WinXP/support"/*.dll				root/support`
-  `mv "#{@c74}/Jamoma/library/externals/jcom.loader.mxe" 					"#{@c74}/extensions/jcom.loader.mxe"`
-  `cp "#{@c74}/Jamoma/support"/*.maxdefaults   								"#{@c74}/default-settings"`
-  `cp "#{@c74}/Jamoma/support"/*.maxdefines    								"#{@c74}/default-definitions"`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-overview.maxpat" 				root/patches/extras/jamoma-overview.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/_Jamoma_Patcher_.maxpat"      	root/patches/templates/_Jamoma_Patcher_.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jalg.template.audio~.maxpat"  	root/patches/templates/jalg.template.audio~.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jalg.template.video%.maxpat"  	root/patches/templates/jalg.template.video%.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.audio~.maxpat"  	root/patches/templates/jmod.template.audio~.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.control.maxpat" 	root/patches/templates/jmod.template.control.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.maxhelp"        	root/patches/templates/jmod.template.maxhelp`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.video%.maxpat"  	root/patches/templates/jmod.template.video%.maxpat`
-  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/layout.xml"                   	root/patches/templates/layout.xml`
+  `mv "#{@c74}/Jamoma/library/third-party/WinXP/support"/*.dll        root/support`
+  `mv "#{@c74}/Jamoma/library/externals/jcom.loader.mxe"          "#{@c74}/extensions/jcom.loader.mxe"`
+  `cp "#{@c74}/Jamoma/support"/*.maxdefaults                  "#{@c74}/default-settings"`
+  `cp "#{@c74}/Jamoma/support"/*.maxdefines                   "#{@c74}/default-definitions"`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-overview.maxpat"         root/patches/extras/jamoma-overview.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/_Jamoma_Patcher_.maxpat"       root/patches/templates/_Jamoma_Patcher_.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jalg.template.audio~.maxpat"   root/patches/templates/jalg.template.audio~.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jalg.template.video%.maxpat"   root/patches/templates/jalg.template.video%.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.audio~.maxpat"   root/patches/templates/jmod.template.audio~.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.control.maxpat"  root/patches/templates/jmod.template.control.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.maxhelp"         root/patches/templates/jmod.template.maxhelp`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/jmod.template.video%.maxpat"   root/patches/templates/jmod.template.video%.maxpat`
+  `cp "#{@c74}/Jamoma/documentation/jamoma-templates/layout.xml"                    root/patches/templates/layout.xml`
 
   puts " Copying readme, license, etc...."
-  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							"#{@c74}/Jamoma/License.rtf"`
-  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							"#{@c74}/Jamoma/ReadMe.rtf"`
-  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							../wix/License.rtf`
-  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							../wix/ReadMe.rtf`
+  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf"              "#{@c74}/Jamoma/License.rtf"`
+  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"                "#{@c74}/Jamoma/ReadMe.rtf"`
+  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf"              ../wix/License.rtf`
+  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"                ../wix/ReadMe.rtf`
 
   puts " Removing files that are not needed (.zips, mac, externs, etc)..."
   `rm -rf  "#{@c74}/Jamoma/support"`
@@ -251,37 +257,32 @@ if win32?
   f.rewind
   f.write(str)
   f.close
- 
+
   puts " Compiling Wix Sources..."
   `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo JamomaC74.wxs`
   `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo JamomaPatches.wxs`
   `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo JamomaSupport.wxs`
   `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo JamomaExtensions.wxs`
   `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo main.wxs`
-  `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo ui.wxs` 
-  
-  puts " Now making the installer" 
+  `../wix/candle.exe -dvar.ProductVersion="#{@version}" -dvar.ProductName="Jamoma #{@version}" /nologo ui.wxs`
+
+  puts " Now making the installer"
   puts `../wix/light.exe /nologo /out Jamoma.msi main.wixobj JamomaC74.wixobj JamomaPatches.wixobj JamomaSupport.wixobj JamomaExtensions.wixobj ui.wixobj ../wix/wixui.wixlib -loc ../wix/WixUI_en-us.wxl`
 
-	# Make Zip Archive
-	if version_mod != ''
-		longVersion = "#{version_maj}.#{version_min}.#{version_sub}-#{version_mod}"
-	else
-		longVersion = "#{version_maj}.#{version_min}.#{version_sub}"
-	end
-	`rm -rf Jamoma-#{@version}`
-	`mkdir Jamoma-#{@version}`
-	`cp Jamoma.msi Jamoma-#{@version}`
-	`cp ../ReadMe.rtf Jamoma-#{@version}`
-	`cp ../GNU-LGPL.rtf Jamoma-#{@version}/License.rtf`
-	`rm Jamoma-#{longVersion}.zip`
-	`zip -r Jamoma-#{longVersion}.zip Jamoma-#{@version}`
+  # Make Zip Archive
+  `rm -rf Jamoma-#{@version}`
+  `mkdir Jamoma-#{@version}`
+  `cp Jamoma.msi Jamoma-#{@version}`
+  `cp ../ReadMe.rtf Jamoma-#{@version}`
+  `cp ../GNU-LGPL.rtf Jamoma-#{@version}/License.rtf`
+  `rm Jamoma-#{longVersion}.zip`
+  `zip -r Jamoma-#{longVersion}.zip Jamoma-#{@version}`
 
-else 
+else
 # mac
   `mkdir -pv \"#{@installers}\"`  # need to make directory before the logs are created, and thus before cmd() is ready to be used
-  create_logs  
-  
+  create_logs
+
   puts "  Creating installer directory structure @ #{@temp} ..."
   cmd("rm -rfv \"#{@temp}\"")                                            # remove an old temp dir if it exists
   cmd("mkdir -pv \"#{@temp}\"")                                         # now make a clean one, and build dir structure in it
@@ -308,25 +309,25 @@ else
   cmd("cp -rpv \"#{@path_modular}/SourceCode/Framework/build/UninstalledProducts/JamomaModular.framework\"   \"#{@temp}/Library/Frameworks/JamomaModular.framework\" ")
 
   puts "  Copying Extensions"
-  cmd("cp -rpv \"/Library/Application Support/Jamoma/Extensions\"/*                                          \"#{@temp}/Library/Application Support/Jamoma/Extensions\"") 
+  cmd("cp -rpv \"/Library/Application Support/Jamoma/Extensions\"/*                                          \"#{@temp}/Library/Application Support/Jamoma/Extensions\"")
 
   puts "  Copying Externals"
   cmd("cp -rpv \"#{@git_root}/Builds\"                                                                       \"#{@c74}/Jamoma/externals\" ")
-  puts "  Removing ≈-Externals" 
+  puts "  Removing ≈-Externals"
   cmd("rm -rfv \"#{@c74}/Jamoma/externals/\"*≈.mxo")
-  
-  puts "  Removing files that are not needed (.zips, windows externs, etc)..."  
+
+  puts "  Removing files that are not needed (.zips, windows externs, etc)..."
   cmd("rm -rfv \"#{@c74}/Jamoma/externals/\"readme.txt")
-  cmd("rm -rfv \"#{@c74}/Jamoma/library/third-party/WinXP\"") 
+  cmd("rm -rfv \"#{@c74}/Jamoma/library/third-party/WinXP\"")
 
   puts "  Moving things around (loader, templates, etc)..."
   cmd("cp \"#{@c74}/Jamoma/documentation/jamoma-templates/\"*       \"#{@max}/patches/templates\"")
   cmd("cp \"#{@c74}/Jamoma/documentation/jamoma-overview.maxpat\"   \"#{@max}/patches/extras\"")
   cmd("mv \"#{@c74}/Jamoma/externals/jcom.loader.mxo\"              \"#{@c74}/extensions/\"")
   cmd("mv \"#{@c74}/Jamoma/support\"/*.maxdefaults                  \"#{@c74}/default-settings\"")
-  cmd("mv \"#{@c74}/Jamoma/support\"/*.maxdefines                   \"#{@c74}/default-definitions\"")   
-  cmd("rm -rfv \"#{@c74}/Jamoma/support\"")  
-  
+  cmd("mv \"#{@c74}/Jamoma/support\"/*.maxdefines                   \"#{@c74}/default-definitions\"")
+  cmd("rm -rfv \"#{@c74}/Jamoma/support\"")
+
   puts "  Copying readme, license, etc...."
   cmd("cp \"#{@git_root}/Tools/installertools/ReadMe.rtf\"   \"#{@installers}/resources\"")
   cmd("cp \"#{@git_root}/Tools/installertools/ReadMe.rtf\"   \"#{@installers}/Jamoma\"")
@@ -337,7 +338,7 @@ else
   puts "  Building Package -- this could take a while..."
   cmd("rm -rfv \"#{@installers}/MacInstaller/Jamoma.pkg\"")
   # TODO: need to find a way to specify the 'allow-downgrade' flag here [TAP]
-  cmd("/Developer/usr/bin/packagemaker --verbose --root \"#{@temp}\" --id org.jamoma.modular --out \"#{@installers}/Jamoma/Jamoma-#{@version}.pkg\" --version #{@version} --title Jamoma-#{@version} --resources \"#{@installers}/resources\" --target 10.4 --domain system --root-volume-only")
+  cmd("/Developer/usr/bin/packagemaker --verbose --root \"#{@temp}\" --id org.jamoma.modular --out \"#{@installers}/Jamoma/Jamoma-#{@version}.pkg\" --version #{longVersion} --title Jamoma-#{@version} --resources \"#{@installers}/resources\" --target 10.4 --domain system --root-volume-only")
 
   # Warning: the zip thing seems to be a real problem on the Mac using OS 10.5 at least...  Renaming the zip ends up causing the install to fail
   #puts "  Zipping the Installer..."
@@ -353,7 +354,7 @@ else
     cmd("rm -rfv \"#{@installers}/Jamoma-#{@version}-Mac.dmg\"")
     cmd("hdiutil create -srcfolder \"#{@installers}/Jamoma\" \"#{@installers}/Jamoma-#{@version}-Mac.dmg\"")
   end
-  
+
 
   puts "  All done!"
 
