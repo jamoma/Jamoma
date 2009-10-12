@@ -263,6 +263,17 @@ if win32?
   puts " Now making the installer" 
   puts `../wix/light.exe /nologo /out Jamoma.msi main.wixobj JamomaC74.wixobj JamomaPatches.wixobj JamomaSupport.wixobj JamomaExtensions.wixobj ui.wixobj ../wix/wixui.wixlib -loc ../wix/WixUI_en-us.wxl`
 
+	# Make Zip Archive
+	if version_mod != ''
+		longVersion = "#{version_maj}.#{version_min}.#{version_sub}-#{version_mod}"
+	else
+		longVersion = "#{version_maj}.#{version_min}.#{version_sub}"
+	end
+	`mkdir Jamoma-#{@version}`
+	`cp Jamoma.msi Jamoma-#{@version}`
+	`cp ../ReadMe.rtf Jamoma-#{@version}`
+	`cp ../GNU-LGPL.rtf Jamoma-#{@version}/License.rtf`
+	`zip -r Jamoma-#{longVersion}.zip Jamoma-#{@version}`
 
 else 
 # mac
