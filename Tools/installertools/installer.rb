@@ -197,7 +197,7 @@ if win32?
   `cp "#{@git_root}/Builds/JamomaDSP.dll"  									root/support`
   `cp "#{@git_root}/Builds/JamomaModular.dll"  								root/support`
   `cp "#{@git_root}/Modules/DSP/library/portaudio/Release/PortAudio.dll"	root/support`
-  `cp "#{@git_root}/Modules/Modular/SourceCode/ThirdParty/*.dll"	root/support`
+  `cp "#{@git_root}/Modules/Modular/SourceCode/ThirdParty/"*.dll	root/support`
 
   puts " Copying externals "
   `mkdir "#{@c74}/Jamoma/library/externals"`
