@@ -38,7 +38,7 @@ end
 # Get Revision Info -- BAD FORM, BUT THIS COPY/PASTED FROM build.rb
 ###################################################################
 
-git_desc = `git describe --tags --abbrev=4 --long`.split('-')
+git_desc = `git describe --tags --abbrev=5 --long`.split('-')
 git_tag = git_desc[0]
 git_dirty_commits = git_desc[git_desc.size()-2]
 git_rev = git_desc[git_desc.size()-1]
@@ -220,6 +220,8 @@ if win32?
   puts " Copying readme, license, etc...."
   `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							root/License.rtf`
   `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							root/ReadMe.rtf`
+  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							../wix/License.rtf`
+  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							../wix/ReadMe.rtf`
 
   puts " Removing files that are not needed (.zips, mac, externs, etc)..."
   #`rm -rf  "#{@c74}/Jamoma/library/third-party/Mac"`
@@ -269,10 +271,12 @@ if win32?
 	else
 		longVersion = "#{version_maj}.#{version_min}.#{version_sub}"
 	end
+	`rm -rf Jamoma-#{@version}`
 	`mkdir Jamoma-#{@version}`
 	`cp Jamoma.msi Jamoma-#{@version}`
 	`cp ../ReadMe.rtf Jamoma-#{@version}`
 	`cp ../GNU-LGPL.rtf Jamoma-#{@version}/License.rtf`
+	`rm Jamoma-#{longVersion}.zip`
 	`zip -r Jamoma-#{longVersion}.zip Jamoma-#{@version}`
 
 else 
