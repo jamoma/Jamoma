@@ -30,6 +30,7 @@ Tools/installertools/Windows/root
 /Tools/installertools/Windows/Jamoma.msi
 Jamoma*.zip
 Jamoma-0.5*
+License.rtf
 
 # This ReadMe is generated from a Template -- only the template is under version control
 ReadMe.rtf
