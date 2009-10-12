@@ -219,8 +219,8 @@ if win32?
   `cp "#{@c74}/Jamoma/documentation/jamoma-templates/layout.xml"                   	root/patches/templates/layout.xml`
 
   puts " Copying readme, license, etc...."
-  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							#{@c74}/Jamoma/License.rtf`
-  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							#{@c74}/Jamoma/ReadMe.rtf`
+  `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							"#{@c74}/Jamoma/License.rtf"`
+  `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							"#{@c74}/Jamoma/ReadMe.rtf"`
   `cp "#{@git_root}/Tools/installertools/GNU-LGPL.rtf" 							../wix/License.rtf`
   `cp "#{@git_root}/Tools/installertools/ReadMe.rtf"   							../wix/ReadMe.rtf`
 
