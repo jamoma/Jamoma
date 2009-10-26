@@ -16,6 +16,9 @@
 [submodule "Modules/Publications"]
 	path = Modules/Publications
 	url = git://github.com/tap/JamomaPublications.git
+[submodule "Modules/TheGitter"]
+	path = Modules/TheGitter
+	url = git://github.com/bltzr/JamomaGitter.git	
 [submodule "UserLib/Tap.Tools"]
 	path = UserLib/Tap.Tools
 	url = git://github.com/tap/TapToolsForJamoma.git
