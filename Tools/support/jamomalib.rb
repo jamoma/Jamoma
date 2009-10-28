@@ -13,7 +13,7 @@ def win32?
   (Platform::OS == :unix && Platform::IMPL == :cygwin) || Platform::OS == :win32
 end
 
-require '../support/wininit' if win32?
+require 'support/wininit' if win32?
 
 
 #######
