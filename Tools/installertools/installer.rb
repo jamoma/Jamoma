@@ -275,7 +275,7 @@ if win32?
   `cp Jamoma.msi Jamoma-#{@version}`
   `cp ../ReadMe.rtf Jamoma-#{@version}`
   `cp ../GNU-LGPL.rtf Jamoma-#{@version}/License.rtf`
-  `rm Jamoma-#{longVersion}.zip`
+  `rm -f Jamoma-#{longVersion}.zip`
   `zip -r Jamoma-#{longVersion}.zip Jamoma-#{@version}`
 
 else
