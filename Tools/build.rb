@@ -4,7 +4,10 @@
 glibdir = "."
 Dir.chdir glibdir             # change to libdir so that requires work
 glibdir = Dir.pwd
-require "support/jamomalib"
+
+$main_repository = true
+
+require "supports/jamomalib"
 
 
 ###################################################################
@@ -65,7 +68,7 @@ if(clean)
   else
 
     `rm -rf *.mxo`
-    # TODO : what else to delete under Mac ?
+    `rm -rf *.txt`
 
   end
 
@@ -103,47 +106,27 @@ if git_dirty_commits != '0'
 end
 puts ""
 
-# Update the Shared XCConfig
-if !win32?
-	file_path = "#{glibdir}/library/common/tt-max.xcconfig"
-	if FileTest.exist?(file_path)
-	  f = File.open("#{file_path}", "r+")
-	  str = f.read
-	
-	  if (version_mod == '' || version_mod.match(/rc(.*)/))
-	    str.sub!(/PRODUCT_VERSION = (.*)/, "PRODUCT_VERSION = #{version_maj}.#{version_min}.#{version_sub}")
-	  else
-	    str.sub!(/PRODUCT_VERSION = (.*)/, "PRODUCT_VERSION = #{version_maj}.#{version_min}.#{version_sub}#{version_mod}")
-	  end
-	  str.sub!(/SVNREV = (.*)/, "SVNREV = #{git_rev}")
-	
-	  f.rewind
-	  f.write(str)
-	  f.truncate(f.pos)
-	  f.close
-	end
-end
-
 
 ###################################################################
 # Build Jamoma
 ###################################################################
 
 quietly do
-  ARGV = [configuration, clean, debug, git_tag, git_rev]
+#  ARGV = [configuration, clean, debug, git_tag, git_rev]
+  ARGV = [configuration, clean, debug]
 end
-
+                     
 Dir.chdir "#{glibdir}/../Modules/Foundation"
-load "build.rb"
-
+load "build.rb"      
+                     
 Dir.chdir "#{glibdir}/../Modules/DSP"
-load "build.rb"
-
+load "build.rb"      
+                     
 Dir.chdir "#{glibdir}/../Modules/Graphics"
-load "build.rb"
-
+load "build.rb"      
+                     
 Dir.chdir "#{glibdir}/../Modules/Multicore"
-load "build.rb"
-
+load "build.rb"      
+                     
 Dir.chdir "#{glibdir}/../Modules/Modular"
-load "build.rb"
+load "build.rb"      

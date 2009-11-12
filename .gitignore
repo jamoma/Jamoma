@@ -32,5 +32,6 @@ Jamoma*.zip
 Jamoma-0.5*
 License.rtf
 
-# This ReadMe is generated from a Template -- only the template is under version control
+# These are generated from a Template -- only the template is under version control
 ReadMe.rtf
+tt-max.xcconfig
