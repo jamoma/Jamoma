@@ -9,10 +9,13 @@
 # First include the functions in the jamoma lib
 libdir = "."
 Dir.chdir libdir        # change to libdir so that requires work
-require "../supports/jamomalib"   # C74 build library
+libdir = Dir.pwd
 
+$main_repository = true
+require "supports/jamomalib"   # C74 build library
+require 'date'
 
-@git_root = "../.."	# this is the root of the Jamoma project repository
+@git_root = ".."	# this is the root of the Jamoma project repository
 if win32?
   Dir.chdir @git_root
   @git_root = Dir.pwd
@@ -25,7 +28,7 @@ else
   @max = "#{@temp}/Applications/Max5"
 end
 @c74 = "#{@max}/Cycling '74"
-
+@log_root        = "#{@installers}/logs"
 @path_modular    = "#{@git_root}/Modules/Modular"
 @path_foundation = "#{@git_root}/Modules/Foundation"
 @path_dsp        = "#{@git_root}/Modules/DSP"
@@ -83,51 +86,39 @@ end
 # sub routines
 ###################################################################
 
-def create_logs
-  @build_log = File.new("#{@git_root}/Installers/installer.log", "w")
-  @build_log.write("JAMOMA INSTALLER LOG: #{`date`}\n\n")
-  @build_log.flush
-  @error_log = File.new("#{@git_root}/Installers/error.log", "w")
-  @error_log.write("JAMOMA INSTALLER ERROR LOG: #{`date`}\n\n")
-  @error_log.flush
-  trap("SIGINT") { die }
-end
-  
-def die
-  close_logs
-  exit 0
-end
+#def create_logs
+#  @build_log = File.new("#{@git_root}/Installers/installer.log", "w")
+#  @build_log.write("JAMOMA INSTALLER LOG: #{`date`}\n\n")
+#  @build_log.flush
+#  @error_log = File.new("#{@git_root}/Installers/error.log", "w")
+#  @error_log.write("JAMOMA INSTALLER ERROR LOG: #{`date`}\n\n")
+#  @error_log.flush
+#  trap("SIGINT") { die }
+#end
+#  
+#def die
+#  close_logs
+#  exit 0
+#end
+#
+#def close_logs
+#  @build_log.close
+#  @error_log.close
+#end
+#
+#def log_build(str)
+#  @build_log.write(str)
+#  @build_log.write("\n\n")
+#  @build_log.flush
+#end
+#
+#def log_error(str)
+#  @error_log.write(str)
+#  @error_log.write("\n\n")
+#  @error_log.flush
+#end
 
-def close_logs
-  @build_log.close
-  @error_log.close
-end
 
-def log_build(str)
-  @build_log.write(str)
-  @build_log.write("\n\n")
-  @build_log.flush
-end
-
-def log_error(str)
-  @error_log.write(str)
-  @error_log.write("\n\n")
-  @error_log.flush
-end
-
-
-# This defines a wrapper that we use to call shell commands
-def cmd(commandString)
-  out = ""
-  err = ""
-  
-  Open3.popen3(commandString) do |stdin, stdout, stderr|
-    out = stdout.read
-    err = stderr.read
-  end
-  log_error(out)
-  log_error(err)
-end
 
 
 ###################################################################
@@ -152,8 +143,8 @@ end
       str.sub!(/\\cf2 Version (.*)\n/, "\\cf2 Version #{version_maj}.#{version_min}.#{version_sub} #{version_mod} (#{git_rev})\n")
     end
 
-    date = Date.today
-    str.sub!(/\\u8232 (.*)\\/, "\\u8232 #{date.strftime("%d %B %Y")}\\")
+    @date = Date.today
+    str.sub!(/\\u8232 (.*)\\/, "\\u8232 #{@date.strftime("%d %B %Y")}\\")
 
     f.rewind
     f.write(str)
@@ -292,7 +283,7 @@ else
   cmd("mkdir -pv \"#{@installers}/Jamoma\"")
 
   puts "  Copying the Jamoma folder..."
-  cmd("cp -rpv \"#{@git_root}/Modules/Modular/Jamoma\" \"#{@c74}/Jamoma\"")
+  cmd("cp -rpv \"#{@git_root}/Modules/Modular/Max\" \"#{@c74}/Jamoma\"")
 
   puts "  Copying Shared Libraries"
   cmd("cp -rpv \"#{@path_foundation}/library/build/UninstalledProducts/JamomaFoundation.framework\"          \"#{@temp}/Library/Frameworks/JamomaFoundation.framework\" ")
