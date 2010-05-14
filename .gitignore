@@ -2,7 +2,9 @@
 .DS_Store
 
 Installers
-Builds/*.mxo
+Builds/MaxMSP/*.mxo
+Builds/MaxMSP/*.maxhelp
+Builds/PureData/*.pd_darwin
 logs
 Tools/installertools/Windows/root
 *.mode1v3

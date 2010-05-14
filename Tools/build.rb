@@ -55,8 +55,10 @@ if(clean)
   puts "  Cleaning Builds folder "
   puts " "
 
-  Dir.chdir "#{glibdir}/../Builds"
-
+  Dir.chdir "#{glibdir}/../Builds/MaxMSP"
+  
+  `rm -rf *.maxhelp`
+  
   # Windows
   if win32?
 
@@ -124,6 +126,9 @@ load "build.rb"
                      
 Dir.chdir "#{glibdir}/../Modules/Graphics"
 load "build.rb"      
+
+Dir.chdir "#{glibdir}/../Modules/Graph"
+load "build.rb"
                      
 Dir.chdir "#{glibdir}/../Modules/AudioGraph"
 load "build.rb"      

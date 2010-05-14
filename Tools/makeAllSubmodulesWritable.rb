@@ -19,10 +19,11 @@ end
 doOne "AudioGraph"            
 doOne "Dependencies"          
 doOne "DSP"          
-doOne "Foundation"          
+doOne "Foundation" 
+doOne "Graph"          
 doOne "Graphics"          
 doOne "Modular"          
 doOne "Publications"          
 doOne "Ruby"          
-                    
+doOne "Test"                    
 

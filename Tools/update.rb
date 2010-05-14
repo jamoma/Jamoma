@@ -13,7 +13,7 @@ if ARGV.length > 0
   @branch = ARGV[0]
 else
   result = `git branch`
-  result.each { |line| 
+  result.each_line { |line| 
     if line.match(/\*.*/)
       line.gsub!(/\*/, " ")
       @branch = line.strip
@@ -87,7 +87,6 @@ doUpdate "Modular"
 doUpdate "Test"     
 
 doUpdateSimple "Modules/Dependencies"
-doUpdateSimple "Modules/Publications"
 doUpdateSimple "Modules/Ruby"
 doUpdateSimple "Modules/TheGitter" 
   
