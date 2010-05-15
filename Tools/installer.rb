@@ -290,6 +290,7 @@ else
   `mkdir -pv \"#{@c74}/default-settings\"                               `
   `mkdir -pv \"#{@installers}/resources\"                               `
   `mkdir -pv \"#{@installers}/Jamoma\"                                  `
+  `mkdir -pv \"#{@temp}/Library/Ruby/Site/1.8/universal-darwin10.0\"    `
 
   puts "  Copying the Jamoma folder..."
   `cp -rpv \"#{@git_root}/Modules/Modular/Max\" \"#{@c74}/Jamoma\"`
