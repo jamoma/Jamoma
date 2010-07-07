@@ -25,12 +25,14 @@
 [submodule "Modules/AudioGraph"]
 	path = Modules/AudioGraph
 	url = git://github.com/tap/JamomaAudioGraph.git
+
 [submodule "Modules/Dependencies"]
 	path = Modules/Dependencies
 	url = git://github.com/jln-/JamomaDependencies.git
 [submodule "Modules/TheGitter"]
 	path = Modules/TheGitter
 	url = git://github.com/bltzr/JamomaGitter.git
+	
 [submodule "UserLib/Jamoma.Ircam.FTM"]
 	path = UserLib/Jamoma.Ircam.FTM
 	url = git://github.com/lossius/Jamoma.Ircam.FTM.git
@@ -64,3 +66,6 @@
 [submodule "UserLib/NavNav"]
 	path = UserLib/NavNav
 	url = git://github.com/navid/NavNav.git
+[submodule "UserLib/GDIF"]
+	path = UserLib/GDIF
+	url = git://github.com/krisny/Jamoma.GDIF.git
