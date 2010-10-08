@@ -69,3 +69,6 @@
 [submodule "UserLib/SoundhackWrappers"]
 	path = UserLib/SoundhackWrappers
 	url = http://github.com/jln-/SoundhackWrappers.git
+[submodule "UserLib/myUserLib"]
+	path = UserLib/myUserLib
+	url = git@github.com:jln-/myUserLib.git
