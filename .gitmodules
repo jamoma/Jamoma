@@ -69,3 +69,6 @@
 [submodule "UserLib/SoundhackWrappers"]
 	path = UserLib/SoundhackWrappers
 	url = http://github.com/jln-/SoundhackWrappers.git
+[submodule "UserLib/rdp.modules"]
+	path = UserLib/rdp.modules
+	url = http://github.com/ricardo78/rdp.modules.git
