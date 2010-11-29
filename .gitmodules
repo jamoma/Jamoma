@@ -75,3 +75,6 @@
 [submodule "UserLib/MusicSpace"]
 	path = UserLib/MusicSpace
 	url = git://github.com/Nilson/Jamoma.MusicSpace
+[submodule "Modules/Documentation"]
+	path = Modules/Documentation
+	url = git@github.com:jamoma/JamomaDoc.git
