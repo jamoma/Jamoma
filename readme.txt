@@ -4,6 +4,7 @@ It is intended to contain sub-projects representing the various modules of the J
 
 - AudioGraph
 - Dependencies
+- Documentation
 - DSP
 - Foundation
 - Graph
