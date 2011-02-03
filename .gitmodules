@@ -75,3 +75,6 @@
 [submodule "Modules/Documentation"]
 	path = Modules/Documentation
 	url = git://github.com/jamoma/JamomaDoc.git
+[submodule "UserLib/ag.granular"]
+	path = UserLib/ag.granular
+	url = git://github.com/adrian-gierakowski/ag.granular.suite.git
