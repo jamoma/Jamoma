@@ -71,7 +71,7 @@
 	url = http://github.com/ricardo78/rdp.modules.git
 [submodule "UserLib/MusicSpace"]
 	path = UserLib/MusicSpace
-	url = git://github.com/Nilson/Jamoma.MusicSpace
+	url = git://github.com/Nilson/Jamoma.MusicSpace.git
 [submodule "Modules/Documentation"]
 	path = Modules/Documentation
 	url = git://github.com/jamoma/JamomaDoc.git
