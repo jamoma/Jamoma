@@ -2,6 +2,7 @@
 .DS_Store
 
 Installers
+InstallerUserlib
 Publications
 Builds/MaxMSP/*.mxo
 Builds/MaxMSP/*.maxhelp
