@@ -78,3 +78,6 @@
 [submodule "UserLib/ag.granular"]
 	path = UserLib/ag.granular
 	url = git://github.com/adrian-gierakowski/ag.granular.suite.git
+[submodule "UserLib/didatools"]
+	path = UserLib/didatools
+	url = git://github.com/reno-/didatools.git
