@@ -3,7 +3,6 @@
 
 Installers
 InstallerUserlib
-Publications
 Builds/MaxMSP/*.mxo
 Builds/MaxMSP/*.maxhelp
 Builds/PureData/*.pd_darwin
@@ -36,3 +35,9 @@ Tools/installertools/Windows/root
 # These are generated from a Template -- only the template is under version control
 ReadMe.rtf
 tt-max.xcconfig
+
+# Submodules that some users may have but which are not tracked by the main project
+Modules/Publications
+Modules/Plugtastic
+Modules/TapTools
+Modules/Area51
