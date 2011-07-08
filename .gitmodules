@@ -81,3 +81,6 @@
 [submodule "UserLib/didatools"]
 	path = UserLib/didatools
 	url = git://github.com/reno-/didatools.git
+[submodule "UserLib/SpatDIF"]
+	path = UserLib/SpatDIF
+	url = git://github.com/SpatDIF/Jamoma.git
