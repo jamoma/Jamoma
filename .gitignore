@@ -38,6 +38,5 @@ tt-max.xcconfig
 
 # Submodules that some users may have but which are not tracked by the main project
 Modules/Publications
-Modules/Plugtastic
 Modules/TapTools
 Modules/Area51
