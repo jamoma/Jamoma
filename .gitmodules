@@ -84,3 +84,6 @@
 [submodule "UserLib/SpatDIF"]
 	path = UserLib/SpatDIF
 	url = git://github.com/SpatDIF/Jamoma.git
+[submodule "Modules/Plugtastic"]
+	path = Modules/Plugtastic
+	url = git@github.com:jamoma/Plugtastic.git
