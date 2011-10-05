@@ -87,3 +87,6 @@
 [submodule "Modules/Plugtastic"]
 	path = Modules/Plugtastic
 	url = git@github.com:jamoma/Plugtastic.git
+[submodule "UserLib/BlueYeti"]
+	path = UserLib/BlueYeti
+	url = git@github.com:blueyeti/blueyeti_jamoma.git
