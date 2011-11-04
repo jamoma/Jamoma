@@ -28,7 +28,7 @@
 
 [submodule "Modules/Dependencies"]
 	path = Modules/Dependencies
-	url = git://github.com/jln-/JamomaDependencies.git
+	url = git://github.com/jamoma/JamomaDependencies.git
 	
 [submodule "UserLib/Jamoma.Ircam.FTM"]
 	path = UserLib/Jamoma.Ircam.FTM
