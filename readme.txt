@@ -3,20 +3,21 @@ This project is the master project for the Jamoma platform.
 It is intended to contain sub-projects representing the various modules of the Jamoma platform.
 
 - AudioGraph
+- DSP
 - Dependencies
 - Documentation
-- DSP
 - Foundation
 - Graph
 - Graphics
 - Modular
+- Plugtastic
 - Ruby
 - Test
-- TheGitter
+- various github projects in the Jamoma User Lib
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
 
-These tools assume you have Git (http://redmine.jamoma.org/wiki/jamoma/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
+These tools assume you have Git (http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
 
 --------------------------------------------------
 UPDATE MODULES
@@ -55,6 +56,7 @@ Alternatively, if you want a developer release rather than a nice, clean release
 'ruby build.rb Development'
 
 3) Assuming no error, you now have Jamoma framework compiled, installed and running. Welcome to the Jamoma development!
+   In case of errors, please take a look at http://redmine.jamoma.org/projects/jamoma/wiki/Pitfalls_for_Developers
 --------------------------------------------------
 
 
@@ -99,23 +101,22 @@ The installer.rb Ruby script situated in the "Tools" folder collects all of the 
 --------------------------------------------------
 
 
-
-
-
+--------------------------------------------------
 SETTING UP AUTOMATED TESTS
-
+--------------------------------------------------
 To run the automated tests, you must have rosc installed.  This is a library that implements OSC support for Ruby.
 The version we are using is included in the Tools/rosc folder.  To install it:
 1. cd to the Tools/rosc folder
 2. sudo ruby setup.rb
 
 Now you are ready to run automated tests, as described below.
+--------------------------------------------------
+
 
 
 --------------------------------------------------
-
 RUNNING AUTOMATED TESTS
-
+--------------------------------------------------
 Automated tests are started by running the following script (after cd'ing into the Tools folder)
 	./testrunner.rb
 
@@ -124,11 +125,11 @@ The test components need to be in that location, because they need to be in Max'
 
 The tests themselves are located in the 'Tests' folder at the top level of the branch, and all subfolders.
 The script also looks in every folder of the Modules folder so that module tests can be kept together with the module.
+--------------------------------------------------
 
 
 --------------------------------------------------
-
 DEBUGGING EXTERNALS ON THE MAC PLATFORM
-
+--------------------------------------------------
 The Max Runtime does not use the Max5 file preferences. The AddJamomaPath.maxpat is a handy utility for temporarily adding the Jamoma folder and all subfolders to the search path so that externals, components, algorithms modules and help files can be accessed in Max Runtime, e.g. when running the debugger and Max Runtime in Xcode on the OSX platform.
 
