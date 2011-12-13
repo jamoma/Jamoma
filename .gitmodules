@@ -86,7 +86,7 @@
 	url = git://github.com/SpatDIF/Jamoma.git
 [submodule "Modules/Plugtastic"]
 	path = Modules/Plugtastic
-	url = git@github.com:jamoma/Plugtastic.git
+	url = git://github.com/jamoma/Plugtastic.git
 [submodule "UserLib/BlueYeti"]
 	path = UserLib/BlueYeti
-	url = git@github.com:blueyeti/blueyeti_jamoma.git
+	url = git://github.com/blueyeti/blueyeti_jamoma.git
