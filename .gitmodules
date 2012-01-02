@@ -90,3 +90,6 @@
 [submodule "UserLib/BlueYeti"]
 	path = UserLib/BlueYeti
 	url = git://github.com/blueyeti/blueyeti_jamoma.git
+[submodule "Modules/Support"]
+	path = Modules/Support
+	url = git://github.com/jamoma/JamomaSupport.git
