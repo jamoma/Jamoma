@@ -13,9 +13,6 @@
 [submodule "Modules/Ruby"]
 	path = Modules/Ruby
 	url = git://github.com/jamoma/JamomaRuby.git
-[submodule "Tools/supports"]
-	path = Tools/supports
-	url = git://github.com/jamoma/JamomaSupport.git
 [submodule "Modules/Test"]
 	path = Modules/Test
 	url = git://github.com/jamoma/JamomaTest.git
