@@ -62,10 +62,10 @@
 	url = git://github.com/krisny/Jamoma.GDIF.git
 [submodule "UserLib/SoundhackWrappers"]
 	path = UserLib/SoundhackWrappers
-	url = http://github.com/jln-/SoundhackWrappers.git
+	url = git://github.com/jln-/SoundhackWrappers.git
 [submodule "UserLib/rdp.modules"]
 	path = UserLib/rdp.modules
-	url = http://github.com/ricardo78/rdp.modules.git
+	url = git://github.com/ricardo78/rdp.modules.git
 [submodule "UserLib/MusicSpace"]
 	path = UserLib/MusicSpace
 	url = git://github.com/Nilson/Jamoma.MusicSpace.git
