@@ -126,7 +126,6 @@ if git_dirty_commits != '0'
 end
 puts ""
 
-
 ###################################################################
 # Build Jamoma
 ###################################################################
@@ -135,6 +134,7 @@ quietly do
 #  ARGV = [configuration, clean, debug, git_tag, git_rev]
   ARGV = [configuration, clean, debug]
 end
+
 
 
 # Get a list of submodules that need to be built
@@ -173,13 +173,8 @@ end
 # Build everything else in the 'Modules' folder
 submodules.each {|submodule| 
   if submodule[0] != '.' && File.exists?("#{glibdir}/../Modules/#{submodule}/build.rb")
-    if submodule == "Documentation"
-      puts "Skipping Documentation Generation -- we need to iron out bugs here and re-enable."
-      puts
-    else
-      Dir.chdir "#{glibdir}/../Modules/#{submodule}"
-      load "build.rb"
-    end
+    Dir.chdir "#{glibdir}/../Modules/#{submodule}"
+    load "build.rb"
   end
 }
 
@@ -194,5 +189,15 @@ else
   Dir.chdir "#{glibdir}/../Modules/Ruby"
   load "install.rb"
 end
+
+puts
+puts
+puts "==================== SUMMARY ===================="
+puts "Combined Error log of all subprojects:"
+puts
+Dir.chdir "#{glibdir}/../Modules/Support"
+puts `cat logs-*/error*`
+
+
 
 
