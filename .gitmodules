@@ -90,3 +90,6 @@
 [submodule "Modules/Support"]
 	path = Modules/Support
 	url = git://github.com/jamoma/JamomaSupport.git
+[submodule "UserLib/GMEA"]
+	path = UserLib/GMEA
+	url = git://github.com/theod/GMEA.git
