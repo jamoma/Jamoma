@@ -77,7 +77,7 @@
 	url = git://github.com/adrian-gierakowski/ag.granular.suite.git
 [submodule "UserLib/didatools"]
 	path = UserLib/didatools
-	url = git://github.com/reno-/didatools.git
+	url = git://github.com/didascalie-net/didatools.git
 [submodule "UserLib/SpatDIF"]
 	path = UserLib/SpatDIF
 	url = git://github.com/SpatDIF/Jamoma.git
