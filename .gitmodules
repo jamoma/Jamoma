@@ -22,11 +22,9 @@
 [submodule "Modules/AudioGraph"]
 	path = Modules/AudioGraph
 	url = git://github.com/jamoma/JamomaAudioGraph.git
-
 [submodule "Modules/Dependencies"]
 	path = Modules/Dependencies
-	url = git://github.com/jamoma/JamomaDependencies.git
-	
+	url = git://github.com/jamoma/JamomaDependencies.git	
 [submodule "UserLib/Jamoma.Ircam.FTM"]
 	path = UserLib/Jamoma.Ircam.FTM
 	url = git://github.com/lossius/Jamoma.Ircam.FTM.git
@@ -77,7 +75,7 @@
 	url = git://github.com/adrian-gierakowski/ag.granular.suite.git
 [submodule "UserLib/didatools"]
 	path = UserLib/didatools
-	url = git://github.com/reno-/didatools.git
+	url = git://github.com/didascalie-net/didatools.git
 [submodule "UserLib/SpatDIF"]
 	path = UserLib/SpatDIF
 	url = git://github.com/SpatDIF/Jamoma.git
@@ -90,3 +88,6 @@
 [submodule "Modules/Support"]
 	path = Modules/Support
 	url = git://github.com/jamoma/JamomaSupport.git
+[submodule "UserLib/GMEA"]
+	path = UserLib/GMEA
+	url = git://github.com/theod/GMEA.git

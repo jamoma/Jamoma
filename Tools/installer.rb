@@ -351,7 +351,7 @@ else
   `mkdir -pv \"#{@max}\"                                                `
   `mkdir -pv \"#{@max}/patches/templates\"                              `
   `mkdir -pv \"#{@max}/patches/extras\"                                 `
-  `mkdir -pv \"#{@max}/patches/docs\"                                   `
+  #`mkdir -pv \"#{@max}/patches/docs\"                                   `
   `mkdir -pv \"#{@c74}\"                                                `
   `mkdir -pv \"#{@c74}/extensions\"                                     `
   `mkdir -pv \"#{@c74}/default-definitions\"                            `
@@ -421,7 +421,7 @@ else
    `mv \"#{@c74}/Jamoma/Documentation/examples/Max\"                                  \"#{@c74}/Jamoma/Documentation/examples/Plugtastic\"`
 
   puts "  Copying refpages"
-  `cp -rpv \"#{@path_documentation}/Builds/Jamoma-doc/refpages\"                      \"#{@max}/patches/docs/refpages\"`
+  `cp -rpv \"#{@path_documentation}/Builds/Jamoma-doc\"                      \"#{@max}/patches\"`
 
   puts "  Removing files that are not needed (.zips, windows externs, UserLib clippings, yml-files)..."
   `rm -rfv \"#{@c74}/Jamoma/externals/\"readme.txt`
