@@ -1,6 +1,11 @@
 # OSX Finder stuff:
 .DS_Store
 
+# RVM (Ruby Version Manager) can be used to ensure that we are using the right ruby version once inside the Jamoma folder.
+# More info can be found at https://rvm.io and http://screencasts.org/episodes/how-to-use-rvm.
+# If using RVM the .rvmrc configuration file should be ignored
+.rvmrc
+
 Installers
 InstallerUserlib
 Builds/MaxMSP/*.mxo
