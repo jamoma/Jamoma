@@ -91,3 +91,6 @@
 [submodule "UserLib/GMEA"]
 	path = UserLib/GMEA
 	url = git://github.com/theod/GMEA.git
+[submodule "UserLib/Support"]
+	path = UserLib/Support
+	url = git://github.com/jamoma/JamomaSupport.git
