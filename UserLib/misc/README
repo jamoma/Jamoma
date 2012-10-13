@@ -1,0 +1,19 @@
+This folder contains some files to facilitate the work with the Jamoma UserLib.
+
+jcom.userLibPath.maxpat:        To find the absolute path of the UserLib in MaxMSP.
+GenerateHTML.maxpat:            Generates fresh HTML reference pages for all UserLib modules
+jamoma-userlib-overview.maxpat: An Overview of the Jamoma UserLib modules.
+
+================================================================================================================
+HOW TO ADD YOUR MODULES TO THE JAMOMA USERLIB
+
+If you wish to add your modules to the UserLib, please contact the Jamoma team (http://jamoma.org/forum.html).
+
+To keep the UserLib maintenance low, we ask you to respect a few simple guidelines:
+1. Please host your modules in a git repository, e.g. at github.com which is free of charge. 
+2. Please provide XML preset file and help patch for each module with the module's name (e.g., jmod.myModule.xml).
+3. Spaces within file names are not allowed (e.g., "jmod.my module.maxpat").
+4. List all 3rd party externals that your modules require.
+5. Please provide a contact address for bug reports and feature requests. 
+   You may also request an individual project website under http://redmine.jamoma.org/projects/userlibs
+
