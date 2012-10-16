@@ -88,3 +88,6 @@
 [submodule "UserLib/Support"]
 	path = UserLib/Support
 	url = git://github.com/jamoma/JamomaSupport.git
+[submodule "UserLib/rdpozo_Modules"]
+	path = UserLib/rdpozo_Modules
+	url = https://github.com/ricardo78/rdpozo_Modules.git
