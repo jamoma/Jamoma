@@ -28,9 +28,6 @@
 [submodule "UserLib/Jamoma.Ircam.FTM"]
 	path = UserLib/Jamoma.Ircam.FTM
 	url = git://github.com/lossius/Jamoma.Ircam.FTM.git
-[submodule "UserLib/Tap.Tools"]
-	path = UserLib/Tap.Tools
-	url = git://github.com/tap/TapToolsForJamoma.git
 [submodule "UserLib/ViMiC"]
 	path = UserLib/ViMiC
 	url = git://github.com/Nilson/ViMiC-and-friends.git
@@ -91,3 +88,6 @@
 [submodule "UserLib/rdpozo_Modules"]
 	path = UserLib/rdpozo_Modules
 	url = https://github.com/ricardo78/rdpozo_Modules.git
+[submodule "UserLib/TapTools"]
+	path = UserLib/TapTools
+	url = git://github.com/tap/TapTools.git
