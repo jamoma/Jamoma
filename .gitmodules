@@ -1,30 +1,18 @@
-[submodule "Modules/Graphics"]
-	path = Modules/Graphics
-	url = git://github.com/jamoma/JamomaGraphics.git
-[submodule "Modules/DSP"]
-	path = Modules/DSP
-	url = git://github.com/jamoma/JamomaDSP.git
+[submodule "Core"]
+	path = Core
+	url = git@github.com:jamoma/JamomaCore.git
 [submodule "Modules/Modular"]
 	path = Modules/Modular
 	url = git://github.com/jamoma/JamomaModular.git
-[submodule "Modules/Foundation"]
-	path = Modules/Foundation
-	url = git://github.com/jamoma/JamomaFoundation.git
-[submodule "Modules/Ruby"]
-	path = Modules/Ruby
-	url = git://github.com/jamoma/JamomaRuby.git
 [submodule "Modules/Test"]
 	path = Modules/Test
 	url = git://github.com/jamoma/JamomaTest.git
-[submodule "Modules/Graph"]
-	path = Modules/Graph
-	url = git://github.com/jamoma/JamomaGraph.git
-[submodule "Modules/AudioGraph"]
-	path = Modules/AudioGraph
-	url = git://github.com/jamoma/JamomaAudioGraph.git
 [submodule "Modules/Dependencies"]
 	path = Modules/Dependencies
 	url = git://github.com/jamoma/JamomaDependencies.git	
+[submodule "Modules/Documentation"]
+	path = Modules/Documentation
+	url = git://github.com/jamoma/JamomaDoc.git
 [submodule "UserLib/Jamoma.Ircam.FTM"]
 	path = UserLib/Jamoma.Ircam.FTM
 	url = git://github.com/lossius/Jamoma.Ircam.FTM.git
@@ -61,24 +49,15 @@
 [submodule "UserLib/MusicSpace"]
 	path = UserLib/MusicSpace
 	url = git://github.com/Nilson/Jamoma.MusicSpace.git
-[submodule "Modules/Documentation"]
-	path = Modules/Documentation
-	url = git://github.com/jamoma/JamomaDoc.git
 [submodule "UserLib/ag.granular"]
 	path = UserLib/ag.granular
 	url = git://github.com/adrian-gierakowski/ag.granular.suite.git
 [submodule "UserLib/SpatDIF"]
 	path = UserLib/SpatDIF
 	url = git://github.com/SpatDIF/Jamoma.git
-[submodule "Modules/Plugtastic"]
-	path = Modules/Plugtastic
-	url = git://github.com/jamoma/Plugtastic.git
 [submodule "UserLib/BlueYeti"]
 	path = UserLib/BlueYeti
 	url = git://github.com/blueyeti/blueyeti_jamoma.git
-[submodule "Modules/Support"]
-	path = Modules/Support
-	url = git://github.com/jamoma/JamomaSupport.git
 [submodule "UserLib/GMEA"]
 	path = UserLib/GMEA
 	url = git://github.com/theod/GMEA.git
