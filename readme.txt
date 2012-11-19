@@ -2,20 +2,15 @@ This project is the master project for the Jamoma platform.
 
 It is intended to contain sub-projects representing the various modules of the Jamoma platform.
 
-- AudioGraph
-- DSP
+- Core
 - Dependencies
 - Documentation
-- Foundation
-- Graph
-- Graphics
 - Modular
-- Plugtastic
-- Ruby
 - Test
-- various github projects in the Jamoma User Lib
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
+
+The Jamoma UserLib, which contains various github projects by Jamoma users, is now hosted at https://github.com/jamoma/JamomaUserLibraries
 
 These tools assume you have Git (http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
 
