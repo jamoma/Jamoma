@@ -1,6 +1,3 @@
-[submodule "Core"]
-	path = Core
-	url = git@github.com:jamoma/JamomaCore.git
 [submodule "Modules/Modular"]
 	path = Modules/Modular
 	url = git://github.com/jamoma/JamomaModular.git
@@ -13,21 +10,3 @@
 [submodule "Modules/Documentation"]
 	path = Modules/Documentation
 	url = git://github.com/jamoma/JamomaDoc.git
-[submodule "Implementations/Max"]
-	path = Implementations/Max
-	url = git@github.com:jamoma/JamomaMax.git
-[submodule "Implementations/Ruby"]
-	path = Implementations/Ruby
-	url = git@github.com:jamoma/JamomaRuby.git
-[submodule "Implementations/VST"]
-	path = Implementations/VST
-	url = git@github.com:jamoma/JamomaVST.git
-[submodule "Implementations/AudioUnits"]
-	path = Implementations/AudioUnits
-	url = git@github.com:jamoma/JamomaAudioUnits.git
-[submodule "Implementations/PureData"]
-	path = Implementations/PureData
-	url = git@github.com:jamoma/JamomaPureData.git
-[submodule "Implementations/iOS"]
-	path = Implementations/iOS
-	url = git@github.com:jamoma/JamomaiOS.git
