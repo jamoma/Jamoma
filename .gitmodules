@@ -1,6 +1,3 @@
-[submodule "Modules/Modular"]
-	path = Modules/Modular
-	url = git://github.com/jamoma/JamomaModular.git
 [submodule "Modules/Test"]
 	path = Modules/Test
 	url = git://github.com/jamoma/JamomaTest.git
