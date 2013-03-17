@@ -1,12 +1,3 @@
-[submodule "Modules/Test"]
-	path = Modules/Test
-	url = git://github.com/jamoma/JamomaTest.git
-[submodule "Modules/Dependencies"]
-	path = Modules/Dependencies
-	url = git://github.com/jamoma/JamomaDependencies.git	
-[submodule "Modules/Documentation"]
-	path = Modules/Documentation
-	url = git://github.com/jamoma/JamomaDoc.git
 [submodule "Core"]
 	path = Core
 	url = git://github.com/jamoma/JamomaCore.git
@@ -28,3 +19,12 @@
 [submodule "Implementations/iOS"]
 	path = Implementations/iOS
 	url = git://github.com/jamoma/JamomaiOS.git
+[submodule "Implementations/MaxTest"]
+	path = Implementations/MaxTest
+	url = git://github.com/jamoma/JamomaTest.git
+[submodule "Implementations/MaxDependencies"]
+	path = Implementations/MaxDependencies
+	url = git://github.com/jamoma/JamomaDependencies.git
+[submodule "Documentation"]
+	path = Documentation
+	url = git://github.com/jamoma/JamomaDoc.git
