@@ -1,7 +1,7 @@
 <doxygenlayout version="1.0">
   <navindex>
-    <tab type="usergroup" url="[none]" title="Home">
-		<tab type="user" url="@ref home" title="Introduction"/>
+	<tab type="user" url="@ref index" title="Home"/>
+    <tab type="usergroup" url="[none]" title="Tutorials">
 		<tab type="user" url="@ref chapter_datatypes" title="Data types"/>
 		<tab type="user" url="@ref chapter_usingobjects" title="Using objects"/>
 		<tab type="user" url="@ref chapter_writingobjects" title="Writing objects"/>
@@ -12,9 +12,9 @@
 		<tab type="user" url="@ref appendix_tags" title="Common tags"/>
 		<tab type="user" url="@ref appendix_styleguide" title="Coding Style Guide"/>
 	</tab>
-	<tab type="usergroup" url="@ref framework" title="Frameworks">
-		<tab type="user" url="@ref audioGraph" title="Audio Graph"/>
+	<tab type="usergroup" url="@ref framework" title="Core">
 		<tab type="user" url="@ref foundation" title="Foundation"/>
+		<tab type="user" url="@ref audioGraph" title="Audio Graph"/>
 	</tab>
   </navindex>
 </doxygenlayout>
