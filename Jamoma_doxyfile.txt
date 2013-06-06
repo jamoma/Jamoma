@@ -712,13 +712,13 @@ EXCLUDE                = ../../Core/DSP/extensions/SoundfileLib/libsndfile \
                          ../../Core/Foundation/library/Mersenne-1.1/* \
                          ../../Core/Graph/extensions/MidiLib/portmidi \
                          ../../Core/Graph/extensions/MidiLib/portmidi/* \
-                         ../../Core/DSP/implementations/AudioUnits/AUSDK \
-                         ../../Core/DSP/implementations/PureData/m_pd.h \
-                         ../../Core/DSP/extensions/SoundfileLib/libsndfile \
                          ../../Core/Modular/implementations/ \
                          ../../Core/Modular/implementations/* \
+						 ../../Implementations/AudioUnits/AUSDK/ \
 						 ../../Implementations/AudioUnits/AUSDK/* \
+						 ../../Implementations/Max/source/c74support/ \
 						 ../../Implementations/Max/source/c74support/* \
+						 ../../Implementations/Max/Jamoma/ \
 						 ../../Implementations/Max/Jamoma/* \
 						 ../../Implementations/PureData/m_pd.h 
 
