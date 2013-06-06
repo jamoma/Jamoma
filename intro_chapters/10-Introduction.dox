@@ -1,5 +1,5 @@
 /**
-	@mainpage 01. A non-exhaustive introduction to the Jamoma platform
+	@mainpage Introduction to the Jamoma Platform
 	
 	@author Timothy Place, Trond Lossius, Nils Peters, Nathan Wolek
 
@@ -34,15 +34,14 @@
 	Chapters:
 	- @ref chapter_datatypes
 	- @ref chapter_usingobjects
-	- @ref chapter_writingobjects
 	- @ref chapter_extendingobjects
 	- @ref chapter_unittesting
-	- @ref chapter_objectwrappers
 
 	Appendices:
 	- @ref appendix_acknowledgements
 	- @ref appendix_tags
 	- @ref appendix_styleguide
+	- @ref appendix_futuretopics
 
 
 */
