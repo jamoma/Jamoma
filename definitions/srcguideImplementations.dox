@@ -1,0 +1,45 @@
+//-----------------------------------------------------
+// Implementation Group Definitions for Doxygen
+//-----------------------------------------------------
+
+/**
+ * @defgroup implementationAudioUnits AudioUnits Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/
+
+/**
+ * @defgroup implementationiOS iOS Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/
+
+/**
+ * @defgroup implementationMax Max Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/
+
+/**
+ * @defgroup implementationPureData PureData Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/
+
+/**
+ * @defgroup implementationRuby Ruby Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/
+
+/**
+ * @defgroup implementationVST VST Implementation
+ * @ingroup implementations
+ * 
+ * Need some text here...
+*/

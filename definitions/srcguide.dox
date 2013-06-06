@@ -8,41 +8,55 @@
 */
 
 /**
- * @defgroup framework Jamoma Frameworks
+ * @defgroup core Jamoma Core
  * 
- * The various frameworks that constitutes the Jamoma project.
+ * The various frameworks that constitute the Jamoma Core.
+*/
+
+/**
+ * @defgroup implementations Implementations
+ * 
+ * Implementations for specific platforms and host environments.
 */
 
 
 /* 
- Groups for structuring constants and declarations: 
+ Groups for structuring common programming declarations: 
+*/
+
+/** @defgroup declarations Common Declarations
+ *
+ * Common C++ programming declarations used throughout %Jamoma.
 */
 
 /** @defgroup consts Constants
+ * @ingroup declarations
  *
  * Various constants used in %Jamoma.
- */
+*/
 
 
 /** @defgroup enums Enumerations
- * @ingroup consts
+ * @ingroup declarations
  *
  * Various enumerations used in %Jamoma.
  */
 
 
 /** @defgroup bitmasks Bit Masks
- * @ingroup consts
+ * @ingroup declarations
  *
  * Various enumerations used as bitmasks in %Jamoma.
  */
 
 /** @defgroup typedefs Typedefs
+ * @ingroup declarations
  *
  * Various typedefs used in %Jamoma.
  */
 
 /** @defgroup macros Macros
+ * @ingroup declarations
  *
  * Various macros used in %Jamoma.
  */

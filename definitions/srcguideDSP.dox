@@ -4,7 +4,7 @@
 
 /**
  * @defgroup dsp Jamoma DSP
- * @ingroup framework
+ * @ingroup core
  * 
  * Jamoma DSP specializes the Foundation classes to provide a framework for 
  * creating a library of unit generators.
@@ -131,41 +131,4 @@
  * @ingroup dspExtensions
  * 
  * Window functions to be used for spectral and granular processing, etc.
-*/
-
-// DSP Implementations
-
-/**
- * @defgroup dspImplementations Jamoma DSP Implementations
- * @ingroup dsp
- * 
- * Implementation of DSP in various hosting environments
-*/
-
-/**
- * @defgroup dspAudioUnitImplementation AudioUnit implementation of Jamoma DSP
- * @ingroup dspImplementations
- * 
- * DSP implementation as AudioUnit plugins
-*/
-
-/**
- * @defgroup dspMax Max implementation of Jamoma DSP
- * @ingroup dspImplementations
- * 
- * DSP implementation for the Max environment
-*/
-
-/**
- * @defgroup dspPd PureData implementation of Jamoma DSP
- * @ingroup dspImplementations
- * 
- * DSP implementation for the PureData environment
-*/
-
-/**
- * @defgroup dspVst VST implementation of Jamoma DSP
- * @ingroup dspImplementations
- * 
- * DSP implementation as VST plugins
 */

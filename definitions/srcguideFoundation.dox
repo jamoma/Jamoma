@@ -4,7 +4,7 @@
 
 /**
  * @defgroup foundation Jamoma Foundation
- * @ingroup framework
+ * @ingroup core
  * 
  * Jamoma Foundation provides low-level support, base classes, and 
  * communication systems.
@@ -55,27 +55,4 @@
 	 * @ingroup foundationExtensions
 	 * 
 	 * Network communication using OSC (OpenSoundControl) over the UDP and TCP protocols
-*/
-
-// Implementations
-
-/**
- * @defgroup foundationImplementations Jamoma Foundation Implementations
- * @ingroup foundation
- * 
- * Implementation of Foundation in various hosting environments
-*/
-
-/**
- * @defgroup foundationMax Max implementation of Jamoma Foundation
- * @ingroup foundationImplementations
- * 
- * Foundation implementation for the Max environment
-*/
-
-/**
- * @defgroup foundationPd Pd implementation of Jamoma Foundation
- * @ingroup foundationImplementations
- * 
- * Foundation implementation for the Pure Data (Pd) environment
 */

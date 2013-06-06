@@ -4,7 +4,7 @@
 
 /**
  * @defgroup graph Jamoma Graph
- * @ingroup framework
+ * @ingroup core
  * 
  * Networking Jamoma Foundation based objects into graph structures, 
  * providing a basic asynchronous processing model for objects (nodes) in the 
@@ -41,21 +41,4 @@
  * @ingroup graphExtensions
  * 
  * MIDI messages expressed and processed as dictionaries.
-*/
-
-
-// Graph Implementations
-
-/**
- * @defgroup graphImplementations Jamoma Graph Implementations
- * @ingroup graph
- * 
- * Implementation of Graph in various hosting environments
-*/
-
-/**
- * @defgroup graphMax Max implementation of Jamoma Graph
- * @ingroup graphImplementations
- * 
- * Graph implementation for the Max environment
 */

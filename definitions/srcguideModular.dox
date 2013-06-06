@@ -4,7 +4,7 @@
 
 /**
  * @defgroup modular Jamoma Modular
- * @ingroup framework
+ * @ingroup core
  * 
  * Jamoma Modular provides a structured approach to development and control 
  * of modules in the graphical media environment Max.
@@ -54,20 +54,4 @@
  * @ingroup modularExtensions
  * 
  * An extension impmlementing a scheduler based on the clock of the operation system
-*/
-
-// Modular Implementations
-
-/**
- * @defgroup modularImplementations Jamoma Modular Implementations
- * @ingroup modular
- * 
- * Implementation of Modular in various hosting environments
-*/
-
-/**
- * @defgroup modularMax Max implementation of Jamoma Modular
- * @ingroup modularImplementations
- * 
- * Modular implementation for the Max environment.
 */

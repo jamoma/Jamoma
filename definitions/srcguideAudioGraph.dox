@@ -4,7 +4,7 @@
 
 /**
  * @defgroup audioGraph Jamoma AudioGraph
- * @ingroup framework
+ * @ingroup core
  * 
  * Jamoma AudioGraph extends and specializes the Jamoma Graph layer. It 
  * provides ability to create and network Jamoma DSP objects into dynamic 
@@ -34,27 +34,4 @@
  * @ingroup audioGraphExtensions
  * 
  * Utilities for splitting and joining multichannel signals, etc.
-*/
-
-// AudioGraph Implementations
-
-/**
- * @defgroup audioGraphImplementations Jamoma AudioGraph Implementations
- * @ingroup audioGraph
- * 
- * Implementation of AudioGraph in various hosting environments
-*/
-
-/**
- * @defgroup audioGraphMax Max implementation of Jamoma AudioGraph
- * @ingroup audioGraphImplementations
- * 
- * AudioGraph implementation for the Max environment
-*/
-
-/**
- * @defgroup audioGraphPd Pd implementation of Jamoma AudioGraph
- * @ingroup audioGraphImplementations
- * 
- * AudioGraph implementation for the Pure Data (Pd) environment
 */
