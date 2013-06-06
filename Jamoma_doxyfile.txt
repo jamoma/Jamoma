@@ -716,7 +716,11 @@ EXCLUDE                = ../../Core/DSP/extensions/SoundfileLib/libsndfile \
                          ../../Core/DSP/implementations/PureData/m_pd.h \
                          ../../Core/DSP/extensions/SoundfileLib/libsndfile \
                          ../../Core/Modular/implementations/ \
-                         ../../Core/Modular/implementations/*
+                         ../../Core/Modular/implementations/* \
+						 ../../Implementations/AudioUnits/AUSDK/* \
+						 ../../Implementations/Max/source/c74support/* \
+						 ../../Implementations/Max/Jamoma/* \
+						 ../../Implementations/PureData/m_pd.h 
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 
