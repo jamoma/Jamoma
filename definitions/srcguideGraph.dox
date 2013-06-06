@@ -30,7 +30,7 @@
 */
 
 /**
- * @defgroup graphDictionayLib Jamoma Graph DictionayLib
+ * @defgroup graphDictionaryLib Jamoma Graph DictionaryLib
  * @ingroup graphExtensions
  * 
  * Provides Jamoma Graph with dictionary capabilities.

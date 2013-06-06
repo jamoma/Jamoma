@@ -53,5 +53,5 @@
  * @defgroup modularSystem Jamoma Modular System
  * @ingroup modularExtensions
  * 
- * An extension impmlementing a scheduler based on the clock of the operation system
+ * An extension implementing a scheduler based on the clock of the operation system
 */
