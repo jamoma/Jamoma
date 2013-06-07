@@ -33,5 +33,12 @@
  * @defgroup audioGraphUtilityLib Jamoma AudioGraph UtilityLib
  * @ingroup audioGraphExtensions
  * 
- * Utilities for splitting and joining multichannel signals, etc.
+ * Splitting, joining and related operations for multichannel signals
+*/
+
+/**
+ * @defgroup audioGraphPlugtastic Jamoma AudioGraph Plugtastic
+ * @ingroup audioGraphExtensions
+ * 
+ * Exporting audio plug-ins from AudioGraphs
 */
