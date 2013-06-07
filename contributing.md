@@ -30,6 +30,7 @@ Before anything else, start a named branch.
 If you're making a hotfix to the current stable version ( branch master ) you should branch from master:
 
 `````
+git checkout master
 git checkout -b fix/what-is-broken
 [...comits...]
 [pull request]
