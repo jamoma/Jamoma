@@ -1,3 +1,5 @@
+![Jamoma](http://b.vimeocdn.com/ch/249/249710_980.png "Jamoma")
+
 This project is the master project for the Jamoma platform.
 
 It is intended to contain sub-projects representing the various modules of the Jamoma platform.
@@ -10,32 +12,24 @@ It is intended to contain sub-projects representing the various modules of the J
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
 
-The Jamoma UserLib, which contains various github projects by Jamoma users, is now hosted at https://github.com/jamoma/JamomaUserLibraries
+The Jamoma UserLib, which contains various github projects by Jamoma users, is now hosted at [Jamoma User Libraries](https://github.com/jamoma/JamomaUserLibraries)
 
-These tools assume you have Git (http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
+These tools assume you have [Git](http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and [Ruby](http://ruby.about.com/od/tutorials/a/installruby.htm) installed.
 
 --------------------------------------------------
-UPDATE MODULES
+###UPDATE MODULES
 --------------------------------------------------
-All sources needed to build Jamoma can be updated to last version following these steps:
+All sources needed to build Jamoma can be updated from Terminal ( cygwin on windows ) window:
+ - ```cd Jamoma/Tools```
+ - ```ruby update.rb```
 
-1) From Terminal or the cygwin window, go to "Tools" folder in the main Jamoma directory by running the following command :
-
-'cd Jamoma/Tools'
-
-2) Run the Ruby update.rb script using the following command:
-
-'ruby update.rb'
-
-3) Wait until it is done
-
-4) When the update process is finished, you have the latest version Jamoma repository
 --------------------------------------------------
 
 
 --------------------------------------------------
 BUILDING THE SOURCE CODE
 --------------------------------------------------
+
 Jamoma framework can be easily compiled using a single Ruby script. To do so, please follow these steps:
 
 1) From Terminal or the cygwin window, go to "Tools" folder in the main Jamoma directory by running the following command :
