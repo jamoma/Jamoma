@@ -7,77 +7,75 @@
 
 	@subsection chapter_usingobjects_lifecycle_createdestroy Creating and Destroying
 
-	To create an instance of a Jamoma object, use TTObjectInstantiate().  
-	This will look up the class in Jamoma’s registry of objects and return a pointer to the new instance. 
+	To create an instance of a Jamoma object, create a TTObject.  
+	Internally this will look up the class in Jamoma’s registry of objects and create an instance. 
  
 	An example below creates a stereo instance of an allpass filter, and two stereo audio signals.
 	They are stereo because the argument given when instantiating these types of objects define the initial number of audio channels as two.
 	You can safely ignore the fact that one of the variables is a TTAudioObjectPtr instead of a TTObjectPtr.  
-	TTAudioObject is simply a specialized version of TTObject.
+	TTAudioObject is simply a specialized version of TTObject for processing audio signals.
+	TTAudio is also a specialized version of TTObject to represent the audio signals.
 
 	@code{.cpp}
-		TTAudioObjectPtr  myObject      = NULL;
-		TTObjectPtr       myAudioInput  = NULL;
-		TTObjectPtr       myAudioOutput = NULL;
-
-		TTObjectInstantiate("allpass", &myObject, 2);
-		TTObjectInstantiate("audiosignal", &myAudioInput, 2);
-		TTObjectInstantiate("audiosignal", &myAudioOutput, 2);
+		TTAudioObject	myObject("allpass", 2);
+		TTAudio       	myAudioInput(2);
+		TTAudio       	myAudioOutput(2);
 	@endcode
 
-	When you are all done using the objects, you need to release them.  
-	You can do this with the TTObjectRelease() function.  
-	For example:
+	When you are all done using the objects, you need to release them.
+	If you have allocated the objects on the stack, as we did in the example above, this is taken care of for you.
 
-	@code{.cpp}
-		TTObjectRelease(&myObject);
-		TTObjectRelease(&myAudioInput);
-		TTObjectRelease(&myAudioOutput);
-	@endcode
 
 	@subsection chapter_usingobjects_lifecycle_referencecounts Retaining and Reference Counts
 
-	TTObject’s are reference counted.  This means that you can create references to existing objects, and the object will not be freed until all references have been released.  This is demonstrated in the following example:
+	TTObject’s are reference counted.  
+	This means that you can create references to existing objects, and the object will not be freed until all references have been released. 
+	This is demonstrated in the following example:
 
 	@code{.cpp}
-		TTObjectPtr myObject = NULL;
-		TTObjectPtr aReferenceToMyObject = NULL;
+		TTObject* myObject              = new TTObject(“noise”, 2);
+		TTObject* aReferenceToMyObject  = new TTObject;
+		
+		// reference count for internal instance inside myObject is now 1
+		
+		aReferenceToMyObject = myObject;
 
-		TTObjectInstantiate(“noise”, &myObject, 2);
-		// reference count is now 1
-		aReferenceToMyObject = TTObjectReference(myObject);
-		// reference count is now 2
+		// reference count for internal instance inside myObject is now 2
 
-		TTObjectRelease(&myObject);
-		// The object is not actually deleted, but the reference count is now 1
-		TTObjectRelease(&aReferenceToMyObject);
-		// Now, because the reference count fell to zero, the object is deleted.
+		delete myObject;
+
+		// The myObject wrapper is deleted, but the internal object is not actually deleted
+		// reference count for internal instance inside myObject is now 1
+
+		delete aReferenceToMyObject;
+		// Now, because the reference count fell to zero, the internal object is deleted
 	@endcode
 
 	@section chapter_usingobjects_queryenvironment Querying the Environment
 
-	As alluded to in section 3.1, Jamoma Foundation maintains a registry of available classes that may be instantiated.  Some of these classes are implemented internally in the Jamoma libraries, and some are implemented externally as Jamoma Extensions.  The registry does not differentiate between these, but simply provides a list of everything that is loaded in the system.
+	As alluded to in section 3.1, Jamoma Foundation maintains a registry of available classes that may be instantiated by name.
+	Some of these classes are implemented internally in the Jamoma libraries, and some are implemented externally as Jamoma Extensions.
+	The registry does not differentiate between these, but simply provides a list of everything that is loaded in the system.
 
 	@subsection chapter_usingobjects_queryenvironment_getallclassnames Getting All Class Names
 
-	To obtain a list of all class in the Foundation's registry, you call the TTGetRegisteredClassNames() function as in the following example:
+	To obtain a list of all class in the Foundation's registry, you call the TTObject::GetRegisteredClassNames() function as in the following example:
 
 	@code{.cpp}
 		TTErr err;
 		TTValue classNames;
 
-		err = TTGetRegisteredClassNames(classNames);
-		if(!err){
+		err = TTObject::GetRegisteredClassNames(classNames);
+		if (!err) {
 			// The classNames value now contains an array of TTSymbols, 
-			// one for each class in the TTBlue registry.
+			// one for each class in the Jamoma registry.
 			// For example, we can print them all to console:
 
-			TTUInt16 numClassNames = classNames.getSize();
+			TTUInt16 numClassNames = classNames.size();
 
-			for(TTUInt16 i=0; i<numClassNames; i++){
-				TTSymbol aClassName;
+			for (TTUInt16 i=0; i<numClassNames; i++) {
+				TTSymbol aClassName = classNames[i];
 
-				classNames.get(i, aClassName);
 				TTLogMessage("class name: %s", aClassName.c_str());
 			}
 		}
@@ -85,9 +83,12 @@
 
 	@subsection chapter_usingobjects_queryenvironment_searchbasedontags Searching For Classes Based on Tags
 
-	In addition to retrieving all class names, it is also useful to be able to retrieve a limited number of class names based on criteria that you specify.  For example, you may wish to only list classes that generate their own audio.  Or perhaps only those class which implement some sort of lowpass filter.
+	In addition to retrieving all class names, it is also useful to be able to retrieve a limited number of class names based on criteria that you specify.  
+	For example, you may wish to only list classes that generate their own audio.  
+	Or perhaps only those class which implement some sort of lowpass filter.
 
-	In this case we call TTGetRegisteredClassNamesForTags(), and process the results in the same manner as we did for TTGetRegisteredClassNames().  This is demonstrated in the example below:
+	In this case we call TTObject::GetRegisteredClassNamesForTags(), and process the results in the same manner as we did for TTObject::GetRegisteredClassNames().  
+	This is demonstrated in the example below:
 
 	@code{.cpp}
 		TTErr err;
@@ -95,28 +96,28 @@
 		TTValue searchTags;
 
 		searchTags.clear();
-		searchTags.append(TTSymbol("audio"));
-		searchTags.append(TTSymbol("filter"));
-		searchTags.append(TTSymbol("lowpass"));
+		searchTags.append(TT("audio"));
+		searchTags.append(TT("filter"));
+		searchTags.append(TT("lowpass"));
 
 		err = TTGetRegisteredClassNamesForTags(classNames, searchTags);
-		if(!err){
+		if (!err) {
 			// The classNames value now contains an array of TTSymbols, 
-			// one for each class in the TTBlue registry.
+			// one for each class in the Jamoma registry.
 			// For example, we can print them all to console:
 
 			TTUInt16 numClassNames = classNames.getSize();
 
-			for(TTUInt16 i=0; i<numClassNames; i++){
-				TTSymbol aClassName;
+			for (TTUInt16 i=0; i<numClassNames; i++) {
+				TTSymbol aClassName = classNames[i];
 
-				classNames.get(i, aClassName);
 				TTLogMessage("class name: %s", aClassName.c_str());
 			}
 		}
 	@endcode
 
-	For a list of common tags and what they mean in Jamoma see Appendix B.  To get a list of all tags in use at any time, call TTGetRegisteredTags().
+	For a list of common tags and what they mean in Jamoma see Appendix B.  
+	To get a list of all tags in use at any time, call TTObject::GetRegisteredTags().
 
 	@subsubsection chapter_usingobjects_queryenvironment_searchbasedontags_example Tag Searching and Instantiation in Action
 
@@ -130,7 +131,7 @@
 		TTErr             err;
 		TTValue           classNames;
 		TTValue           searchTags;
-		TTAudioObjectPtr  butterworthFilter = NULL;
+		TTAudioObject	  butterworthFilter;
 	
 		searchTags.clear();
 		searchTags.append(TTSymbol("audio"));
@@ -138,10 +139,10 @@
 		searchTags.append(TTSymbol("lowpass"));
 		searchTags.append(TTSymbol("butterworth"));
 	
-		err = TTGetRegisteredClassNamesForTags(classNames, searchTags);
-		if(!err){
-			// by passing classNames, the TTObjectInstantiate() function will take the first name in the list.
-			err = TTObjectInstantiate(classNames, &butterworthFilter, 1);
+		err = TTObject::GetRegisteredClassNamesForTags(classNames, searchTags);
+		if (!err) {
+			// for this example, we can just instantiate the first one in the list
+			butterworthFilter = TTAudioObject(classNames[0]);
 		}
 		// now do something with the filter.
 	@endcode
@@ -153,37 +154,40 @@
 	A message defines an action to be performed. 
 
 	Given the Butterworth filter example in @ref chapter_usingobjects_queryenvironment_searchbasedontags_example, we can now send the filter the 'clear' message to zero its sample history
-	@note The Butterworth filter is an IIR filter, meaning that it stores the results of previous calculations to perform future calculations.  This feedback can sometimes get out of control, and thus the necessity for a 'clear' message.
+	@note The Butterworth filter is an IIR filter, meaning that it stores the results of previous calculations to perform future calculations.  
+	This feedback can sometimes get out of control, and thus the necessity for a 'clear' message.
 
 	@code{.cpp}
-		butterworthFilter->sendMessage("clear");
+		butterworthFilter.send("clear");
 	@endcode
 
 	Some messages, like the 'clear' message for the Butterworth filter, require no additional information to perform the requested action.
 	Other messages, however, do require additional information.  
-	This information can be provided using an optional argument to the sendMessage method.  Here are some samples:
+	This information can be provided using an optional arguments to the send() method.  Here are some samples:
 
 	@code{.cpp}
-		someObject->sendMessage("foo", 3.14);
-		someObject->sendMessage("draw", "circle");
+		TTValue returnValue;
+		TTValue dummy;
+
+		someObject.send("foo", 3.14, returnValue);
+		someObject.send("draw", "circle", returnValue);
 
 		// create a TTValue that holds a list and pass the TTValue
 		TTValue v(1.0, 2.0));
-		someObject->sendMessage("w", v);
+		someObject.send("w", v, returnValue);
 	
-		// when you send a message, it can return a value as well.
-		TTValue whatIsInThere;
+		// when you send a message, it can return a value in the third argument.
 		TTErr   err;
 	
-		err = someObject->sendMessage("getContents", whatIsInThere);
-		if(!err){
+		err = someObject->sendMessage("getContents", dummy, returnValue);
+		if (!err) {
 			// Assuming that someObject understands the message, 
-			// this results in whatIsInThere being set to contain something meaningful.	
+			// this results in returnValue being set to contain something meaningful.	
 		}
-		else if(err == kTTErrMethodNotFound){
+		else if (err == kTTErrMethodNotFound) {
 			// The object didn't understand this message'
 		}
-		else{
+		else {
 			// There was some other problem.
 			// Probably the object you sent the message to knows this message and is returning 
 			// an error specific to the action you requested.
@@ -201,7 +205,8 @@
 
 	@section chapter_usingobjects_processingaudios Processing Audio
 
-	Not all objects can process audio, however, objects that have the tag ‘audio’ associated with them are able process audio.  These objects derive from #TTAudioObject, a subclass of #TTObject which implements the “process” method.
+	Not all objects can process audio, however, objects that have the tag ‘audio’ associated with them are able process audio.  
+	These objects derive from #TTAudioObjectBase, a subclass of #TTObjectBase which implements the “process” method.
 
 */
 

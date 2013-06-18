@@ -4,7 +4,7 @@
 	@author Timothy Place, Trond Lossius, Nils Peters, Nathan Wolek
 
 	The Jamoma Platform is composed of a layered framework architecture that creates an object model 
-	and then specializes that object model for advanced purposes such as audio and graphics.
+	and then specializes that object model for advanced purposes such as audio and matrix processing.
 
 	@image html jamoma-frameworks.png
 	@image latex jamoma-frameworks.eps
@@ -13,7 +13,7 @@
 	- DSP : A C++ framework for audio processing objects. Jamoma DSP is further documented in \cite Place2010:DSP .
 	- Graph : A coding layer for the creation of dynamic asynchronous graph topographies.
 	- Audio Graph : A coding layer for the creation of dynamic audio graph topographies. AudioGraph is further documented in \cite Place2010:AudioGraph .
-	- Modular : A modular framework for patching in Max.
+	- Modular : A framework for assembling high-level interactive modular systems.
 
 	Jamoma makes use of polymorphic typing, dynamic binding, and introspection to create a cross-platform API 
 	pulling ideas from languages such as Smalltalk and Objective-C while remaining within the bounds of the 

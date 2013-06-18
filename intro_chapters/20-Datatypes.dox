@@ -15,10 +15,10 @@
 
 	@code
 	| 			| Unsigned Integer	| Signed Integer	| Floating-Point	|
-	| 8-bit		| #TTUInt8			| TTInt8			|       			|
-	| 16-bit	| #TTUInt16			| TTInt16			|        			|
-	| 32-bit	| #TTUInt32			| TTInt32			| TTFloat32	 		|
-	| 64-bit	| #TTUInt64			| TTInt64			| TTFloat64	 		|
+	| 8-bit		| #TTUInt8			| #TTInt8			|       			|
+	| 16-bit	| #TTUInt16			| #TTInt16			|        			|
+	| 32-bit	| #TTUInt32			| #TTInt32			| #TTFloat32	 	|
+	| 64-bit	| #TTUInt64			| #TTInt64			| #TTFloat64	 	|
 	@endcode
 
 	@subsection chapter_datatypes_primitive_bools Booleans
@@ -27,12 +27,36 @@
 
 	@subsection chapter_datatypes_primitive_strings Strings and Symbols
 
-	Strings can be represented in several different ways in Jamoma. Of course, arrays of the standard char type is a well understood way to work with text in C. The #TTString type, at the time of this writing, is a typedef of the C++ std::string, and thus follows the conventions of the string provided by the C++ standard library.
+	Strings can be represented in several different ways in Jamoma. 
+	Of course, arrays of the standard char type is a well understood way to work with text in C. 
+	The #TTString type is similar to the C++ std::string and follows most of the conventions of the string provided by the C++ standard library.
+	Unlike std::string, however, the characters of a #TTString are guaranteed to be contiguous in memory and not subject to problems of ambiguous byte alignment.
 
-	In addition to #TTString, there is also a #TTSymbol type. A symbol is simply a wrapper around a string that is cached in a fast lookup table. While comparing #TTString values is relatively slow, comparing #TTSymbol values is extremely fast.
+	In addition to #TTString, there is also a #TTSymbol type. 
+	A symbol is simply a wrapper around a string that is cached in a fast lookup table. 
+	While comparing #TTString values is relatively slow, comparing #TTSymbol values is extremely fast.
 
-	@code
+	@code{.cpp}
 		TTSymbol bearSymbol("bear");
+	@endcode
+
+	The use of symbols is so ubiquitous in Jamoma that we have defined a macro, #TT, to create a symbol from a C-string.
+
+	@code{.cpp}
+		TTSymbol bearSymbol;
+		// ...
+	 	bearSymbol = TT("bear");
+	@endcode
+
+	In fact, often the use of the #TT macro is not even needed, as C-strings and TTStrings both can be promoted to symbols implicitly in many cases.
+
+	@code{.cpp}
+		TTSymbol bearSymbol;
+		// ...
+	 	bearSymbol = "bear";
+
+		if (bearSymbol == "frog")
+			; // you have issues.
 	@endcode
 
 
@@ -40,8 +64,11 @@
 
 	@subsection chapter_datatypes_composite_value TTValue
 
-	While is important to have defined the basic data types for numbers, strings, and booleans, this is not the way that values are typically passed in TTBlue. Instead, values are passed as TTValues. 
-	#TTValue is a generic type that can hold any of the number, string, boolean, or a few other types that we use in TTBlue. In fact, it can even hold an array of values made up of these various types. The following example shows several assignments using TTValues.
+	While is important to have defined the basic data types for numbers, strings, and booleans, this is not the way that values are typically passed in Jamoma. 
+	Instead, values are passed using a special container type called #TTValue. 
+	#TTValue is a generic type that can hold any of the number, string, boolean, or a few other types that we use in Jamoma. 
+	In fact, it can even hold a mixed array of values made up of these various types. 
+	The following example shows several assignments using TTValue.
 
 	@code{.cpp}
 		// Assigning numbers and symbols to TTValues
@@ -50,6 +77,16 @@
 
 		// Assigning TTValues to numbers
 		TTUInt16 i = v;
+
+		// Assigning an array to a TTValue
+		TTValue a;
+		TTPtr aPointer = new int[10];
+
+		a.resize(4); // now has 4 elements
+		a[0] = 1;
+		a[1] = 22.0 / 7.0;
+		a[2] = TT("cow");
+		a[3] = aPointer;
 	@endcode
 
 
