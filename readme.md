@@ -44,7 +44,6 @@ All sources needed to build Jamoma can be updated to last version following thes
 3) Wait until it is done
 
 4) When the update process is finished, you have the latest version Jamoma repository
---------------------------------------------------
 
 
 --------------------------------------------------
