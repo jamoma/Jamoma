@@ -65,7 +65,7 @@ Alternatively, if you want a developer release rather than a nice, clean release
 
 3) Assuming no error, you now have Jamoma framework compiled, installed and running. Welcome to the Jamoma development!
    In case of errors, please take a look at http://redmine.jamoma.org/projects/jamoma/wiki/Pitfalls_for_Developers
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -88,7 +88,7 @@ Again, if you want a developer release rather than a nice, clean release version
 3) Wait until it is done
 
 4) When the update process is finished, you have the latest version Jamoma repository
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -106,7 +106,7 @@ The installer.rb Ruby script situated in the "Tools" folder collects all of the 
 'ruby installer.rb'
 
 4) You should find the Jamoma installer in the "Jamoma/Installers" folder.
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -118,7 +118,7 @@ The version we are using is included in the Tools/rosc folder.  To install it:
 2. sudo ruby setup.rb
 
 Now you are ready to run automated tests, as described below.
---------------------------------------------------
+
 
 
 
@@ -133,7 +133,7 @@ The test components need to be in that location, because they need to be in Max'
 
 The tests themselves are located in the 'Tests' folder at the top level of the branch, and all subfolders.
 The script also looks in every folder of the Modules folder so that module tests can be kept together with the module.
---------------------------------------------------
+
 
 
 --------------------------------------------------
