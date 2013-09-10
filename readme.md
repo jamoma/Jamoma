@@ -3,16 +3,30 @@ This project is the master project for the Jamoma platform.
 It is intended to contain sub-projects representing the various modules of the Jamoma platform.
 
 - Core
-- Dependencies
 - Documentation
-- Implementations
-- Test
+- Implementations (for several environments, such as iOS, MaxMSP, Ruby, etc...)
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
 
 The Jamoma UserLib, which contains various github projects by Jamoma users, is now hosted at https://github.com/jamoma/JamomaUserLibraries
 
 These tools assume you have Git (http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
+
+--------------------------------------------------
+SETUP THE REPOSITORIES
+--------------------------------------------------
+You'll first have to clone this repository, then follow this sequence of commands:
+cd  Jamoma
+git submodule update --init
+git checkout dev
+git pull
+git submodule update
+
+This will bring you into "no branch" of the submodules, so you'll need to check them out to the desired branches, e.g.:
+cd Core
+git checkout dev
+cd ../Implementations/Max
+git checkout dev
 
 --------------------------------------------------
 UPDATE MODULES
