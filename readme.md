@@ -5,7 +5,7 @@ It is intended to contain sub-projects representing the various modules of the J
 - Core
 - Dependencies
 - Documentation
-- Modular
+- Implementations
 - Test
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
