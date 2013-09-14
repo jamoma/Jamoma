@@ -17,15 +17,23 @@ SETUP THE REPOSITORIES
 --------------------------------------------------
 You'll first have to clone this repository, then follow this sequence of commands:
 cd  Jamoma
+
 git submodule update --init
+
 git checkout dev
+
 git pull
+
 git submodule update
 
 This will bring you into "no branch" of the submodules, so you'll need to check them out to the desired branches, e.g.:
+
 cd Core
+
 git checkout dev
+
 cd ../Implementations/Max
+
 git checkout dev
 
 --------------------------------------------------
