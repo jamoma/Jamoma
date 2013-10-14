@@ -97,13 +97,11 @@ end
 # Having initially set all options we need to make some further Windows-specific precautions:
 
 if win?
- 	 if(configuration == "Development" || configuration == "Debug" )
+ 	if(configuration == "Development" || configuration == "Debug" )
     		configuration = "Debug"
-  	else
-		  if(configuration == "Deployment" || configuration == "Release" )
+  	elsif(configuration == "Deployment" || configuration == "Release" )
 		    configuration = "Release"
-	    end
- 	 end
+ 	end
 end
 
 ###################################################################
