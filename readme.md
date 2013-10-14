@@ -3,16 +3,38 @@ This project is the master project for the Jamoma platform.
 It is intended to contain sub-projects representing the various modules of the Jamoma platform.
 
 - Core
-- Dependencies
 - Documentation
-- Modular
-- Test
+- Implementations (for several environments, such as iOS, MaxMSP, Ruby, etc...)
 
 The Tools folder contains scripts which perform various essential tasks for the development of Jamoma.
 
 The Jamoma UserLib, which contains various github projects by Jamoma users, is now hosted at https://github.com/jamoma/JamomaUserLibraries
 
 These tools assume you have Git (http://redmine.jamoma.org/projects/jamoma/wiki/Installing_and_setting_up_GIT) and Ruby (http://ruby.about.com/od/tutorials/a/installruby.htm) already installed and running on your computer.
+
+--------------------------------------------------
+SETUP THE REPOSITORIES
+--------------------------------------------------
+You'll first have to clone this repository, then follow this sequence of commands:
+cd  Jamoma
+
+git submodule update --init
+
+git checkout dev
+
+git pull
+
+git submodule update
+
+This will bring you into "no branch" of the submodules, so you'll need to check them out to the desired branches, e.g.:
+
+cd Core
+
+git checkout dev
+
+cd ../Implementations/Max
+
+git checkout dev
 
 --------------------------------------------------
 UPDATE MODULES
@@ -30,7 +52,6 @@ All sources needed to build Jamoma can be updated to last version following thes
 3) Wait until it is done
 
 4) When the update process is finished, you have the latest version Jamoma repository
---------------------------------------------------
 
 
 --------------------------------------------------
@@ -52,7 +73,7 @@ Alternatively, if you want a developer release rather than a nice, clean release
 
 3) Assuming no error, you now have Jamoma framework compiled, installed and running. Welcome to the Jamoma development!
    In case of errors, please take a look at http://redmine.jamoma.org/projects/jamoma/wiki/Pitfalls_for_Developers
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -75,7 +96,7 @@ Again, if you want a developer release rather than a nice, clean release version
 3) Wait until it is done
 
 4) When the update process is finished, you have the latest version Jamoma repository
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -93,7 +114,7 @@ The installer.rb Ruby script situated in the "Tools" folder collects all of the 
 'ruby installer.rb'
 
 4) You should find the Jamoma installer in the "Jamoma/Installers" folder.
---------------------------------------------------
+
 
 
 --------------------------------------------------
@@ -105,7 +126,7 @@ The version we are using is included in the Tools/rosc folder.  To install it:
 2. sudo ruby setup.rb
 
 Now you are ready to run automated tests, as described below.
---------------------------------------------------
+
 
 
 
@@ -120,7 +141,7 @@ The test components need to be in that location, because they need to be in Max'
 
 The tests themselves are located in the 'Tests' folder at the top level of the branch, and all subfolders.
 The script also looks in every folder of the Modules folder so that module tests can be kept together with the module.
---------------------------------------------------
+
 
 
 --------------------------------------------------
