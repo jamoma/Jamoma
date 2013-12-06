@@ -17,13 +17,6 @@
 */
 
 /**
- * @defgroup implementationMax Max Implementation
- * @ingroup implementations
- * 
- * TODO Doxygen: Need some text here...
-*/
-
-/**
  * @defgroup implementationPureData PureData Implementation
  * @ingroup implementations
  * 

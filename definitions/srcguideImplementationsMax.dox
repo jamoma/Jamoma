@@ -1,0 +1,47 @@
+//-----------------------------------------------------
+// Implementation Group Definitions for Doxygen
+//-----------------------------------------------------
+
+/**
+ * @defgroup implementationMax Max Implementation
+ * @ingroup implementations
+ * 
+ * Implementation of Jamoma for Cycling '74 Max.
+*/
+
+/**
+ * @defgroup implementationMaxLibrary Max Implementation Library
+ * @ingroup implementationMax
+ * 
+ * Shared library of functionalities used by various externals in the Max implementation of Jamoma.
+*/
+
+/**
+ * @defgroup implementationMaxExternals Max Implementation Externals
+ * @ingroup implementationMax
+ * 
+ * Max externals that form part of the Jamoma implementation for Max
+*/
+
+/**
+ * @defgroup implementationMaxExternalsDSP Max Implementation DSP Externals
+ * @ingroup implementationMax
+ * 
+ * Jamoma DSP classes implemented as Max externals
+*/
+
+/**
+ * @defgroup implementationMaxExternalsAudioGraph Max Implementation AudioGraph Externals
+ * @ingroup implementationMax
+ * 
+ * Jamoma DSP classes implemented as AudioGraph Max externals
+*/
+
+
+/**
+ * @defgroup implementationMaxModels C++ implementations of models in Max
+ * @ingroup implementationMax
+ * 
+ * Makes Jamoma DSP classes available in Jamoma models in Max, implemented as C++ externals
+*/
+
