@@ -17,31 +17,31 @@
 */
 
 /**
- * @defgroup implementationMaxExternals Max Implementation Externals
+ * @defgroup implementationMaxExternals Max Externals
  * @ingroup implementationMax
  * 
  * Max externals that form part of the Jamoma implementation for Max
 */
 
 /**
- * @defgroup implementationMaxExternalsDSP Max Implementation DSP Externals
+ * @defgroup implementationMaxExternalsDSP DSP Externals
  * @ingroup implementationMax
  * 
- * Jamoma DSP classes implemented as Max externals
+ * Jamoma DSP classes implemented as MSP externals
 */
 
 /**
- * @defgroup implementationMaxExternalsAudioGraph Max Implementation AudioGraph Externals
+ * @defgroup implementationMaxExternalsAudioGraph AudioGraph Externals
  * @ingroup implementationMax
  * 
- * Jamoma DSP classes implemented as AudioGraph Max externals
+ * Jamoma DSP classes implemented as AudioGraph multichannel audio processing externals
 */
 
 
 /**
- * @defgroup implementationMaxModels C++ implementations of models in Max
+ * @defgroup implementationMaxModels Models
  * @ingroup implementationMax
  * 
- * Makes Jamoma DSP classes available in Jamoma models in Max, implemented as C++ externals
+ * Jamoma DSP classes wrapped as Jamoma models in the form of C++ externals
 */
 
