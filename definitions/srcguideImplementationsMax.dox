@@ -31,10 +31,17 @@
 */
 
 /**
+ * @defgroup implementationMaxExternalsGraph Graph externals
+ * @ingroup implementationMax
+ * 
+ * Jamoma Graph classes implemented as Max externals
+*/
+
+/**
  * @defgroup implementationMaxExternalsAudioGraph AudioGraph Externals
  * @ingroup implementationMax
  * 
- * Jamoma DSP classes implemented as AudioGraph multichannel audio processing externals
+ * Jamoma DSP and AudioGraph classes implemented as AudioGraph multichannel audio processing externals
 */
 
 
