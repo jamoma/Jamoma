@@ -44,6 +44,12 @@
  * Jamoma DSP and AudioGraph classes implemented as AudioGraph multichannel audio processing externals
 */
 
+/**
+ * @defgroup implementationMaxExternalsJitter Jitter Externals
+ * @ingroup implementationMax
+ * 
+ * Jitter matrix processing
+*/
 
 /**
  * @defgroup implementationMaxModels Models
