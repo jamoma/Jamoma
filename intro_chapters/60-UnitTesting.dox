@@ -1,21 +1,14 @@
 /** 
  	@page chapter_unittesting Unit Testing
 
-	@author Jamoma, Timothy Place
+	@author Jamoma, Timothy Place & Nathan Wolek
 
-	@section chapter_unittesting_runningtests Running Tests in Ruby
+	@section chapter_unittesting_ruby Running Tests in Ruby
 
 	To run a unit test, the easiest way to do it is in ruby.  
-	In the DSP/Tests folder, there is a simple example (<tt>gain.test.rb</tt>) which looks like this:
+	In the [Jamoma/Core/DSP/Tests](https://github.com/jamoma/JamomaCore/tree/master/DSP/Tests/unit) folder, there is a simple example (<tt>gain.test.rb</tt>) which looks like this:
 
-	@code{.rb}
-	#!/usr/bin/ruby
-
-	require 'Jamoma'
-
-	o = TTObject.new "gain"
-	o.send "test"
-	@endcode
+	@include ../../Core/DSP/Tests/unit/gain.test.rb
 
 	The <tt>require</tt> statement loads the Jamoma Foundation.  
 	The following line instantiates the #TTGain class.  
