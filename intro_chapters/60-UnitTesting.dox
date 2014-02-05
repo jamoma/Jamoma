@@ -4,6 +4,13 @@
 	@author Jamoma, Timothy Place & Nathan Wolek
 
 	@section chapter_unittesting_ide Running Tests in IDE
+	
+	Jamoma's Build & Test system delivers a unit testing solution that allows you to "Test Early. Test Often. Test Automatically" [(Hunt & Thomas 1999)](http://pragprog.com/the-pragmatic-programmer). Whenever tests exist within a given library, the corresponding makefiles have been configured to run these tests during each build attempt. Therefore, if any part of a test fails, the build attempt will stop and report an error. In Xcode 5, an error looks something like this:
+	
+	@image html TTBufferXcodeAssertionFail.png
+	@image latex TTBufferXcodeAssertionFail.png
+
+	The biggest benefit for this system is the ability to receive immediate feedback when something breaks. If a test exists and your changes to the code cause that test to fail, you get feedback from the IDE as soon as you try to build. This makes it much easier to code via [test driven development](http://en.wikipedia.org/wiki/Test-driven_development) or [red-green-refactor](http://www.jamesshore.com/Blog/Red-Green-Refactor.html) approach. 
 
 	@section chapter_unittesting_ruby Running Tests in Ruby
 
@@ -32,5 +39,18 @@
 	If any of these conditions are not true, then they are logged to the console and test will fail.
 
 	@snippet ../../Core/DSP/extensions/EffectsLib/tests/TTGain.test.cpp doxygenChapter60_testExample
+	
+	@section chapter_unittesting_faq Further Considerations
+	
+	The following section is an attempt to anticipate developer questions about unit testing and provide brief answers. If your question is not answered below, please do not hesitate to contact the authors.
+	
+	* **If an assertion fails, what happens to the build attempt?** Be aware that a project will not build if it contains a test assertion that fails. You should either solve the problem so that it passes OR comment out the assertion and log an issue in [our GitHub repository](https://github.com/jamoma/JamomaCore/issues?state=open).
+
+	* **I am noticing an odd behavior in a specific class. How can I test it?** If no test currently exists, create a new test that demonstrates the problem and fails each time you build. You can then set out to work on a fix and know immediately when you have a solution, because the project will build upon success. 
+
+	* **I am adding a class to a project. How can I make sure it will leverage the Build & Test system?** The most important requirement is that you design tests at the *same time* you design your class. You must then make sure that your class includes the designated tag for that project, which can be easily found in the `test.cpp` file of the relevant directory. 
+
+	* **I am creating a new library or extension. How can I make sure it will leverage the Build & Test system?** This is more involved than simply adding a class, but the most important requirement is to establish a unique tag for the library and a customized `test.cpp` file. Consult one of the authors above for further advice on how to go about creating a new library that uses Build & Test.
+
 
 */
