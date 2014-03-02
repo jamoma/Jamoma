@@ -653,18 +653,18 @@ WARN_LOGFILE           =
 
 INPUT                  = intro_chapters \
                          definitions \
-                         ../../Core/Foundation \
-                         ../../Core/DSP \
-                         ../../Core/AudioGraph \
-                         ../../Core/Graphics \
-                         ../../Core/Graph \
-                         ../../Core/Modular \
-                         ../../Implementations/AudioUnits \
-                         ../../Implementations/iOS \
-                         ../../Implementations/Max \
-                         ../../Implementations/PureData \
-                         ../../Implementations/Ruby \
-                         ../../Implementations/VST
+                         ../Core/Foundation \
+                         ../Core/DSP \
+                         ../Core/AudioGraph \
+                         ../Core/Graphics \
+                         ../Core/Graph \
+                         ../Core/Modular \
+                         ../Implementations/AudioUnits \
+                         ../Implementations/iOS \
+                         ../Implementations/Max \
+                         ../Implementations/PureData \
+                         ../Implementations/Ruby \
+                         ../Implementations/VST
 
 # This tag can be used to specify the character encoding of the source files 
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is 
@@ -698,29 +698,29 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is 
 # run.
 
-EXCLUDE                = ../../Core/DSP/extensions/SoundfileLib/libsndfile \
-                         ../../Core/DSP/extensions/SoundfileLib/libsndfile/* \
-                         ../../Core/DSP/library/portaudio \
-                         ../../Core/DSP/library/portaudio/* \
-                         ../../Core/Foundation/library/boost \
-                         ../../Core/Foundation/library/boost/* \
-                         ../../Core/Foundation/library/libiconv \
-                         ../../Core/Foundation/library/libiconv/* \
-                         ../../Core/Foundation/library/libxml2 \
-                         ../../Core/Foundation/library/libxml2/* \
-                         ../../Core/Foundation/library/Mersenne-1.1 \
-                         ../../Core/Foundation/library/Mersenne-1.1/* \
-                         ../../Core/Graph/extensions/MidiLib/portmidi \
-                         ../../Core/Graph/extensions/MidiLib/portmidi/* \
-                         ../../Core/Modular/implementations/ \
-                         ../../Core/Modular/implementations/* \
-                         ../../Implementations/AudioUnits/AUSDK/ \
-                         ../../Implementations/AudioUnits/AUSDK/* \
-                         ../../Implementations/Max/source/c74support/ \
-                         ../../Implementations/Max/source/c74support/* \
-                         ../../Implementations/Max/Jamoma/ \
-                         ../../Implementations/Max/Jamoma/* \
-                         ../../Implementations/PureData/m_pd.h
+EXCLUDE                = ../Core/DSP/extensions/SoundfileLib/libsndfile \
+                         ../Core/DSP/extensions/SoundfileLib/libsndfile/* \
+                         ../Core/DSP/library/portaudio \
+                         ../Core/DSP/library/portaudio/* \
+                         ../Core/Foundation/library/boost \
+                         ../Core/Foundation/library/boost/* \
+                         ../Core/Foundation/library/libiconv \
+                         ../Core/Foundation/library/libiconv/* \
+                         ../Core/Foundation/library/libxml2 \
+                         ../Core/Foundation/library/libxml2/* \
+                         ../Core/Foundation/library/Mersenne-1.1 \
+                         ../Core/Foundation/library/Mersenne-1.1/* \
+                         ../Core/Graph/extensions/MidiLib/portmidi \
+                         ../Core/Graph/extensions/MidiLib/portmidi/* \
+                         ../Core/Modular/implementations/ \
+                         ../Core/Modular/implementations/* \
+                         ../Implementations/AudioUnits/AUSDK/ \
+                         ../Implementations/AudioUnits/AUSDK/* \
+                         ../Implementations/Max/source/c74support/ \
+                         ../Implementations/Max/source/c74support/* \
+                         ../Implementations/Max/Jamoma/ \
+                         ../Implementations/Max/Jamoma/* \
+                         ../Implementations/PureData/m_pd.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 
@@ -752,7 +752,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see 
 # the \include command).
 
-EXAMPLE_PATH           = ../../Core
+EXAMPLE_PATH           = ../Core
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the 
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp 
