@@ -6,6 +6,7 @@
 # If using RVM the .rvmrc configuration file should be ignored
 .rvmrc
 
+Publications
 Installers
 InstallerUserlib
 Builds/MaxMSP/*.mxo
