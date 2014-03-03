@@ -33,14 +33,14 @@ If you're making a hotfix to the current stable version ( branch master ) you sh
 
     git checkout master
     git checkout -b fix/what-is-broken
-    [...comits...]
+    [...commits...]
     [pull request]
 
-If you're working on a new feture you should branch from dev:
+If you're working on a new feature you should branch from dev:
 
     git checkout dev
     git checkout -b feature/new-feature-name
-    [...comits...]
+    [...commits...]
     [pull request]
 
 Always isolate your implementations into separated branches, it'll make it easy
@@ -51,14 +51,11 @@ discuss the proposal or adopted solution, easy, easy, easy, and so on.
 <a name="committing"/>
 ## Committing
 
-Try to not repeat yourself, *never* explain **what** you did -- it's easy to see
-with a simple DIFF and hence redundant.
+Try to not repeat yourself, *never* explain **what** you did -- it's easy to see with a simple DIFF and hence redundant.
 
-Instead, explains **WHY** you did it -- put into words the reasons that led you
-to implement something, expose the scenario, the studied cases, be solid.
+Instead, explains **WHY** you did it -- put into words the reasons that led you to implement something, expose the scenario, the studied cases, be solid.
 
-The more other people can understand your *reasons*, the more they can get
-together with your idea.
+The more other people can understand your *reasons*, the more they can get together with your idea.
 
 
 <a name="pull-requests"/>
