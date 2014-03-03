@@ -103,3 +103,4 @@ For more information on Doxygen, visit:
 #Contributing
 
 If you want to contribute to the development of Jamoma, the recommended workflow is described [here](contributing.md).
+
