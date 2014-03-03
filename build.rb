@@ -9,8 +9,6 @@
 ###################################################################
 
 # First include the functions in the jamoma lib
-glibdir = "../"
-Dir.chdir glibdir						 # change to libdir so that requires work
 glibdir = Dir.pwd
 
 $main_repository = true
