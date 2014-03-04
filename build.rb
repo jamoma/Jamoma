@@ -195,21 +195,6 @@ implementations.each {|implementation|
 	end
 }
 
-# Install Ruby Support
-if win?
-	puts
-	puts "At the moment we don't build TTRuby for Windows"
-	puts "If someone is interested in doing that, please feel free!"
-	puts
-else
-	puts
-	puts "Installing Jamoma Ruby support -- this may require your password"
-	puts "If you just press enter without entering your password, then the updated Jamoma Ruby support will not be installed for your use."
-	Dir.chdir "#{glibdir}/Implementations/Ruby"
-	load "install.rb"
-end
-
-
 if (runTests)
 	puts
 	puts "Running Unit Tests for all subprojects"
