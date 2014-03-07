@@ -26,6 +26,7 @@ clean = false
 # compiler = false
 postLog = false
 runTests = false
+sitePush = false
 
 # If no arguments are provided we post a help message
 
@@ -46,7 +47,7 @@ ARGV.each do |arg|
 		puts "- <test> causes Ruby unit tests to be run at the end of the build process"
 		puts "	The default is that unit tests are not run at the end of the build process"
 		puts
-		puts "- <SitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
+		puts "- <sitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
 		puts "	into a tar.gz and push to JamomaWebsite downloads page"
 		puts
 #		puts "- Additionally on Mac you can enforce the use of a certain compiler"
@@ -67,8 +68,8 @@ ARGV.each do |arg|
 		configuration = "Deployment"
 	end
 
-	if(arg=="SitePush" )
-		SitePush = true
+	if(arg=="sitePush" )
+		sitePush = true
 	end
 
 	# Do a clean build?
@@ -183,6 +184,11 @@ puts ""
 # Build Jamoma
 ###################################################################
 
+
+is_running = `ps aux | grep build.rb | grep -v grep | awk '{print $2}'`
+if is_running
+kill $()
+
 quietly do
 #	ARGV = [configuration, clean, compiler, git_tag, git_rev]
 #	ARGV = [configuration, clean, compiler]
@@ -232,7 +238,7 @@ end
 
 
 
-if( SitePush )
+if( sitePush )
 
 	# grabs version from latest annotated tag
 	git_desc = `git describe --tags --abbrev=0`.split('-')
