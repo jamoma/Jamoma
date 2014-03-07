@@ -63,7 +63,11 @@ ARGV.each do |arg|
 	if(arg=="Deployment" || arg=="Release" )
 		configuration = "Deployment"
 	end
-		
+
+	if(arg=="SitePush" )
+		SitePush = true
+	end
+
 	# Do a clean build?
 	if(arg == "clean")
 		clean = true
@@ -221,6 +225,61 @@ if (postLog)
 	puts `cat logs-*/error*`
 else
 	puts "Not posting error logs"
+end
+
+
+
+if( SitePush )
+
+	# grabs version from latest annotated tag
+	git_desc = `git describe --tags --abbrev=0`.split('-')
+	git_tag = git_desc[0]
+
+	version = git_tag.split(/\//)[1]
+
+	# increment the version
+	pump = version.match(/(.*)(.[0-9])/)
+	pump = pump.to_a
+	pump[2] = pump[2].to_i + 1
+
+	pumped_version = "#{pump[1]}#{pump[2]}"
+
+	# folder where the tar.gz will be added
+	website_path = "JamomaWebSite/content/download/0.6/"
+
+	puts
+	puts "==================== ONLINE RELEASE ===================="
+	puts
+	puts "	Incrementing version and tagging as Max/#{pumped_version}"
+
+	puts "Compressing release and pushing to the website"
+	Dir.chdir "#{glibdir}/Implementations/Max/"
+	`tar -zcvf '#{pumped_version}.tar.gz' Jamoma`
+
+	# Check out Jamomaeb repo if it does not already exist
+	Dir.chdir "#{glibdir}"
+	unless File.directory?("JamomaWebSite")
+		puts `git clone git@github.com:jamoma/JamomaWebSite.git`
+	end
+
+	Dir.chdir "#{glibdir}/JamomaWebSite"
+	puts `git pull origin master`
+	
+	Dir.chdir "#{glibdir}/#{website_path}"
+	puts `mkdir #{pumped_version}`
+
+	# add file to git and push to origin
+	Dir.chdir "#{glibdir}"
+	puts `mv #{glibdir}/Implementations/Max/#{pumped_version}.tar.gz #{website_path}/#{pumped_version}/`
+
+	Dir.chdir "#{glibdir}/#{website_path}"
+	puts `git add . `
+	puts `git commit -m 'commiting latest build to the website'`
+	puts `git push origin master`
+
+	Dir.chdir "#{glibdir}"
+	puts `git tag -a Max/#{pumped_version} -m 'Automaticaly building and tagging current version as Max/#{pumped_version}'`
+
 end
 
 puts
