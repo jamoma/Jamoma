@@ -184,6 +184,13 @@ puts ""
 # Build Jamoma
 ###################################################################
 
+if File.exists?( 'lock.pid')
+	`kill $(cat lock.pid);rm -rf lock.pid`
+	puts 'just killed my sister project'
+end
+
+File.open('lock.pid', 'w') { |f| f.write(Process.pid);f.close }
+
 quietly do
 #	ARGV = [configuration, clean, compiler, git_tag, git_rev]
 #	ARGV = [configuration, clean, compiler]
@@ -285,5 +292,7 @@ if( sitePush )
 	puts `git tag -a Max/#{pumped_version} -m 'Automaticaly building and tagging current version as Max/#{pumped_version}'`
 
 end
+
+`rm -rf lock.pid`
 
 puts
