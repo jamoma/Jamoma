@@ -46,6 +46,9 @@ ARGV.each do |arg|
 		puts "- <test> causes Ruby unit tests to be run at the end of the build process"
 		puts "	The default is that unit tests are not run at the end of the build process"
 		puts
+		puts "- <SitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
+		puts "	into a tar.gz and push to JamomaWebsite downloads page"
+		puts
 #		puts "- Additionally on Mac you can enforce the use of a certain compiler"
 #		puts "	Possible options are <icc>, <gcc47> or <clang>"
 #		puts "	By default the build script will look for available compilers with the following priority:"
