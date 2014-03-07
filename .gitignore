@@ -49,3 +49,6 @@ tt-max.xcconfig
 Modules/Publications
 Modules/TapTools
 Modules/Area51
+
+# used when pushing new version to website
+JamomaWebsite
