@@ -135,6 +135,8 @@ end
 # Get Revision Info
 ###################################################################
 
+# fetch the current tags
+puts `git fetch --tags`
 git_desc = `git describe --tags --abbrev=5 --long`.split('-')
 git_tag = git_desc[0]
 git_dirty_commits = git_desc[git_desc.size()-2]
