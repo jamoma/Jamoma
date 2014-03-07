@@ -184,11 +184,6 @@ puts ""
 # Build Jamoma
 ###################################################################
 
-
-is_running = `ps aux | grep build.rb | grep -v grep | awk '{print $2}'`
-if is_running
-kill $()
-
 quietly do
 #	ARGV = [configuration, clean, compiler, git_tag, git_rev]
 #	ARGV = [configuration, clean, compiler]
