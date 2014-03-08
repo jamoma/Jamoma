@@ -50,5 +50,8 @@ Modules/Publications
 Modules/TapTools
 Modules/Area51
 
+# file which holds pid of a running build script
+lock.pid
+
 # used when pushing new version to website
 JamomaWebsite
