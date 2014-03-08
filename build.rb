@@ -207,6 +207,9 @@ load "build.rb"
 # Build everything in the 'Implementations' folder
 implementations.each {|implementation| 
 	if implementation[0] != '.' && File.exists?("#{glibdir}/Implementations/#{implementation}/build.rb")
+		next if implementation == "Ruby"
+
+
 		Dir.chdir "#{glibdir}/Implementations/#{implementation}"
 		load "build.rb"
 	end
