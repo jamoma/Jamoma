@@ -170,6 +170,7 @@ puts "	clean         = #{clean}"
 # puts "	compiler			= #{compiler}"
 puts "	postLog       = #{postLog}"
 puts "	runTests      = #{runTests}"
+puts "	sitePush      = #{sitePush}"
 puts
 if git_dirty_commits != '0'
 	puts "	!!! WARNING !!!"
@@ -185,6 +186,7 @@ puts ""
 ###################################################################
 
 # TODO: gracefully kill a process: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
+# this should also make this process cross platform
 if File.exists?( 'lock.pid')
 	`kill $(cat lock.pid);rm -rf lock.pid`
 	puts 'just killed my sister project'
@@ -295,8 +297,14 @@ if( sitePush )
 	Dir.chdir "#{glibdir}"
 	puts `git tag -a Max/#{pumped_version} -m 'Automaticaly building and tagging current version as Max/#{pumped_version}'`
 
+	version = "Max/#{pumped_version}"
 end
 
+
 `rm -rf lock.pid`
+
+
+
+`say "Jamoma #{version} was just built!"` unless win?
 
 puts
