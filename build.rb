@@ -47,7 +47,7 @@ ARGV.each do |arg|
 		puts "- <test> causes Ruby unit tests to be run at the end of the build process"
 		puts "	The default is that unit tests are not run at the end of the build process"
 		puts
-		puts "- <sitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
+		puts "- <SitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
 		puts "	into a tar.gz and push to JamomaWebsite downloads page"
 		puts
 #		puts "- Additionally on Mac you can enforce the use of a certain compiler"
@@ -64,37 +64,37 @@ end
 ARGV.each do |arg|
 	
 	# Build Debug or Release?
-	if(arg=="Deployment" || arg=="Release" )
-		configuration = "Deployment"
+	if( arg.downcase == "deployment" || arg.downcase == "release" )
+		configuration = "deployment"
 	end
 
-	if(arg=="sitePush" )
+	if( arg.downcase == "sitepush" )
 		sitePush = true
 	end
 
 	# Do a clean build?
-	if(arg == "clean")
+	if( arg == "clean" )
 		clean = true
 	end
 	
 	# On the Mac you can force the use of a certain compiler
 	#if mac?
-	#	if(arg=="icc")
+	#	if(arg.downcase == "icc")
 	#		compiler = "icc"
-	#	elsif (arg=="gcc47")
+	#	elsif (arg.downcase == "gcc47")
 	#		compiler = "gcc47"
-	#	elsif (arg=="clang")
+	#	elsif (arg.downcase == "clang")
 	#		compiler = "clang"
 	#	end
 	#end
 	
 	# Do we want to post the log to Terminal?
-	if (arg=="log")
+	if ( arg.downcase == "log" )
 		postLog = true
 	end
 	
 	# Do we want to run the tests at the ewnd of the building process?
-	if (arg=="test")
+	if ( arg.downcase == "test" )
 		runTests = true
 	end
 	
@@ -184,6 +184,7 @@ puts ""
 # Build Jamoma
 ###################################################################
 
+# TODO: gracefully kill a process: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
 if File.exists?( 'lock.pid')
 	`kill $(cat lock.pid);rm -rf lock.pid`
 	puts 'just killed my sister project'
