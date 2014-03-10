@@ -1,0 +1,12 @@
+/** 
+ 	@page appendix_futuretopics Appendix: Future Topics
+
+	@author Jamoma, Nathan Wolek
+
+	The following is a list of topics we plan to cover as this API expands. Please note, there is no timeline attached to the completion of these writing projects. To offer suggestions of topics you would like to see covered, please contact the <a href="https://lists.sourceforge.net/lists/listinfo/jamoma-devel">developer mailing list</a>.
+	
+	- Writing Objects
+	- Object Wrappers
+	- Code Choreography in Jamoma Modular
+
+*/
