@@ -185,13 +185,18 @@ puts ""
 # Build Jamoma
 ###################################################################
 
-# TODO: gracefully kill a process: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
-# this should also make this process cross platform
+
+# If another build is hapenning, kill it.
 if File.exists?( 'lock.pid')
+	puts 'Another build process was found, killing it.'
 	`kill $(cat lock.pid);rm -rf lock.pid`
-	puts 'just killed my sister project'
+# TODO: gracefully kill a process using pure Ruby, will make it cross-platform
+# ref: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
+
 end
 
+# Saves current .pid into a file, so we can guarantee there will be only 
+# one build happening at the same time on the same folder.
 File.open('lock.pid', 'w') { |f| f.write(Process.pid);f.close }
 
 quietly do
@@ -259,7 +264,7 @@ if( sitePush )
 	pump = pump.to_a
 	pump[2] = pump[2].to_i + 1
 
-	pumped_version = "#{pump[1]}#{pump[2]}"
+	version = "#{pump[1]}#{pump[2]}"
 
 	# folder where the tar.gz will be added
 	website_path = "JamomaWebSite/content/download/0.6/"
@@ -267,11 +272,11 @@ if( sitePush )
 	puts
 	puts "==================== ONLINE RELEASE ===================="
 	puts
-	puts "	Incrementing version and tagging as Max/#{pumped_version}"
+	puts "	Incrementing version and tagging as Max/#{version}"
 
 	puts "Compressing release and pushing to the website"
 	Dir.chdir "#{glibdir}/Implementations/Max/"
-	`tar -zcvf '#{pumped_version}.tar.gz' Jamoma`
+	`tar -zcvf '#{version}.tar.gz' Jamoma`
 
 	# Check out Jamomaeb repo if it does not already exist
 	Dir.chdir "#{glibdir}"
@@ -283,11 +288,11 @@ if( sitePush )
 	puts `git pull origin master`
 	
 	Dir.chdir "#{glibdir}/#{website_path}"
-	puts `mkdir #{pumped_version}`
+	puts `mkdir #{version}`
 
 	# add file to git and push to origin
 	Dir.chdir "#{glibdir}"
-	puts `mv #{glibdir}/Implementations/Max/#{pumped_version}.tar.gz #{website_path}/#{pumped_version}/`
+	puts `mv #{glibdir}/Implementations/Max/#{version}.tar.gz #{website_path}/#{version}/`
 
 	Dir.chdir "#{glibdir}/#{website_path}"
 	puts `git add . `
@@ -295,16 +300,18 @@ if( sitePush )
 	puts `git push origin master`
 
 	Dir.chdir "#{glibdir}"
-	puts `git tag -a Max/#{pumped_version} -m 'Automaticaly building and tagging current version as Max/#{pumped_version}'`
+	puts `git tag -a Max/#{version} -m 'Automaticaly building and tagging current version as Max/#{version}'`
 
-	version = "Max/#{pumped_version}"
+	puts `git push origin Max/#{version}`
+
+	
 end
 
 
 `rm -rf lock.pid`
 
 
-
-`say "Jamoma #{version} was just built!"` unless win?
+unless win?
+	`say "Jamoma #{version} was just built!"` 
 
 puts
