@@ -313,5 +313,6 @@ end
 
 unless win?
 	`say "Jamoma #{version} was just built!"` 
+end
 
 puts
