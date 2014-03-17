@@ -191,10 +191,16 @@ puts ""
 
 # If another build is hapenning, kill it.
 if File.exists?( 'lock.pid')
-	puts 'Another build process was found, killing it.'
-	`kill $(cat lock.pid);rm -rf lock.pid`
-# TODO: gracefully kill a process using pure Ruby, will make it cross-platform
-# ref: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
+
+	puts ' ! Another build process was found, killing it.'
+	puts ''
+
+	begin
+		Process.kill('INT', File.read("lock.pid").to_i )
+	rescue Errno::ESRCH
+	end
+
+	File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
 
 end
 
@@ -292,8 +298,8 @@ if( sitePush )
 	
 end
 
-
-`rm -rf lock.pid`
+Dir.chdir "#{glibdir}"
+File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
 
 
 unless win?
