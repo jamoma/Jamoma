@@ -252,6 +252,7 @@ end
 
 if( sitePush )
 
+	Dir.chdir "#{glibdir}"
 	# grabs version from latest annotated tag
 	git_desc = `git describe --tags --abbrev=0`.split('-')
 	git_tag = git_desc[0]
