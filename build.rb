@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby -wKU
-# encoding: utf-8 -wKU
+#!/usr/bin/env ruby -wU
+# encoding: utf-8 -wU
 
 ###################################################################
 # Build Jamoma
