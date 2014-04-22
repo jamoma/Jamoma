@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby -wKU
-# encoding: utf-8 -wKU
+#!/usr/bin/env ruby -wU
+# encoding: utf-8 -wU
 
 ###################################################################
 # Build Jamoma
@@ -25,7 +25,7 @@ configuration = "Development"
 clean = false
 # compiler = false
 postLog = false
-runTests = false
+runTests = "test"
 sitePush = false
 
 # If no arguments are provided we post a help message
@@ -44,11 +44,13 @@ ARGV.each do |arg|
 		puts "- <log> causes build logs to be posted to Terminal"
 		puts "	The default is that build logs are not posted to Terminal"
 		puts 
-		puts "- <test> causes Ruby unit tests to be run at the end of the build process"
-		puts "	The default is that unit tests are not run at the end of the build process"
+		puts "- <notest> skips Max integration tests"
+		puts "	The default is to do integration tests at the end of the build process"
+    puts "  At the time being integration testing is only performed at the Mac OSX platform"
 		puts
 		puts "- <SitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
 		puts "	into a tar.gz and push to JamomaWebsite downloads page"
+    puts "  For the time being integration tests are skipped during SitePush"
 		puts
 #		puts "- Additionally on Mac you can enforce the use of a certain compiler"
 #		puts "	Possible options are <icc>, <gcc47> or <clang>"
@@ -70,6 +72,7 @@ ARGV.each do |arg|
 
 	if( arg.downcase == "sitepush" )
 		sitePush = true
+    runTests = "notest"
 	end
 
 	# Do a clean build?
@@ -94,8 +97,8 @@ ARGV.each do |arg|
 	end
 	
 	# Do we want to run the tests at the ewnd of the building process?
-	if ( arg.downcase == "test" )
-		runTests = true
+	if ( arg.downcase == "notest" )
+		runTests = "notest"
 	end
 	
 end
@@ -169,7 +172,7 @@ puts "	configuration = #{configuration}"
 puts "	clean         = #{clean}"
 # puts "	compiler			= #{compiler}"
 puts "	postLog       = #{postLog}"
-puts "	runTests      = #{runTests}"
+puts "	runTests      = #{(runTests != "notest")}"
 puts "	sitePush      = #{sitePush}"
 puts
 if git_dirty_commits != '0'
@@ -188,20 +191,25 @@ puts ""
 
 # If another build is hapenning, kill it.
 if File.exists?( 'lock.pid')
-	puts 'Another build process was found, killing it.'
-	`kill $(cat lock.pid);rm -rf lock.pid`
-# TODO: gracefully kill a process using pure Ruby, will make it cross-platform
-# ref: http://autonomousmachine.com/posts/2011/6/2/cleaning-up-processes-in-ruby
+
+	puts ' ! Another build process was found, killing it.'
+	puts ''
+
+	begin
+		Process.kill('INT', File.read("lock.pid").to_i )
+	rescue Errno::ESRCH
+	end
+
+	File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
+
 end
 
-# Saves current .pid into a lock file, so we can guarantee there will be only 
+# Saves current .pid into a file, so we can guarantee there will be only 
 # one build happening at the same time on the same folder.
 File.open('lock.pid', 'w') { |f| f.write(Process.pid);f.close }
 
 quietly do
-#	ARGV = [configuration, clean, compiler, git_tag, git_rev]
-#	ARGV = [configuration, clean, compiler]
-	ARGV = [configuration, clean]
+	ARGV = [configuration, clean, runTests]
 end
 
 # Get a list of implementations that need to be built
@@ -216,26 +224,10 @@ implementations.each {|implementation|
 	if implementation[0] != '.' && File.exists?("#{glibdir}/Implementations/#{implementation}/build.rb")
 		next if implementation == "Ruby"
 
-
 		Dir.chdir "#{glibdir}/Implementations/#{implementation}"
 		load "build.rb"
 	end
 }
-
-if (runTests)
-	puts
-	puts "Running Unit Tests for all subprojects"
-	puts
-	submodules = Dir.entries("#{glibdir}/Core")
-	submodules.each {|submodule| 
-		if submodule[0] != '.' && File.exists?("#{glibdir}/Core/#{submodule}/test.rb") && File.directory?("#{glibdir}/Core/#{submodule}/Tests/unit")
-			Dir.chdir "#{glibdir}/Core/#{submodule}"
-			load "test.rb"
-		end
-	}
-else
-	puts "Not running unit tests"
-end
 
 if (postLog)
 	puts
@@ -274,8 +266,9 @@ if( sitePush )
 	puts
 	puts "	Incrementing version and tagging as Max/#{version}"
 
-	Dir.chdir "#{glibdir}"
-	puts `git tag -a Max/#{version} -m 'Automaticaly building and tagging current version as Max/#{version}'`
+	puts "Compressing release and pushing to the website"
+	Dir.chdir "#{glibdir}/Implementations/Max/"
+	`tar -zcvf '#{version}.tar.gz' Jamoma`
 
 	puts `git push origin Max/#{version}`
 	
@@ -300,18 +293,23 @@ if( sitePush )
 	
 	# add file to git and push to origin
 	Dir.chdir "#{glibdir}"
-	puts `mv Implementations/Max/#{version}.tar.gz #{website_path}/#{version}/`
+	puts `mv #{glibdir}/Implementations/Max/#{version}.tar.gz #{website_path}/#{version}/`
 
 	Dir.chdir "#{glibdir}/#{website_path}"
 	puts `git add . `
 	puts `git commit -m 'commiting latest build to the website'`
 	puts `git push origin master`
 
+	Dir.chdir "#{glibdir}"
+	puts `git tag -a Max/#{version} -m 'Automaticaly building and tagging current version as Max/#{version}'`
+
+	puts `git push origin Max/#{version}`
+
 	
 end
 
-# remove the lock file, which contains the current process id
-`rm -rf lock.pid`
+Dir.chdir "#{glibdir}"
+File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
 
 
 unless win?
