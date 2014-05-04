@@ -66,5 +66,118 @@
 	-# prefer initializers to assigning values
 	-# initializers should be indented one tab
 
+  @section appendix_doxygen Doxygen documentation
+
+  @subsection appendix_doxygen_files Header and source code files
+
+  At the top of header files seven key tags are necessary for consistent Doxygen documentation across Jamoma.
+  The header files for TTSampleMatrix.h and TTBuffer.h can serves as examples for how to do this.
+  
+
+  - \@file - identifies the file as a module that Doxygen should process
+  - \@ingroup - contains a tag representing the library or extension
+  - \@brief - single sentence typically starting by the module name
+  - \@details - longer description that may be several sentences
+  - \@seealso - a list of related modules that you wish to link to
+  - \@authors - persons who have made significant conrtibutions to the module
+  - \@copyright - a failure consistent BSD licences description
+  
+  This information is also to be copied across to the .cpp source file.
+
+  @subsection appendix_doxygen_classes Classes
+
+  In the header file documentation of classes is typically expected to contain the following information.
+
+  - \@brief - single sentence typically starting by the module name
+  - \@details - longer description that may be several sentences (where relevant)
+  - \@seealso - a list of related modules that you wish to link to (where relevant)
+
+
+  @subsection appendix_doxygen_variables Variables
+
+  Each variables is provided with a brief description of its purpose, as in this example:
+
+	@code{.cpp}
+	TTUInt8			mBitdepth;			///< Currently supported bitdepths are 32 and 64. This is set by the setVector() method.
+	@endcode
+
+  @subsection appendix_doxygen_methods Methods
+
+  - \@brief - single sentence typically starting by the module name
+  - \@details - longer description that may be several sentences
+  - \@param - each argument to the method is documented
+  - \@return - Documents the value returned by the method
+  - \@seealso - a list of related modules that you wish to link to
+
+  Example:
+
+  @code{.cpp}
+  /** Assigns a vector of sample values to a channel in this signal.
+
+  	 @details The vector member of this class simply holds a pointer, not a copy of the data.  This makes
+      the operation of this method (and others) fast, but also means that care should be taken to ensure
+  	  that the data being pointed to by this signal is valid, and does not become invalid during the
+  	  lifetime of the signal. @n
+  	  It is the responsibility of the user of this method to ensure that the sample-rate and vector-size
+  	  are also set correctly.
+  	 @param		channel			The channel number (zero-based) to assign the vector to.
+  	 @param		vectorSize		The number of samples in the vector.
+  	 @param		newVector		A pointer to the first sample in a vector of samples.
+  	 @result		An error code.																 
+  	 */
+  	TTErr setVector(const TTUInt16 channel, const TTUInt16 vectorSize, const TTSampleValuePtr newVector);
+  @endcode
+  
+  @subsection appendix_doxygen_common Common declarations
+  
+  @subsubsection appendix_doxygen_constants Constants
+  
+  Constants need to be indicated as being part of the  <tt>const</tt> group, and provided with a suitable description: 
+  
+  @code{.cpp}
+  /** @ingroup consts
+  Pre-calculated value of pi     (3.1416).
+  */
+  TTFOUNDATION_EXPORT extern const TTFloat64 kTTPi;
+  @endcode
+  
+  @subsubsection appendix_doxygen_enums Enumerations
+  
+  Enumerations need to be indicated as being part of the <tt>enums</tt> group. The list of enumerations, 
+  as well as each of its values, are described:
+  
+  @code{.cpp}
+  /** \ingroup enums
+   Enumeration recording the audio processing state of each node of the graph.
+   */
+  enum TTAudioGraphProcessStatus {
+    kTTAudioGraphProcessUnknown = 0,        ///< The current processing status of the node is unknown.
+    kTTAudioGraphProcessNotStarted,         ///< Audio processing has not yet started for this node.
+    kTTAudioGraphProcessingCurrently,       ///< This node is currently processing audio.
+    kTTAudioGraphProcessComplete            ///< This node has completed processing audio for now.
+  };
+  @endcode
+  
+  @subsubsection appendix_doxygen_bitmasks Bit masks
+  
+  Bitmasks need to be indicated as being part of the <tt>bitmasks</tt> group. The list of bitmasks, 
+  as well as each of its values, are described:
+  
+  @code{.cpp}
+  /** \ingroup bitmasks
+   Enumeration flags signaling specific properties of this node.
+   Values are used as a bitmask.
+   */
+  enum TTAudioGraphFlags {
+    kTTAudioGraphFlagsNone = 0x00,   ///< No particular flags are raised for this audio node.
+    kTTAudioGraphProcessor = 0x01,   ///< This node is an audio effect processor. It expects audio input that will be processed.
+    kTTAudioGraphGenerator = 0x02,   ///< This object is an audio generator, and do not expect audio input.
+    kTTAudioGraphNonAdapting = 0x04, ///< This object does not adapt its number of output channels to the number of input channels
+  };
+  @endcode
+  
+  @subsubsection appendix_doxygen_typedefs Typedefs
+
+  @subsubsection appendix_doxygen_macros Macros
 
 */
