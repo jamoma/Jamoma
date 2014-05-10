@@ -95,6 +95,7 @@ NOTE: To open a Pull Request please refer to the [Testing](#testing) section.
 <a name="building"/>
 ## Building
 
+
     bash
     cd Jamoma/Tools
     ruby build.rb Deployment clean
