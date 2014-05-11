@@ -270,6 +270,10 @@ if( sitePush )
 	Dir.chdir "#{glibdir}/Implementations/Max/"
 	`tar -zcvf '#{version}.tar.gz' Jamoma`
 
+	puts `git push origin Max/#{version}`
+	
+	puts "Checking out website repository in order to push"
+
 	# Check out Jamomaeb repo if it does not already exist
 	Dir.chdir "#{glibdir}"
 	unless File.directory?("JamomaWebSite")
@@ -282,6 +286,11 @@ if( sitePush )
 	Dir.chdir "#{glibdir}/#{website_path}"
 	puts `mkdir #{version}`
 
+	puts "Compressing release and pushing to the website"
+	
+	Dir.chdir "#{glibdir}/Implementations/Max/"
+	`tar -zcvf '#{version}.tar.gz' Jamoma`
+	
 	# add file to git and push to origin
 	Dir.chdir "#{glibdir}"
 	puts `mv #{glibdir}/Implementations/Max/#{version}.tar.gz #{website_path}/#{version}/`

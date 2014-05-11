@@ -7,6 +7,7 @@
 - [Committing](#committing)
 - [Pull Requests](#pull-requests)
 - [Building](#building)
+- [API](#api)
 - [Debugging](#debugging)
 - [Testing](#testing)
 - [Generating Docs](#generating-docs)
@@ -38,14 +39,15 @@ If you're making a hotfix to the current stable version ( branch master ) you sh
 
 If you're working on a new feature you should branch from dev:
 
+
     git checkout dev
     git checkout -b feature/new-feature-name
     [...commits...]
     [pull request]
 
-Always isolate your implementations into separated branches, it'll make it easy
-for others to understand, easy to open pull requests, easy to merge, easy to 
-discuss the proposal or adopted solution, easy, easy, easy, and so on.
+Always isolate your implementations into separated branches, it will make it easy
+for others to understand what you work on, easy to open pull requests, 
+easy to merge, easy to discuss the proposal or adopted solution, easy, easy, easy, and so on.
 
 
 <a name="committing"/>
@@ -93,18 +95,25 @@ NOTE: To open a Pull Request please refer to the [Testing](#testing) section.
 <a name="building"/>
 ## Building
 
+
     bash
     cd Jamoma/Tools
     ruby build.rb Deployment clean
 
 
+
+<a name="api"/>
+## API documentation
+The API is documented using Doxygen , and available [online](http://api.jamoma.org).
+The web site documents the *dev* branch.
+
+
+
 <a name="debugging"/>
 ##Debugging externals on the Mac platform
-The Max Runtime does not use the Max5 file preferences. 
-The AddJamomaPath.maxpat is a handy utility for temporarily adding the Jamoma folder and all subfolders 
-to the search path so that externals, components, algorithms modules and help files 
-can be accessed in Max Runtime, e.g. when running the debugger and Max Runtime in 
-Xcode on the OSX platform.    
+Further info on using Xcode as an IDE for development on the Mac platform is
+provided as part of the [API](http://api.jamoma.org).
+
 
 
 <a name="testing"/>
