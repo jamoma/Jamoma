@@ -76,7 +76,7 @@
 
   - \@file - identifies the file as a module that Doxygen should process
   - \@ingroup - contains a tag representing the library or extension
-  - \@brief - single sentence typically starting by the module name
+  - \@brief - single sentence that describes what the module does, ideally starting with a verb 
   - \@details - longer description that may be several sentences
   - \@seealso - a list of related modules that you wish to link to
   - \@authors - persons who have made significant conrtibutions to the module
@@ -88,7 +88,7 @@
 
   In the header file documentation of classes is typically expected to contain the following information.
 
-  - \@brief - single sentence typically starting by the module name
+  - \@brief - single sentence that describes what the module does, ideally starting with a verb 
   - \@details - longer description that may be several sentences (where relevant)
   - \@seealso - a list of related modules that you wish to link to (where relevant)
 
@@ -115,7 +115,7 @@
 
   @subsection appendix_doxygen_methods Methods
 
-  - \@brief - single sentence typically starting by the module name
+  - \@brief - single sentence that describes what the method does, ideally starting with a verb 
   - \@details - longer description that may be several sentences
   - \@param - each argument to the method is documented
   - \@return - Documents the value returned by the method
