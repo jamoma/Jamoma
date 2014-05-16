@@ -139,6 +139,10 @@
   	 */
   	TTErr setVector(const TTUInt16 channel, const TTUInt16 vectorSize, const TTSampleValuePtr newVector);
   @endcode
+
+  If a given method is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), it is possible to make use of Doxygen's [overload command](http://www.stack.nl/~dimitri/doxygen/manual/commands.html#cmdoverload).
+  Whenever this command is used, a full set of Doxygen comments should be placed on the first version of the method, followed by the overload tag for each subsequent version. 
+  Similar to the copy commands, this results in comments that are DRYer.
   
   @subsection appendix_doxygen_common Common declarations
   
