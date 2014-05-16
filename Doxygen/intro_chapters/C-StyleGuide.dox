@@ -92,6 +92,18 @@
   - \@details - longer description that may be several sentences (where relevant)
   - \@seealso - a list of related modules that you wish to link to (where relevant)
 
+  Because header files in the Jamoma Core typically document a single class, it is possible to make use of Doxygen's special commands for [copying comments](http://www.stack.nl/~dimitri/doxygen/manual/commands.html#cmdcopydoc), thereby keeping our comments DRYer.
+  These commands allow us to maintain a single set of brief and detailed comments at the top of our header files, but then apply those comments to both the header file and class definition.
+  The following example from TTValue.h demonstrates these tags in use:
+
+	@code{.cpp}
+	/**	@copybrief TTValue.h
+		@copydetails TTValue.h
+	*/
+	class TTValue : public TTElementVector {
+		// the rest of the class definition
+	}
+	@endcode
 
   @subsection appendix_doxygen_variables Variables
 
