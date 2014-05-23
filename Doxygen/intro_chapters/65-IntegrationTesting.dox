@@ -1,0 +1,60 @@
+/** 
+ 	@page chapter_integrationtesting Integration Testing in Max
+
+	@author Jamoma, Trond Lossius
+
+	@section chapter_integrationtesting_running Running Integration Tests
+	
+  Integration tests in the Cycling'74 Max hosting environment make use of the \b testpackage developed by Cycling'74.
+  The testpackage should be installed in the <tt>Max/Packages</tt> in your Documents folder (Mac).
+  Make sure that the <tt>misc/testpackage-config.json</tt> file has been properly configurated, you find details on how to do so in the ReadMe.html file in testpackage.
+
+  When you build the Jamoma externals for Max using the <tt>build.rb</tt> script in the <tt>Implementation/Max</tt> folder, 
+  integration testing is done by default at the end of the script.
+  You can disable integration testing by providing a <tt>notest</tt> argument to the script, 
+  but we recommend that integration tests are done on a regular basis.
+  "Test Early. Test Often. Test Automatically" [(Hunt & Thomas 1999)](http://pragprog.com/the-pragmatic-programmer).
+
+  Provided that the <tt>Implementations/Max/Jamoma</tt> folder is registered as a package in Max, 
+  automated integration tests can be done at any time using the <tt>test.rb</tt> script found in <tt>testpackage/ruby</tt>.
+  Please refer to the ReadMe.html file in testpackage for further details.
+
+  Additionally each individual integration test can be run manually at any time simply by opening it in Max as a regular patch.
+
+	@section chapter_integrationtesting_develop Developing Integration Tests
+
+  @subsection chapter_integrationtesting_files_folders File Name and Folder Location
+
+  Integration tests are located in <tt>Implementations/Max/Jamoma/patchers/integrationTests</tt>.
+  Depending on whether an external or functionality is an integration in Max of Foundation, DSP, Graph, AudioGraph or Modular, the test is located in the respective subfolder.
+  The Modular folder contains quite a few tests, and they are further organised into separate subfolders for each external.
+  
+  Each test need to end with <tt>*.maxtest-maxpat</tt>.
+  This is a requirement for it to be included in automated testing.
+  If a integration test crash Max or stalls automated testing, it should be renamed so that it do not prevent other tests from being performed.
+  Tests that lead to crashes are renamed <tt>*.maxtest-CRASH.maxpat</tt>.
+  Tests that stall automated testing are renamed <tt>*.maxtest-STALL.maxpat</tt>.
+  The issue that cause the crash or stall should be logged in the issue tracker, 
+  and once fixed the test shoudl be renamed back to the regular <tt>*.maxtest-maxpat</tt> ending.
+
+  Each integration test need to have a unique name within the Max search path.
+  In order to ensure this, the file name starts with the name of the object being tested.
+  If more than one integration test exists for an object, the middle section of the filename can be used to distinguish and provide further details on what each file is testing for.
+
+  @subsection chapter_integrationtesting_guidelines Design of Integration Test Patches
+
+  For a general introduction to developing integration tests, please refer to the documentation provided with 'testpackage'.
+  All of the regular guidelines for testpackage are to be observed.
+  When developing integration tests for JamomaMax, some additional guidelines must be followed:
+
+  - All test assertions are to have a \b toggle object just in front of \b test.assert, providing visual feedback on how the assertion performs.
+  - If an assertion is known to currently fail, the border color of the toggle is set to red, and a link to the related issue at GitHub is provided to the right of the toggle.
+  - The logics involved to perform each assertion can be embedded in subpacthes, but the \b toggle and \b test.assert objects should always be located at the top level of the patch.
+  - The name of the test assertion is provided in a OSC fashion: <tt>Jamoma/Modular/name_of_external/furter_details_on_what_is_being_asserted</tt>. This makes it easier to survey assertions in the database and sort them alphabetically, when reviewing the outcome of automated integration tests.
+  - If any information such as errors are logged using \b test.log, they should be prepended by a similar OSC address. This makes the databse table of logged messages easier to inspect.
+  - All tests should fit within a single screen, so that the result of the test is instantly visible when running the integration test manually. If a test grow so large that they require scrolling, it should be split into several patches. In general it is a good advice to create many test files with only a few assertions each, than one large with many assertions.
+
+	
+
+
+*/

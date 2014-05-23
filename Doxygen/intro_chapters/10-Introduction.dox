@@ -36,12 +36,13 @@
 	- @ref chapter_usingobjects
 	- @ref chapter_extendingobjects
 	- @ref chapter_unittesting
+	- @ref chapter_integrationtesting
 
 	Appendices:
 	- @ref appendix_acknowledgements
 	- @ref appendix_tags
 	- @ref appendix_styleguide
-  - @ref appendix_osx_xcode
+	- @ref appendix_osx_xcode
 	- @ref appendix_futuretopics
 
 
