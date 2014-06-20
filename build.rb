@@ -27,6 +27,7 @@ clean = false
 postLog = false
 runTests = "test"
 sitePush = false
+annoying = false
 
 # If no arguments are provided we post a help message
 
@@ -51,6 +52,8 @@ ARGV.each do |arg|
 		puts "- <SitePush> will increment the last tag version, pack Implementations/Max/Jamoma"
 		puts "	into a tar.gz and push to JamomaWebsite downloads page"
     puts "  For the time being integration tests are skipped during SitePush"
+		puts
+		puts "- <annoying> make the build script bug you out loud"
 		puts
 		puts "The order of arguments is optional"
 		puts
@@ -95,7 +98,10 @@ ARGV.each do |arg|
 	if ( arg.downcase == "notest" )
 		runTests = "notest"
 	end
-	
+  
+	if ( arg.downcase == "annoying" )
+    annoying = true
+  end
 end
 
 # Having initially set all options we need to make some further Windows-specific precautions:
@@ -309,9 +315,10 @@ end
 Dir.chdir "#{glibdir}"
 File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
 
-
+if annoying
 unless win?
 	`say "Jamoma #{version} was just built!"` 
 end
+end # annoying
 
 puts
