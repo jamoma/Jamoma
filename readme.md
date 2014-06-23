@@ -64,11 +64,11 @@ All sources needed to build Jamoma can be updated to last version following thes
 
 The Jamoma framework can be easily compiled using a Ruby script. To do so, please follow these steps:
 
-1. From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
+1.From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
 
     cd Jamoma/Tools
 
-2. Run the Ruby "build.rb" script running the following command:
+2.Run the Ruby "build.rb" script running the following command:
 
     ruby build.rb Deployment clean
 
@@ -81,11 +81,11 @@ Alternatively, if you want a developer build rather than a distributable release
 ##Automatically update modules & build sources
 Both operations can be automated following these steps:
 
-1. From Terminal or the cygwin window, go to "Tools" folder in the main Jamoma directory by running the following command :
+1.From Terminal or the cygwin window, go to "Tools" folder in the main Jamoma directory by running the following command :
 
     cd Jamoma/Tools
 
-2. Run the Ruby all.rb script using the following command:
+2.Run the Ruby all.rb script using the following command:
 
     ruby all.rb master Deployment clean install
 
