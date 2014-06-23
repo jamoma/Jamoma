@@ -43,19 +43,23 @@ This will bring you into "no branch" of the submodules, so you'll need to check 
     cd ../Implementations/Max
     git checkout dev
 
+If you want to checkout a specific branch for all submodules, you can run the following command, e.g. branch "dev" :     
+        
+    Git submodule foreach git checkout dev
 
 <a name="updating-submodules"/>
 ##Update submodules
 
 All sources needed to build Jamoma can be updated to last version following these steps:
 
-1. From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
+1. From Terminal or the cygwin window (on Windows), go to the main Jamoma directory by running the following command :
 
-    cd Jamoma/Tools
+    cd Jamoma
 
-2. Run the Ruby update.rb script:
+2. Run the following commands for the dev branch of all submodules :
 
-    ruby update.rb
+    Git pull
+    Git submodule foreach git pull
 
 
 <a name="building"/>
@@ -63,9 +67,9 @@ All sources needed to build Jamoma can be updated to last version following thes
 
 The Jamoma framework can be easily compiled using a Ruby script. To do so, please follow these steps:
 
-1. From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
+1. From Terminal or the cygwin window (on Windows), go to the the main Jamoma directory by running the following command :
 
-    cd Jamoma/Tools
+    cd Jamoma
 
 2. Run the Ruby "build.rb" script running the following command:
 
@@ -75,22 +79,6 @@ Alternatively, if you want a developer build rather than a distributable release
 
     ruby build.rb Development
 
-
-<a name="automatic-update-and-build"/>
-##Automatically update modules & build sources
-Both operations can be automated following these steps:
-
-1. From Terminal or the cygwin window, go to "Tools" folder in the main Jamoma directory by running the following command :
-
-    cd Jamoma/Tools
-
-2. Run the Ruby all.rb script using the following command:
-
-    ruby all.rb master Deployment clean install
-
-Again, if you want a developer version rather than a distributable release version, you may do it so with the following command:
-
-    ruby all.rb master Development clean
 
 <a name="doxygen"/>
 ##Building the API documentation with Doxygen
