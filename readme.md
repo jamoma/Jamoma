@@ -52,11 +52,11 @@ If you want to checkout a specific branch for all submodules, you can run the fo
 
 All sources needed to build Jamoma can be updated to last version following these steps:
 
-1. From Terminal or the cygwin window (on Windows), go to the main Jamoma directory by running the following command :
+1.From Terminal or the cygwin window (on Windows), go to the main Jamoma directory by running the following command :
 
     cd Jamoma
 
-2. Run the following commands for the dev branch of all submodules :
+2.Run the following commands for the dev branch of all submodules :
 
     Git pull
     Git submodule foreach git pull
