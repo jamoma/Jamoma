@@ -50,11 +50,11 @@ This will bring you into "no branch" of the submodules, so you'll need to check 
 
 All sources needed to build Jamoma can be updated to last version following these steps:
 
-1. From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
+1.From Terminal or the cygwin window (on Windows), go to the "Tools" folder in the main Jamoma directory by running the following command :
 
     cd Jamoma/Tools
 
-2. Run the Ruby update.rb script:
+2.Run the Ruby update.rb script:
 
     ruby update.rb
 
