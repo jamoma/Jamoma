@@ -1,0 +1,48 @@
+/**
+	@page appendix_osx_xcode Appendix: OSX development using Xcode
+	
+	@author Trond Lossius, Tim Place, Nathan Wolek
+	
+  @section xcode_setting_up Setting up a new Xcode projct
+
+  Jamoma use <em>make</em> to build libraries, extentions and implementations.
+  As such, Xcode is not really needed in development of Jamoma for the OSX platform.
+  Still, Xcode is a nice IDE. In order to set up an Xcode project for a new librarty or extention, follow these steps.
+  The first part is to make sure that we have a working project that compiles using make.
+
+  -# Set up the yaml file declaring what files and folders are to be included in the project
+  -# Run the <tt>build.rb</tt> script from Terminal.app. This creates or updates the make file accordingly.
+
+  Now the accompanying Xcode project can be set up:
+
+  -# In Xcode, Choose <b>File > New > Project...</b>.
+  -# Choose "External Bild System" and click "Next".
+  -# Provide the name of the library as Product Name, and choose the appropriate folder. E.g. an Xcode project for the EffectsLib will be "EffectsLib", and should be saved to the <tt>Core/DSP/Extentions/EffectsLib</tt> folder.
+  -# Close the  project.
+  -# In Finder, the project will have been created in a subfolder of the specified in the previous step. E.g. the Xcode project for EffectsLib will have been created as the (new) folder <tt>Core/DSP/Extentions/EffectsLib/EffectsLib/EffectsLib.xcodeproj</tt>. Move the Xcode project one folder up, and trash the folder that was created in the previous step (<tt>Core/DSP/Extentions/EffectsLib/EffectsLib/</tt>).
+  -# Open the Xcode project, and add the files and folders you want to have access to in the IDE. You can create folder references for ay added folders, but do not add folders or files to any targets.
+
+  @section xcode_doxygen Accessing Doxygen documentation in Xcode
+
+  Xcode 5 added support for dynamical access to Doxygen documentation. The main features are outlined in the following StackOverflow post:
+
+  http://stackoverflow.com/questions/18292155/how-to-include-doxygen-method-description-in-xcodes-autocomplete-popup.
+
+  @section xcode_debugging Debugging using Xcode
+
+  When building projects within Jamoma Core, unit tests are run as part of the build process.
+  If the test fails, the project will report that it has failed to build, as outlined in the chapter on @ref chapter_unittesting.
+
+  However, if the test crashes, the building and testing is not of much help.
+  Instead we need to add a separate debug scheme in Xcode:
+
+  -# Start by creating a new target with the External Build System option
+  -# For this new target, change the <b>Info > Arguments</b> from the default $(ACTION) to "notest"
+  -# Build the library
+  -# Next create a new scheme for the project and edit it
+  -# For this new scheme's settings, change the Run > Info > Executable from the default of None to choose either the compiled test32 or test64 which should be located in the project's build folder
+  
+  This should allow you to run the test, apply breakpoints and use the other debugging features in Xcode. For now, we should make sure that this setup is not committed to the repository, because it would defeat the purpose of integrating the build and test. We want these to remain linked so that we discover bugs as soon as possible.
+
+*/
+

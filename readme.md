@@ -14,7 +14,7 @@
 <a name="download"/>
 #Download Jamoma
 
-If you just want to download and use Jamoma with [Cycling'74 Max](http://www.cycling74.com), you can find the latest version at the main [Jamoma website](http://www.jamoma.org). The Jamoma UserLibs, which contains various development projects by Jamoma users, can be downloaded the same place. The source code for UserLibs can be retrieved as a [GitHub repository](https://github.com/jamoma/JamomaUserLibraries).
+If you just want to download and use Jamoma with [Cycling'74 Max](http://www.cycling74.com), you can find the latest version at the main [Jamoma website](http://www.jamoma.org/download). The Jamoma UserLibs, which contains various development projects by Jamoma users, can be downloaded the same place. The source code for UserLibs can be retrieved as a [GitHub repository](https://github.com/jamoma/JamomaUserLibraries).
 
 
 <a name="checking-out"/>

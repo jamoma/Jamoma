@@ -23,7 +23,7 @@
 
 	@subsection chapter_datatypes_primitive_bools Booleans
 
-	In addition to these types for representing numbers, there are basic types for representing booleans (true/false values), TTBoolean.
+	In addition to these types for representing numbers, there are basic types for representing booleans (true/false values), #TTBoolean.
 
 	@subsection chapter_datatypes_primitive_strings Strings and Symbols
 

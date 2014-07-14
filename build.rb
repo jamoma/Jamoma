@@ -27,6 +27,7 @@ clean = false
 postLog = false
 runTests = "test"
 sitePush = false
+annoying = false
 
 # If no arguments are provided we post a help message
 
@@ -52,11 +53,8 @@ ARGV.each do |arg|
 		puts "	into a tar.gz and push to JamomaWebsite downloads page"
     puts "  For the time being integration tests are skipped during SitePush"
 		puts
-#		puts "- Additionally on Mac you can enforce the use of a certain compiler"
-#		puts "	Possible options are <icc>, <gcc47> or <clang>"
-#		puts "	By default the build script will look for available compilers with the following priority:"
-#		puts "	(1) icc, (2) clang, (3) gcc47"
-#		puts
+		puts "- <annoying> make the build script bug you out loud"
+		puts
 		puts "The order of arguments is optional"
 		puts
 		exit 0
@@ -100,7 +98,10 @@ ARGV.each do |arg|
 	if ( arg.downcase == "notest" )
 		runTests = "notest"
 	end
-	
+  
+	if ( arg.downcase == "annoying" )
+    annoying = true
+  end
 end
 
 # Having initially set all options we need to make some further Windows-specific precautions:
@@ -192,7 +193,7 @@ puts ""
 # If another build is hapenning, kill it.
 if File.exists?( 'lock.pid')
 
-	puts ' ! Another build process was found, killing it.'
+	puts ' ! Another Jamoma build process was found, killing it.'
 	puts ''
 
 	begin
@@ -206,7 +207,10 @@ end
 
 # Saves current .pid into a file, so we can guarantee there will be only 
 # one build happening at the same time on the same folder.
-File.open('lock.pid', 'w') { |f| f.write(Process.pid);f.close }
+# We only do this for release builds at the server
+if sitePush
+  File.open('lock.pid', 'w') { |f| f.write(Process.pid);f.close }
+end
 
 quietly do
 	ARGV = [configuration, clean, runTests]
@@ -311,9 +315,10 @@ end
 Dir.chdir "#{glibdir}"
 File.delete( "lock.pid" ) if File.exist?( "lock.pid" )
 
-
+if annoying
 unless win?
 	`say "Jamoma #{version} was just built!"` 
 end
+end # annoying
 
 puts
