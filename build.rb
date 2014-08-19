@@ -101,7 +101,7 @@ ARGV.each do |arg|
   
 	if ( arg.downcase == "annoying" )
     annoying = true
-  end
+	end
 end
 
 # Having initially set all options we need to make some further Windows-specific precautions:
