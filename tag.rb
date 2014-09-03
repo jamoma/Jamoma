@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
-# Go to Jamoma root folder
-rootfolder = "../"
-Dir.chdir rootfolder
+# This script is supposed to be into the Jamoma root folder
 rootfolder = Dir.pwd
 
 # Include the functions in the jamoma lib
