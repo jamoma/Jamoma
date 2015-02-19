@@ -16,7 +16,7 @@ include(${PROJECT_SOURCE_DIR}/Core/Shared/CMake/JamomaDoxygen.cmake NO_POLICY_SC
 
 add_subdirectory(Core)
 
-if(NOT IOS AND NOT ANDROID)
+if(NOT IOS AND NOT ANDROID AND EXISTS "Implementations/Max/CMakeLists.txt")
 	add_subdirectory(Implementations/Max build/Max)
 endif()
 
