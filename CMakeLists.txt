@@ -23,10 +23,22 @@ if(NOT IOS AND NOT ANDROID AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementatio
 	 	COMPONENT JamomaMax)
 endif()
 
+if(NOT IOS AND NOT ANDROID AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/CMakeLists.txt")
+	set(BUILD_JAMOMAPD True)
+	set(JAMOMAPD_INSTALL_FOLDER "JamomaPd")
+	install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/Jamoma" 
+	 	DESTINATION ${JAMOMAPD_INSTALL_FOLDER}
+	 	COMPONENT JamomaPd)
+endif()
+
 add_subdirectory(Core)
 
 if(BUILD_JAMOMAMAX)
 	add_subdirectory(Implementations/Max)
+endif()
+
+if(BUILD_JAMOMAPD)
+	add_subdirectory(Implementations/PureData)
 endif()
 
 
