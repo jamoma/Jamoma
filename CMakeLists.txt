@@ -20,6 +20,11 @@ if(BUILD_JAMOMAMAX AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/C
 	install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/Jamoma" 
 	 	DESTINATION ${JAMOMAMAX_INSTALL_FOLDER}
 	 	COMPONENT JamomaMax)
+
+        set(JAMOMAMAX_MODULAR_INSTALL_FOLDER "JamomaMaxModularOnly")
+        install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/Jamoma"
+                DESTINATION ${JAMOMAMAX_MODULAR_INSTALL_FOLDER}
+                COMPONENT JamomaMaxModularOnly)
 endif()
 
 if(BUILD_JAMOMAPD AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/CMakeLists.txt")
