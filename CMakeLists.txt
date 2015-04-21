@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 project (Jamoma)
 
+if(APPLE)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -arch i386 -arch x86_64") # build FAT binary on OS X by default
+endif(APPLE)
+
 set(JAMOMA_UMBRELLA True)
 
 ### Configuration ###
@@ -48,4 +52,3 @@ endif()
 ### Creation of packages ###
 include(${PROJECT_SOURCE_DIR}/Core/Shared/CMake/JamomaPack.cmake NO_POLICY_SCOPE)
 include(${PROJECT_SOURCE_DIR}/Core/Shared/CMake/JamomaExports.cmake NO_POLICY_SCOPE)
-
