@@ -1,9 +1,18 @@
 cmake_minimum_required(VERSION 3.0)
-project (Jamoma)
 
-if(APPLE)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -arch i386 -arch x86_64") # build FAT binary on OS X by default
-endif(APPLE)
+option(FAT_BINARY "fat" OFF)
+option(BUILD_JAMOMAMAX "BUILD_JAMOMAMAX" OFF)
+option(BUILD_JAMOMAPD "BUILD_JAMOMAPD" OFF)
+
+if(BUILD_JAMOMAMAX)
+    set(FAT_BINARY ON) # force FAT binary for JamomaMax
+endif()
+
+if(FAT_BINARY)
+    set(CMAKE_OSX_ARCHITECTURES "i386;x86_64")
+endif(FAT_BINARY)
+
+project (Jamoma)
 
 set(JAMOMA_UMBRELLA True)
 
