@@ -84,3 +84,4 @@ If you want to contribute to the development of Jamoma, the recommended workflow
 
 [ ![Codeship Status for jamoma/Jamoma](https://www.codeship.io/projects/316a6450-84e8-0131-c9aa-72135dc94a10/status?branch=master)](https://www.codeship.io/projects/15081)
 
+
