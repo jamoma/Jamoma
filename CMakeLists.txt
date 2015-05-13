@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-option(FAT_BINARY "fat" OFF)
-option(BUILD_JAMOMAMAX "BUILD_JAMOMAMAX" OFF)
-option(BUILD_JAMOMAPD "BUILD_JAMOMAPD" OFF)
+option(FAT_BINARY "Build a fat binary (32bit and 64bit)" OFF)
+option(BUILD_JAMOMAMAX "Build Jamoma for Max package" OFF)
+option(BUILD_JAMOMAPD "Build Jamoma for PureData package" OFF)
 
 if(BUILD_JAMOMAMAX)
     set(FAT_BINARY ON) # force FAT binary for JamomaMax
