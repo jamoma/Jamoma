@@ -1,6 +1,10 @@
 #!/bin/sh
 
 mkdir -p /tmp/cmake
+cd Implementations/PureData
+git submodule --init
+git submodule update source/CicmWrapper
+cd ../..
 case "$TRAVIS_OS_NAME" in
     linux)
 		sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
