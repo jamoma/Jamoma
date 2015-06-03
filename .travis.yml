@@ -1,0 +1,18 @@
+# script to build Jamoma on Travis-ci.org
+# see : https://travis-ci.org/jamoma/Jamoma/
+
+language: cpp
+env:
+  matrix:
+  - ARCH=
+os:
+  - linux
+
+before_install:
+- "./script/depinstall.sh"
+
+script:
+- "./script/build.sh"
+
+after_success:
+- "./script/deploy-git.sh"
