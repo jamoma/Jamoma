@@ -2,7 +2,7 @@
 
 mkdir -p /tmp/cmake
 cd Implementations/PureData
-git submodule --init
+git submodule init
 git submodule update source/CicmWrapper
 cd ../..
 case "$TRAVIS_OS_NAME" in
