@@ -36,6 +36,8 @@ Options :
   Removes the build folder and the executables prior to building.
 --install
   Install in /usr/local/jamoma
+--package
+  Creates a ready-for-distribution package 
 --uninstall
   Removes /usr/local/jamoma
 
@@ -61,8 +63,12 @@ do
 		JAMOMA_BREW_UNIVERSAL_FLAGS="--universal"
 		JAMOMA_CMAKE_UNIVERSAL_FLAGS="-DCMAKE_OSX_ARCHITECTURES=x86_64;i386"
 		;;
-	--install) echo "Will uninstall Jamoma"
+	--install) echo "Will install Jamoma"
 		JAMOMA_INSTALL_JAMOMA="install"
+		;;
+
+	--package) echo "Will package Jamoma"
+		JAMOMA_INSTALL_JAMOMA="package"
 		;;
 
 	--uninstall) echo "Will uninstall Jamoma"
