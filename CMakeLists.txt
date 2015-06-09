@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-option(FAT_BINARY "fat" OFF)
-option(BUILD_JAMOMAMAX "BUILD_JAMOMAMAX" OFF)
-option(BUILD_JAMOMAPD "BUILD_JAMOMAPD" OFF)
+option(FAT_BINARY "Build a fat binary (32bit and 64bit)" OFF)
+option(BUILD_JAMOMAMAX "Build Jamoma for Max package" OFF)
+option(BUILD_JAMOMAPD "Build Jamoma for PureData package" OFF)
 
 if(BUILD_JAMOMAMAX)
     set(FAT_BINARY ON) # force FAT binary for JamomaMax
@@ -29,20 +29,20 @@ include(${PROJECT_SOURCE_DIR}/Core/Shared/CMake/JamomaDoxygen.cmake NO_POLICY_SC
 
 set(JAMOMACORE_INSTALL_FOLDER "JamomaCore")
 if(BUILD_JAMOMAMAX AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/CMakeLists.txt")
-	set(JAMOMAMAX_INSTALL_FOLDER "JamomaMax")
-	install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/Jamoma" 
+        set(JAMOMAMAX_INSTALL_FOLDER "JamomaMax" CACHE STRING "Max Package Install folder")
+        install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/Jamoma"
 	 	DESTINATION ${JAMOMAMAX_INSTALL_FOLDER}
 	 	COMPONENT JamomaMax)
 
-        set(JAMOMAMAX_MODULAR_INSTALL_FOLDER "JamomaMaxModularOnly")
+        set(JAMOMAMAX_MODULAR_INSTALL_FOLDER "JamomaMaxModularOnly" CACHE STRING "Max Modular only Package Install folder")
         install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/Max/Jamoma"
                 DESTINATION ${JAMOMAMAX_MODULAR_INSTALL_FOLDER}
                 COMPONENT JamomaMaxModularOnly)
 endif()
 
 if(BUILD_JAMOMAPD AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/CMakeLists.txt")
-	set(JAMOMAPD_INSTALL_FOLDER "JamomaPd")
-	install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/Jamoma" 
+        set(JAMOMAPD_INSTALL_FOLDER "JamomaPd" CACHE STRING "PD Package Install folder")
+        install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureData/Jamoma"
 	 	DESTINATION ${JAMOMAPD_INSTALL_FOLDER}
 	 	COMPONENT JamomaPd)
 endif()
