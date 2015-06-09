@@ -10,8 +10,8 @@ JAMOMA_CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Debug"
 JAMOMA_CMAKE_UNIVERSAL_FLAGS=""
 JAMOMA_ENABLE_MULTICORE=False
 
-JAMOMA_CMAKE_MAX_FLAGS="-DBUILD_JAMOMAPD:bool=True"
-JAMOMA_CMAKE_PD_FLAGS="-DBUILD_JAMOMAMAX:bool=True"
+JAMOMA_CMAKE_MAX_FLAGS="-DBUILD_JAMOMAMAX:bool=True"
+JAMOMA_CMAKE_PD_FLAGS="-DBUILD_JAMOMAPD:bool=True"
 
 JAMOMA_INSTALL_JAMOMA=""
 JAMOMA_UNINSTALL_JAMOMA=False
@@ -97,8 +97,14 @@ fi
 mkdir -p build
 (
 	cd build
-	cmake "../../Jamoma" $JAMOMA_CMAKE_BUILD_TYPE $JAMOMA_CMAKE_UNIVERSAL_FLAGS $JAMOMA_CMAKE_MAX_FLAGS $JAMOMA_CMAKE_PD_FLAGS $JAMOMA_CMAKE_TOOLCHAIN
+	cmake .. -DCMAKE_INSTALL_PREFIX="$PWD/JamomaInstall" $JAMOMA_CMAKE_BUILD_TYPE $JAMOMA_CMAKE_UNIVERSAL_FLAGS $JAMOMA_CMAKE_MAX_FLAGS $JAMOMA_CMAKE_PD_FLAGS $JAMOMA_CMAKE_TOOLCHAIN
 	make -j$JAMOMA_NUM_THREADS
 
-	sudo make $JAMOMA_INSTALL_JAMOMA
+	#sudo make $JAMOMA_INSTALL_JAMOMA
+	make install
+
+	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/support" ../Implementations/Max/Jamoma
+	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/externals" ../Implementations/Max/Jamoma
+	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/extensions" ../Implementations/Max/Jamoma
+
 )
