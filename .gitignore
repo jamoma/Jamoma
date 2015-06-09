@@ -61,3 +61,4 @@ lock.pid
 
 # used when pushing new version to website
 JamomaWebsite
+build

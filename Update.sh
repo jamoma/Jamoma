@@ -3,3 +3,6 @@
 echo "Updating Jamoma umbrella and submodules"
 git pull
 git submodule update
+cd Implementations/PureData
+git submodule init
+git submodule update source/CicmWrapper
