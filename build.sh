@@ -109,6 +109,9 @@ mkdir -p build
 	#sudo make $JAMOMA_INSTALL_JAMOMA
 	make install
 
+	rm -rf ../Implementations/Max/Jamoma/support
+	rm -rf ../Implementations/Max/Jamoma/externals
+	rm -rf ../Implementations/Max/Jamoma/extensions
 	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/support" ../Implementations/Max/Jamoma
 	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/externals" ../Implementations/Max/Jamoma
 	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/extensions" ../Implementations/Max/Jamoma
