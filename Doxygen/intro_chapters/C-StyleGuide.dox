@@ -1,7 +1,7 @@
 /** 
  	@page appendix_styleguide Appendix: C++ Coding Style Guide
 
-	@author Jamoma, Timothy Place
+	@author Jamoma, Timothy Place, Nathan Wolek, Trond Lossius
 
 	@section appendix_styleguide_variables Variables
 
@@ -99,22 +99,13 @@
   These commands allow us to maintain a single set of brief and detailed comments at the top of our header files, but then apply those comments to both the header file and class definition.
   The following example from TTValue.h demonstrates these tags in use:
 
-	@code{.cpp}
-	/**	@copybrief TTValue.h
-		@copydetails TTValue.h
-	*/
-	class TTValue : public TTElementVector {
-		// the rest of the class definition
-	}
-	@endcode
+	@snippet ../../Core/Foundation/library/includes/TTValue.h doxygenAppendixC_copyExample
 
   @subsection appendix_doxygen_variables Variables
 
   Each variables is provided with a brief description of its purpose, as in this example:
 
-	@code{.cpp}
-	TTUInt8			mBitdepth;			///< Currently supported bitdepths are 32 and 64. This is set by the setVector() method.
-	@endcode
+	@snippet ../../Core/DSP/extensions/EffectsLib/includes/TTDegrade.h doxygenAppendixC_variableExample
 
   @subsection appendix_doxygen_methods Methods
 
@@ -126,77 +117,46 @@
 
   Example:
 
-  @code{.cpp}
-  /** Assigns a vector of sample values to a channel in this signal.
-
-  	 @details The vector member of this class simply holds a pointer, not a copy of the data.  This makes
-      the operation of this method (and others) fast, but also means that care should be taken to ensure
-  	  that the data being pointed to by this signal is valid, and does not become invalid during the
-  	  lifetime of the signal. @n
-  	  It is the responsibility of the user of this method to ensure that the sample-rate and vector-size
-  	  are also set correctly.
-  	 @param		channel			The channel number (zero-based) to assign the vector to.
-  	 @param		vectorSize		The number of samples in the vector.
-  	 @param		newVector		A pointer to the first sample in a vector of samples.
-  	 @result		An error code.																 
-  	 */
-  	TTErr setVector(const TTUInt16 channel, const TTUInt16 vectorSize, const TTSampleValuePtr newVector);
-  @endcode
+	@snippet ../../Core/DSP/library/includes/TTAudioSignal.h doxygenAppendixC_methodExample
 
   If a given method is [overloaded](http://en.wikipedia.org/wiki/Function_overloading), it is possible to make use of Doxygen's [overload command](http://www.stack.nl/~dimitri/doxygen/manual/commands.html#cmdoverload).
   Whenever this command is used, a full set of Doxygen comments should be placed on the first version of the method, followed by the overload tag for each subsequent version. 
   Similar to the copy commands, this results in comments that are DRYer.
   
   @subsection appendix_doxygen_common Common declarations
+
+	Jamoma's documentation attempts to gather common declaration types together using Doxygen's [grouping](http://www.stack.nl/~dimitri/doxygen/manual/grouping.html) features. To add these items to established groups, annotations should make use of the [ingroup](http://www.stack.nl/~dimitri/doxygen/manual/commands.html#cmdingroup) tag in addition to providing a suitable description. The following subsections provide examples of the ingroup tag in use.
   
   @subsubsection appendix_doxygen_constants Constants
   
-  Constants need to be indicated as being part of the  <tt>const</tt> group, and provided with a suitable description: 
+  Constants need to be indicated as being part of the <tt>const</tt> group.
   
-  @code{.cpp}
-  /** @ingroup consts
-  Pre-calculated value of pi     (3.1416).
-  */
-  TTFOUNDATION_EXPORT extern const TTFloat64 kTTPi;
-  @endcode
+	@snippet ../../Core/Foundation/library/includes/TTBase.h doxygenAppendixC_constExample
   
   @subsubsection appendix_doxygen_enums Enumerations
   
   Enumerations need to be indicated as being part of the <tt>enums</tt> group. The list of enumerations, 
   as well as each of its values, are described:
   
-  @code{.cpp}
-  /** \ingroup enums
-   Enumeration recording the audio processing state of each node of the graph.
-   */
-  enum TTAudioGraphProcessStatus {
-    kTTAudioGraphProcessUnknown = 0,        ///< The current processing status of the node is unknown.
-    kTTAudioGraphProcessNotStarted,         ///< Audio processing has not yet started for this node.
-    kTTAudioGraphProcessingCurrently,       ///< This node is currently processing audio.
-    kTTAudioGraphProcessComplete            ///< This node has completed processing audio for now.
-  };
-  @endcode
+	@snippet ../../Core/AudioGraph/library/includes/TTAudioGraph.h doxygenAppendixC_enumExample
   
   @subsubsection appendix_doxygen_bitmasks Bit masks
   
   Bitmasks need to be indicated as being part of the <tt>bitmasks</tt> group. The list of bitmasks, 
   as well as each of its values, are described:
   
-  @code{.cpp}
-  /** \ingroup bitmasks
-   Enumeration flags signaling specific properties of this node.
-   Values are used as a bitmask.
-   */
-  enum TTAudioGraphFlags {
-    kTTAudioGraphFlagsNone = 0x00,   ///< No particular flags are raised for this audio node.
-    kTTAudioGraphProcessor = 0x01,   ///< This node is an audio effect processor. It expects audio input that will be processed.
-    kTTAudioGraphGenerator = 0x02,   ///< This object is an audio generator, and do not expect audio input.
-    kTTAudioGraphNonAdapting = 0x04, ///< This object does not adapt its number of output channels to the number of input channels
-  };
-  @endcode
+	@snippet ../../Core/AudioGraph/library/includes/TTAudioGraph.h doxygenAppendixC_bitmaskExample
   
   @subsubsection appendix_doxygen_typedefs Typedefs
 
+	Typedefs need to be indicated as being part of the <tt>typedefs</tt> group:
+
+	@snippet ../../Core/Foundation/library/includes/TTDictionary.h doxygenAppendixC_typedefExample
+
   @subsubsection appendix_doxygen_macros Macros
+
+	Macros need to be indicated as being part of the <tt>macros</tt> group:
+
+	@snippet ../../Core/Foundation/library/includes/TTMatrixBase.h doxygenAppendixC_macroExample
 
 */
