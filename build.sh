@@ -14,6 +14,8 @@ JAMOMA_CMAKE_MAX_FLAGS="-DBUILD_JAMOMAMAX:bool=True"
 JAMOMA_CMAKE_PD_FLAGS="-DBUILD_JAMOMAPD:bool=True"
 
 JAMOMA_INSTALL_JAMOMA=""
+JAMOMA_INSTALL_JAMOMAPD=Yes
+JAMOMA_INSTALL_JAMOMAMAX=Yes
 JAMOMA_UNINSTALL_JAMOMA=False
 
 
@@ -77,9 +79,11 @@ do
 
 	--no-jamoma-pd) echo "Will not install JamomaPd"
 		JAMOMA_CMAKE_PD_FLAGS="-DBUILD_JAMOMAPD:bool=False"
+		JAMOMA_INSTALL_JAMOMAPD=No
 		;;
 	--no-jamoma-max) echo "Will not install JamomaMax"
 		JAMOMA_CMAKE_MAX_FLAGS="-DBUILD_JAMOMAMAX:bool=False"
+		JAMOMA_INSTALL_JAMOMAMAX=No
 		;;
 
 	--clean) echo "Removal of the build folder"
@@ -99,21 +103,42 @@ else
 	JAMOMA_NUM_THREADS=1
 fi
 
+if [[ "$JAMOMA_CMAKE_PD_FLAGS" == "-DBUILD_JAMOMAPD:bool=True" ]]; then
+	if [ ! -e Pd-0.46-6.app ]; then
+		wget http://msp.ucsd.edu/Software/pd-0.46-6.mac.tar.gz
+    	tar xvf pd-0.46-6.mac.tar.gz
+	fi
+	JAMOMA_CMAKE_PD_FLAGS="$JAMOMA_CMAKE_PD_FLAGS -DPD_MAIN_PATH=$PWD/Pd-0.46-6.app/Contents/Resources/"
+fi
 
 mkdir -p build
 (
 	cd build
+	echo 	cmake .. -DCMAKE_INSTALL_PREFIX="$PWD/JamomaInstall" $JAMOMA_CMAKE_BUILD_TYPE $JAMOMA_CMAKE_UNIVERSAL_FLAGS $JAMOMA_CMAKE_MAX_FLAGS $JAMOMA_CMAKE_PD_FLAGS $JAMOMA_CMAKE_TOOLCHAIN
 	cmake .. -DCMAKE_INSTALL_PREFIX="$PWD/JamomaInstall" $JAMOMA_CMAKE_BUILD_TYPE $JAMOMA_CMAKE_UNIVERSAL_FLAGS $JAMOMA_CMAKE_MAX_FLAGS $JAMOMA_CMAKE_PD_FLAGS $JAMOMA_CMAKE_TOOLCHAIN
+	echo make -j$JAMOMA_NUM_THREADS
 	make -j$JAMOMA_NUM_THREADS
 
 	#sudo make $JAMOMA_INSTALL_JAMOMA
 	make install
 
-	rm -rf ../Implementations/Max/Jamoma/support
-	rm -rf ../Implementations/Max/Jamoma/externals
-	rm -rf ../Implementations/Max/Jamoma/extensions
-	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/support" ../Implementations/Max/Jamoma
-	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/externals" ../Implementations/Max/Jamoma
-	cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/extensions" ../Implementations/Max/Jamoma
+	if [ "x${JAMOMA_INSTALL_JAMOMAMAX}" = "xYes" ]; then 
+		rm -rf ../Implementations/Max/Jamoma/support
+		rm -rf ../Implementations/Max/Jamoma/externals
+		rm -rf ../Implementations/Max/Jamoma/extensions
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/support" ../Implementations/Max/Jamoma
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/externals" ../Implementations/Max/Jamoma
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaMax/Jamoma/extensions" ../Implementations/Max/Jamoma
+	fi
+
+
+	if [ "x${JAMOMA_INSTALL_JAMOMAPD}" = "xYes" ]; then 
+		rm -rf ../Implementations/PureData/Jamoma/support
+		rm -rf ../Implementations/PureData/Jamoma/externals
+		rm -rf ../Implementations/PureData/Jamoma/Jamoma.pd_darwin
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaPd/Jamoma/support" ../Implementations/PureData/Jamoma
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaPd/Jamoma/externals" ../Implementations/PureData/Jamoma
+		cp -rf "$PWD/JamomaInstall/jamoma/JamomaPd/Jamoma/Jamoma.pd_darwin" ../Implementations/PureData/Jamoma
+	fi
 
 )

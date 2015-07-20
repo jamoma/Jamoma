@@ -62,3 +62,7 @@ lock.pid
 # used when pushing new version to website
 JamomaWebsite
 build
+
+# created by build.sh when building PureData implementation
+pd-0.46-6.mac.tar.gz
+Pd-0.46-6.app
