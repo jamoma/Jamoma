@@ -22,6 +22,6 @@ if [ "x$ARCH" = "x" -a "$TRAVIS_OS_NAME" = "linux" ]; then
 fi
 
 echo "Configure with CMAKE_ARGUMENTS=$CMAKE_ARGUMENTS"
-/tmp/cmake/bin/cmake "$CMAKE_ARGUMENTS" ..
+/tmp/cmake/bin/cmake $CMAKE_ARGUMENTS ..
 echo "Now make"
 make
