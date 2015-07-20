@@ -3,7 +3,7 @@
 mkdir -p build
 cd build
 
-CMAKE_ARGUMENTS=".. -DJAMOMAPD_INSTALL_FOLDER=/tmp/JamomaPd -DJAMOMAMAX_INSTALL_FOLDER=/tmp/JamomaMax -DPD_MAIN_PATH=../pd"
+CMAKE_ARGUMENTS="-DJAMOMAPD_INSTALL_FOLDER=/tmp/JamomaPd -DJAMOMAMAX_INSTALL_FOLDER=/tmp/JamomaMax -DPD_MAIN_PATH=../pd"
 
 if [ "x$ARCH" = "xrpi" ]; then
 		CMAKE_ARGUMENTS="$CMAKE_ARGUMENTS -DCMAKE_TOOLCHAIN_FILE=../Shared/CMake/toolchains/arm-linux-gnueabihf.cmake"
@@ -22,6 +22,6 @@ if [[ "x$ARCH" = "x" && "$TRAVIS_OS_NAME" = "linux" ]]; then
 fi
 
 echo "Configure with CMAKE_ARGUMENTS=$CMAKE_ARGUMENTS"
-/tmp/cmake/bin/cmake "$CMAKE_ARGUMENTS"
+/tmp/cmake/bin/cmake "$CMAKE_ARGUMENTS" ..
 echo "Now make"
 make
