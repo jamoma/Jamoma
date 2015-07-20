@@ -2,6 +2,7 @@
 # see : https://travis-ci.org/jamoma/Jamoma/
 
 language: cpp
+sudo: false
 env:
   matrix:
   - ARCH=
