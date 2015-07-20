@@ -16,7 +16,7 @@ else
 	fi
 fi
 
-if [[ "x$ARCH" = "x" && "$TRAVIS_OS_NAME" = "linux" ]]; then
+if [ "x$ARCH" = "x" -a "$TRAVIS_OS_NAME" = "linux" ]; then
 	export CC=gcc-4.9
   export CXX=g++-4.9
 fi
