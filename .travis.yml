@@ -6,6 +6,7 @@ sudo: false
 env:
   matrix:
   - ARCH=
+  - ARCH=rpi
 os:
   - linux
   - osx
