@@ -7,9 +7,19 @@ env:
   matrix:
   - ARCH=
   - ARCH=rpi
+  # - ARCH=mingw-w64
 os:
   - linux
   - osx
+matrix:
+  exclude:
+  - os: osx
+    env: ARCH=rpi
+  # - os: osx
+  #  env: ARCH=mingw-w64
+  # allow_failures:
+  # - os: linux
+  #  env: ARCH=mingw-w64
 
 before_install:
 - "./script/depinstall.sh"
