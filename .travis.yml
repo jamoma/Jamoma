@@ -8,6 +8,7 @@ env:
   - ARCH=
 os:
   - linux
+  - osx
 
 before_install:
 - "./script/depinstall.sh"

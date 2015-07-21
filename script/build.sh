@@ -3,17 +3,17 @@
 mkdir -p build
 cd build
 
-CMAKE_ARGUMENTS="-DJAMOMAPD_INSTALL_FOLDER=/tmp/JamomaPd -DJAMOMAMAX_INSTALL_FOLDER=/tmp/JamomaMax -DPD_MAIN_PATH=../pd"
+CMAKE_ARGUMENTS="-DJAMOMAPD_INSTALL_FOLDER=/tmp/JamomaPd -DJAMOMAMAX_INSTALL_FOLDER=/tmp/JamomaMax"
 
 if [ "x$ARCH" = "xrpi" ]; then
 		CMAKE_ARGUMENTS="$CMAKE_ARGUMENTS -DCMAKE_TOOLCHAIN_FILE=../Shared/CMake/toolchains/arm-linux-gnueabihf.cmake"
 		CMAKE_ARGUMENTS="$CMAKE_ARGUMENTS -DCROSS_COMPILER_PATH=${PWD}/../tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/"
-else
-	if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+fi
+
+if [ "$TRAVIS_OS_NAME" = "osx" ]; then
 		CMAKE_ARGUMENTS="$CMAKE_ARGUMENTS -DBUILD_JAMOMAPD=ON -DBUILD_JAMOMAMAX=ON -DPD_MAIN_PATH=`greadlink -f ${PWD}/../pd`"
-	else
+else
 		CMAKE_ARGUMENTS="$CMAKE_ARGUMENTS -DBUILD_JAMOMAPD=ON -DBUILD_JAMOMAMAX=OFF -DPD_MAIN_PATH=`readlink -f ${PWD}/../pd`"
-	fi
 fi
 
 if [ "x$ARCH" = "x" -a "$TRAVIS_OS_NAME" = "linux" ]; then
