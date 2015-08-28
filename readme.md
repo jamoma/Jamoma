@@ -1,3 +1,7 @@
+This repo have been ditched.
+You should use implementation instead.
+Look at https://github.com/jamoma/JamomaMax and https://github.com/jamoma/JamomaPuredata for example.
+
 [![Stories in Ready](https://badge.waffle.io/jamoma/jamoma.png?label=ready&title=Ready)](https://waffle.io/jamoma/jamoma)
 - [Download](#download)
 - [Checking out](#checking-out)
