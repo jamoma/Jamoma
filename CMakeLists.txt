@@ -47,11 +47,11 @@ if(BUILD_JAMOMAPD AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Implementations/PureDa
 	 	COMPONENT JamomaPd)
 endif()
 
-add_subdirectory(Core)
-
 if(BUILD_JAMOMAMAX)
-	add_subdirectory(Implementations/Max)
+    add_subdirectory(Implementations/Max)
 endif()
+
+add_subdirectory(Core)
 
 if(BUILD_JAMOMAPD)
 	add_subdirectory(Implementations/PureData)
