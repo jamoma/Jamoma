@@ -7,5 +7,5 @@ The Jamoma Platform consists of a dynamic and reflexive C++ runtime library with
 * [JamomaCore](https://github.com/jamoma/JamomaCore) : A set of layered C++ frameworks and extensions for creating an object model. This object model is then further specialized for advanced purposes such as audio.
 * [JamomaMax](https://github.com/jamoma/JamomaMax) : An implementation of a modular environment for Max. This  is by far the most complete and elaborated of the Jamoma implementations.
 * [JamomaPureData](https://github.com/jamoma/JamomaPureData) : An implementation of a modular environment for PureData.
-* [JamomaDoc](https://github.com/jamoma/JamomaDoc) : Documentation that is for some unknown reason in its own repository.
+
 
